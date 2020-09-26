@@ -1,6 +1,6 @@
 .app {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,20 +8,57 @@
   text-align: center;
   background-color: #151515;
   color: white;
+  font-family: 'Epilogue', sans-serif;
+  z-index: 0;
+  overflow: auto;
 }
 
-/* .appInner {
-  height: calc(100% - 100px);
-  width: calc(100% - 100px);
-  background-color: #ffffff;
-  color: #151515;
-} */
-
-.appHeader {
-  position: fixed;
+.appInner {
+  position: absolute;
   top: 0;
   left: 0;
+  height: 100%;
   width: 100%;
-  height: 80px;
-  background-color: green;
+  background-color: #ffffff;
+  color: #151515;
+  z-index: 1;
+  overflow: auto;
+}
+
+.logo {
+  position: fixed;
+  top: 15px;
+  left: 30px;
+  z-index: 10;
+}
+
+.logo svg {
+  height: 20px;
+  width: auto;
+}
+
+.logo svg path {
+  fill: #151515;
+}
+
+.animatedSection {
+  height: 100%;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .appInner {
+    top: 50px;
+    left: 50px;
+    height: calc(100% - 100px);
+    width: calc(100% - 100px);
+  }
+
+  .logo {
+    left: 50px;
+  }
+
+  .logo svg path {
+    fill: #ffffff;
+  }
 }

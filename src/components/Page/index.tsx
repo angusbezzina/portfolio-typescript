@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 import Flex from 'components/Flex';
 
-import styles from "./styles.css";
+import styles from "./styles.module.css";
 
 type PageProps = {
   centered?: boolean,

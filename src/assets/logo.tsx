@@ -1,6 +1,8 @@
 import React from 'react';
 import SVGInline from "react-svg-inline";
 
+import 'styles/common.css';
+
 const logoSource = `<svg
         width="373.7934907586284"
         height="45.78813532575409"
@@ -42,7 +44,7 @@ const logoSource = `<svg
       </svg>`;
 
 const Logo = () => {
-  return <SVGInline svg={logoSource} />;
+  return <SVGInline svg={logoSource} className="logo" />;
   
 }
 

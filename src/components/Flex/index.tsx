@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 
-import styles from "./styles.css";
+import styles from "./styles.module.css";
 
 type FlexProps = {
   className?: string,
