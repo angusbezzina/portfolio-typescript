@@ -10,6 +10,7 @@ interface WelcomeProps {
   animate?: boolean;
   featureText: string;
   featureTextAlternate?: string;
+  snapTo?: boolean;
 }
 
 const Welcome = React.forwardRef(
@@ -18,9 +19,10 @@ const Welcome = React.forwardRef(
       align="center"
       justify="center"
       className={classnames(
+        {"snapSection": props.snapTo},
         "animatedSection",
         styles.welcomeSection,
-        `${props.animate ? "animate" : ""}`
+        {"animate": props.animate}
       )}
     >
       <h1 className={styles.welcomeHeader}>

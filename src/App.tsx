@@ -56,11 +56,11 @@ function App() {
     <Page className="app">
       <Header />
       <Flex direction="column" className="appInner">
-        <Welcome featureText="Welcome" featureTextAlternate="." /> 
-        <Biography animate={show.sectionOne} ref={scrollRefOne} />
-        <CaseStudies animate={show.sectionTwo} ref={scrollRefTwo} />
-        <Experiments animate={show.sectionThree} ref={scrollRefThree} />
-        <Contact animate={show.sectionFour} ref={scrollRefFour} />
+        <Welcome snapTo featureText="Welcome" featureTextAlternate="." />
+        <Biography snapTo animate={show.sectionOne} ref={scrollRefOne} />
+        <CaseStudies snapTo animate={show.sectionTwo} ref={scrollRefTwo} />
+        <Experiments snapTo animate={show.sectionThree} ref={scrollRefThree} />
+        <Contact snapTo animate={show.sectionFour} ref={scrollRefFour} />
       </Flex>
     </Page>
   );

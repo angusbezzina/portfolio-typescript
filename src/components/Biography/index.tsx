@@ -8,6 +8,7 @@ import "styles/common.css";
 
 interface BiographyProps {
   animate?: boolean;
+  snapTo?: boolean;
 }
 
 const Biography = React.forwardRef(
@@ -15,15 +16,18 @@ const Biography = React.forwardRef(
     <div
       className={classnames(
         styles.biographySection,
-        `${props.animate ? "animate" : ""}`
+        {"snapSection": props.snapTo},
+        {"animate": props.animate},
       )}
     >
       <Flex className={styles.biographyContent}>
         <Flex className={styles.biographyContentLeft}>
-          <h2 className={styles.biographyTitle}>Hi, my name is Angus.</h2>
+          <h2 className={styles.biographyTitle}>
+            About
+            <br /> me<span className="blackText">.</span>
+          </h2>
           <h3 className={styles.biographySubtitle}>
-            An <span className="italicText">overview</span> of my work
-            <span className="redText">.</span>
+            Hi, my name is <span className="italicText redText">Angus </span>
           </h3>
           <p>
             I'm a software engineer with skills in React, NodeJS, Typescript,
@@ -34,9 +38,7 @@ const Biography = React.forwardRef(
           </p>
         </Flex>
         <Flex className={styles.biographyContentRight}>
-          <div
-            className={styles.biographyContentRightInner}
-          >
+          <div className={styles.biographyContentRightInner}>
             <h4 className={styles.biographySkillsTitle}>Skills</h4>
             <ul className={styles.biographySkillsList}>
               <li>Example 1</li>

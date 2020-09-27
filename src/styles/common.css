@@ -33,6 +33,7 @@ h6 {
   color: var(--colorBlack);
   z-index: 1;
   overflow: auto;
+  scroll-snap-type: y mandatory;
 }
 
 .logo {
@@ -63,6 +64,14 @@ h6 {
 
 .redText {
   color: var(--colorRed);
+}
+
+.blackText {
+  color: var(--colorBlack);
+}
+
+.snapSection {
+  scroll-snap-align: start;
 }
 
 @media (min-width: 768px) {
