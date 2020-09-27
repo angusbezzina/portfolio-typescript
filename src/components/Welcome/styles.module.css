@@ -1,17 +1,17 @@
 .welcomeSection {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100%;
+  min-height: calc(100vh - 100px);
+  width: 100%;
   z-index: 0;
 }
 
 .welcomeSection::after {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   content: '';
-  background-color: #171717;
+  background-color: var(--colorRed);
   width: 50%;
   height: 100%;
   z-index: 1;
@@ -20,8 +20,13 @@
 .welcomeHeader {
   max-width: 400px;
   text-align: left;
-  font-size: 10rem;
-  color: #FFFF0A;
+  font-weight: bold;
+  font-size: 7rem;
+  text-transform: uppercase;
   z-index: 2;
   overflow-wrap: break-word;
+}
+
+.welcomeHeader span {
+  color: var(--colorRed);
 }

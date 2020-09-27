@@ -1,0 +1,134 @@
+.biographySection {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: left;
+}
+
+.biographyContent {
+  display: flex;
+  align-items: stretch;
+}
+
+.biographyTitle {
+  position: relative;
+  padding-top: 4rem;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--colorRed);
+  z-index: 0;
+}
+
+.biographyTitle::before {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.8rem;
+  content: "";
+  background-color: var(--colorBlack);
+  border-radius: 2px;
+  width: 3rem;
+  height: 1px;
+  z-index: 2;
+}
+
+.biographyTitle::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid var(--colorRed);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.biographySubtitle {
+  font-size: 1.5rem;
+}
+
+.biographyContentLeft {
+  flex-direction: column;
+  padding: 2rem;
+  line-height: 2;
+}
+
+.biographyContentLeft p {
+  color: var(--colorText);
+}
+
+.biographyContentRight {
+  width: 100%;
+}
+
+.biographyContentRightInner {
+  width: 100%;
+  padding: 2rem;
+  background-color: #1c1b20;
+  color: var(--colorWhite);
+  columns: 2;
+}
+
+.biographySkillsTitle {
+  position: relative;
+  padding-top: 2.5rem;
+}
+
+.biographySkillsTitle::before {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.6rem;
+  content: "";
+  background-color: var(--colorWhite);
+  border-radius: 2px;
+  width: 1.5rem;
+  height: 1px;
+  z-index: 2;
+}
+
+.biographySkillsTitle::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid var(--colorRed);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.biographySkillsList {
+  list-style-type: none;
+  margin-top: 0;
+  padding-left: 0;
+  color: var(--colorTextAlt);
+}
+
+.biographySkillsList li {
+  padding: 0.3rem 0;
+}
+
+@media (min-width: 768px) {
+  .biographyContentLeft {
+    width: 45%;
+  }
+
+  .biographyContentRight {
+    width: 55%;
+  }
+
+  .biographyContentRightInner {
+    width: calc(55% - 4rem - 50px);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}

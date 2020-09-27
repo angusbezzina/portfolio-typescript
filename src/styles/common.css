@@ -1,3 +1,13 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 1rem;
+  font-weight: 800;
+}
+
 .app {
   position: relative;
   height: 100vh;
@@ -6,9 +16,9 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #151515;
-  color: white;
-  font-family: 'Epilogue', sans-serif;
+  background-color: var(--colorWhite);
+  color: var(--colorBlack);
+  font-family: 'Montserrat', sans-serif;
   z-index: 0;
   overflow: auto;
 }
@@ -19,8 +29,8 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: #ffffff;
-  color: #151515;
+  background-color: #eeeeee;
+  color: var(--colorBlack);
   z-index: 1;
   overflow: auto;
 }
@@ -38,12 +48,21 @@
 }
 
 .logo svg path {
-  fill: #151515;
+  fill: var(--colorBlack);
 }
 
 .animatedSection {
   height: 100%;
   width: 100%;
+}
+
+.italicText {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.redText {
+  color: var(--colorRed);
 }
 
 @media (min-width: 768px) {
@@ -59,6 +78,6 @@
   }
 
   .logo svg path {
-    fill: #ffffff;
+    fill: var(--colorBlack);
   }
 }

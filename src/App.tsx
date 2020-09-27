@@ -1,5 +1,4 @@
 import React from "react";
-import classnames from 'classnames';
 
 import Header from 'components/Header';
 import Welcome from 'components/Welcome';
@@ -7,8 +6,8 @@ import Biography from 'components/Biography';
 import CaseStudies from "components/CaseStudies";
 import Experiments from "components/Experiments";
 import Contact from "components/Contact";
-import Flex from 'components/Flex';
 import Page from 'components/Page';
+import Flex from 'components/Flex';
 
 import "styles/common.css";
 
@@ -56,13 +55,13 @@ function App() {
   return (
     <Page className="app">
       <Header />
-      <div className="appInner">
-        <Welcome featureText="Welcome!" />
+      <Flex direction="column" className="appInner">
+        <Welcome featureText="Welcome" featureTextAlternate="." /> 
         <Biography animate={show.sectionOne} ref={scrollRefOne} />
         <CaseStudies animate={show.sectionTwo} ref={scrollRefTwo} />
         <Experiments animate={show.sectionThree} ref={scrollRefThree} />
         <Contact animate={show.sectionFour} ref={scrollRefFour} />
-      </div>
+      </Flex>
     </Page>
   );
 }

@@ -1,4 +1,10 @@
 import React from "react";
+import classnames from "classnames";
+
+import Flex from "components/Flex";
+
+import styles from "./styles.module.css";
+import "styles/common.css";
 
 interface BiographyProps {
   animate?: boolean;
@@ -6,11 +12,44 @@ interface BiographyProps {
 
 const Biography = React.forwardRef(
   (props: BiographyProps, ref: React.Ref<HTMLDivElement>) => (
-    <div className={`${props.animate ? "animate" : ""}`}>
-      Hi, my name is Angus and welcome to my portfolio.
-      I'm a software engineer with skills in React, NodeJS, Typescript, Python, PHP, HTML, CSS, AWS and Serverless amongst other things.
-      I've created this site as a place where you can connect with me and explore my work and the projects I experiment with in my spare time.
-      Hope you enjoy it!
+    <div
+      className={classnames(
+        styles.biographySection,
+        `${props.animate ? "animate" : ""}`
+      )}
+    >
+      <Flex className={styles.biographyContent}>
+        <Flex className={styles.biographyContentLeft}>
+          <h2 className={styles.biographyTitle}>Hi, my name is Angus.</h2>
+          <h3 className={styles.biographySubtitle}>
+            An <span className="italicText">overview</span> of my work
+            <span className="redText">.</span>
+          </h3>
+          <p>
+            I'm a software engineer with skills in React, NodeJS, Typescript,
+            Python, PHP, HTML, CSS, AWS and Serverless amongst other things.
+            I've created this site as a place where you can connect with me and
+            explore my work and the projects I experiment with in my spare time.
+            I hope you enjoy it!
+          </p>
+        </Flex>
+        <Flex className={styles.biographyContentRight}>
+          <div
+            className={styles.biographyContentRightInner}
+          >
+            <h4 className={styles.biographySkillsTitle}>Skills</h4>
+            <ul className={styles.biographySkillsList}>
+              <li>Example 1</li>
+              <li>Example 2</li>
+            </ul>
+            <h4 className={styles.biographySkillsTitle}>Other Skills</h4>
+            <ul className={styles.biographySkillsList}>
+              <li>Example 3</li>
+              <li>Example 4</li>
+            </ul>
+          </div>
+        </Flex>
+      </Flex>
     </div>
   )
 );

@@ -1,21 +1,36 @@
 import React from "react";
 import classnames from "classnames";
 
-import Flex from 'components/Flex';
+import Flex from "components/Flex";
 
 import styles from "./styles.module.css";
 
 type PageProps = {
-  centered?: boolean,
-  children?: React.ReactNode,
-  className?: string,
+  centered?: boolean;
+  children?: React.ReactNode;
+  className?: string;
+  align?: "start" | "end" | "center" | "stretch" | "space-between";
+  direction?: "row" | "column";
+  justify?: "start" | "end" | "center" | "stretch" | "space-between";
 };
 
-const Page = ({ className, children, centered }: PageProps) => (
+const Page = ({
+  align,
+  centered,
+  children,
+  className,
+  direction = "column",
+  justify,
+  ...props
+}: PageProps) => (
   <Flex
-    className={classnames(styles.page, "page", className, {
+    direction={direction}
+    className={classnames(styles.page, className, {
       [styles.pageCentered]: centered,
     })}
+    align={centered ? "center" : align}
+    justify={centered ? "center" : justify}
+    {...props}
   >
     {children}
   </Flex>
