@@ -22,6 +22,7 @@ const Contact = React.forwardRef(
     >
       <Flex direction="column" className={styles.contactCallout}>
         <h4>Want to work with me?</h4>
+        Get in touch here
       </Flex>
     </Flex>
   )
