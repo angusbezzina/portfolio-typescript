@@ -1,0 +1,17 @@
+.socialLinks {
+  position: absolute;
+  top: calc(50% - 40px);
+  right: 0;
+  height: 80px;
+  width: 50px;
+}
+
+.socialLinks a {
+  color: var(--colorBlack);
+  transition: color 0.3s ease-in-out;
+}
+
+.socialLinks a:hover {
+  color: var(--colorRed);
+  transition: color 0.3s ease-in-out;
+}

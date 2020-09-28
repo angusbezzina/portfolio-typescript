@@ -57,6 +57,7 @@
 
 .experimentsText p {
   margin-top: 0;
+  color: var(--colorText);
 }
 
 @media (min-width: 768px) {

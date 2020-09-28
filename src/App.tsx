@@ -8,6 +8,8 @@ import Experiments from "components/Experiments";
 import Contact from "components/Contact";
 import Page from 'components/Page';
 import Flex from 'components/Flex';
+import ScrollIndicator from 'components/ScrollIndicator';
+import SocialLinks from 'components/SocialLinks';
 
 import "styles/common.css";
 
@@ -62,6 +64,9 @@ function App() {
         <Experiments snapTo animate={show.sectionThree} ref={scrollRefThree} />
         <Contact snapTo animate={show.sectionFour} ref={scrollRefFour} />
       </Flex>
+      <SocialLinks />
+      <ScrollIndicator />
+      <button className="scrollTop">top</button>
     </Page>
   );
 }
