@@ -1,5 +1,28 @@
 .contactSection {
-  width: 100%;
+  width: calc(100% - 60px);
   padding: 2rem;
   text-align: left;
+}
+
+.contactCallout {
+  width: 100%;
+}
+
+.contactText h4 {
+  text-transform: uppercase;
+}
+
+.contactText p {
+  margin: 0 0 0.75rem;
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  .contactLinks {
+    width: 55%;
+  }
+
+  .contactText {
+    width: 45%;
+  }
 }

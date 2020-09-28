@@ -20,11 +20,11 @@ const Contact = React.forwardRef(
         { animate: props.animate },
         { snapSection: props.snapTo }
       )}
-    >
+    > 
       <Flex className={styles.contactCallout}>
         <Flex direction="column" className={styles.contactText}>
-          <h4>Want to work with me?</h4>
-          <p>Get in touch</p>
+          <p>Want to work with me?</p>
+          <h4>Get in touch</h4>
         </Flex>
         <Flex direction="column" className={styles.contactLinks}>
           <a
@@ -37,7 +37,7 @@ const Contact = React.forwardRef(
           </a>
           <a
             href="tel:+61423269154"
-            className="link contactLink"
+            className={classnames("link", styles.contactLink)}
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -74,6 +74,22 @@ h6 {
   scroll-snap-align: start;
 }
 
+.link {
+  position: relative;
+  display: block;
+  width: auto;
+  text-decoration: none;
+  color: var(--colorBlack);
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+  transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+.link:hover {
+  color: var(--colorRed);
+  border-bottom: 1px solid var(--colorBlack);
+  transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
 @media (min-width: 768px) {
   .appInner {
     top: 50px;
