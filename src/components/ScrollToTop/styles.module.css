@@ -1,6 +1,6 @@
-.scrollIndicator {
+.scrollTop {
   position: absolute;
   bottom: 3rem;
-  left: 4rem;
+  right: 4rem;
   z-index: 3;
 }

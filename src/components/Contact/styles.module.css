@@ -1,5 +1,5 @@
 .contactSection {
-  width: calc(100% - 60px);
+  width: calc(100% - 4rem);
   padding: 2rem;
   text-align: left;
 }

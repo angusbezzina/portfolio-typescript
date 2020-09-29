@@ -26,7 +26,7 @@ const Contact = React.forwardRef(
           <p>Want to work with me?</p>
           <h4>Get in touch</h4>
         </Flex>
-        <Flex direction="column" className={styles.contactLinks}>
+        <Flex direction="column" align="start" className={styles.contactLinks}>
           <a
             href="mailto:angusbezzina@gmail.com"
             className="link contactLink"

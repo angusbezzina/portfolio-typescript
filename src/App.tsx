@@ -9,6 +9,7 @@ import Contact from "components/Contact";
 import Page from 'components/Page';
 import Flex from 'components/Flex';
 import ScrollIndicator from 'components/ScrollIndicator';
+import ScrollToTop from 'components/ScrollToTop';
 import SocialLinks from 'components/SocialLinks';
 
 import "styles/common.css";
@@ -66,7 +67,7 @@ function App() {
       </Flex>
       <SocialLinks />
       <ScrollIndicator />
-      <button className="scrollTop">top</button>
+      <ScrollToTop />
     </Page>
   );
 }

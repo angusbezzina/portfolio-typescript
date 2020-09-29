@@ -26,7 +26,7 @@ const CaseStudies = React.forwardRef(
       <Flex className={styles.caseStudiesContent}>
         <Flex direction="column" className={styles.caseStudiesContentLeft}>
           <h2 className={styles.caseStudiesTitle}>
-            Projects<span className="redText">.</span>
+            Pro<br />jects<span className="redText">.</span>
           </h2>
           <Flex className={styles.caseStudiesContentLeftInner}>
             <img

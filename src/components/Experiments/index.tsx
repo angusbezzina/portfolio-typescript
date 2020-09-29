@@ -25,17 +25,11 @@ const Experiments = React.forwardRef(
     >
       <Flex direction="column" className={styles.experimentsContent}>
         <h2 className={styles.experimentsTitle}>
-          Experi
+          Exper
           <br />
-          ments<span className="blackText">.</span>
+          iments<span className="blackText">.</span>
         </h2>
-        <Flex className={styles.experimentsImageContainer}>
-          <img
-            className={styles.experimentsImage}
-            src={defaultBackgroundImage}
-            alt="Feature Experiment"
-          />
-        </Flex>
+        <Flex className={styles.experimentsImage}></Flex>
         <Flex className={styles.experimentsContent}>
           <Flex className={styles.experimentsSubtitle}>
             <h3>
