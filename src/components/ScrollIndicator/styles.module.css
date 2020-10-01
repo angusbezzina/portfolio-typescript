@@ -1,6 +1,25 @@
 .scrollIndicator {
   position: absolute;
-  bottom: 3rem;
+  bottom: 4rem;
   left: 4rem;
+  display: inline-block;
+  transform: rotate(-90deg);
+  color: var(--colorWhite);
+  mix-blend-mode: difference;
   z-index: 3;
+}
+
+.scrollIndicator svg {
+  display: inline-block;
+  animation: InfiniteBobble 1s ease-out infinite;
+  margin-right: 0.5rem;
+}
+
+@keyframes InfiniteBobble {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-0.5rem);
+  }
 }

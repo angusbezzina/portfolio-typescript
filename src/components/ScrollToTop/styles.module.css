@@ -1,6 +1,20 @@
 .scrollTop {
   position: absolute;
-  bottom: 3rem;
+  bottom: 2.5rem;
   right: 4rem;
+  display: inline-block;
+  transform: rotate(90deg);
+  background: none;
+  outline: none;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
   z-index: 3;
+}
+
+.scrollTop:hover {
+  cursor: pointer;
+}
+
+.scrollTop svg {
+  margin-right: 1rem;
 }

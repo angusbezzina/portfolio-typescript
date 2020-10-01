@@ -11,6 +11,7 @@ import Flex from 'components/Flex';
 import ScrollIndicator from 'components/ScrollIndicator';
 import ScrollToTop from 'components/ScrollToTop';
 import SocialLinks from 'components/SocialLinks';
+import SlickSlider from 'components/SlickSlider';
 
 import "styles/common.css";
 
@@ -64,6 +65,7 @@ function App() {
         <CaseStudies snapTo animate={show.sectionTwo} ref={scrollRefTwo} />
         <Experiments snapTo animate={show.sectionThree} ref={scrollRefThree} />
         <Contact snapTo animate={show.sectionFour} ref={scrollRefFour} />
+        <SlickSlider />
       </Flex>
       <SocialLinks />
       <ScrollIndicator />
