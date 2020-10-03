@@ -11,7 +11,6 @@ import Flex from 'components/Flex';
 import ScrollIndicator from 'components/ScrollIndicator';
 import ScrollToTop from 'components/ScrollToTop';
 import SocialLinks from 'components/SocialLinks';
-import SlickSlider from 'components/SlickSlider';
 
 import "styles/common.css";
 
@@ -56,16 +55,34 @@ function App() {
     */
   }, []);
 
+  const SwiperProps = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+  };
+
   return (
     <Page className="app">
       <Header />
       <Flex direction="column" className="appInner">
         <Welcome snapTo featureText="Welcome" featureTextAlternate="." />
         <Biography snapTo animate={show.sectionOne} ref={scrollRefOne} />
-        <CaseStudies snapTo animate={show.sectionTwo} ref={scrollRefTwo} />
-        <Experiments snapTo animate={show.sectionThree} ref={scrollRefThree} />
+        <CaseStudies
+          snapTo
+          swiperProps={SwiperProps}
+          animate={show.sectionTwo}
+          ref={scrollRefTwo}
+        />
+        <Experiments
+          snapTo
+          swiperProps={SwiperProps}
+          animate={show.sectionThree}
+          ref={scrollRefThree}
+        />
         <Contact snapTo animate={show.sectionFour} ref={scrollRefFour} />
-        <SlickSlider />
       </Flex>
       <SocialLinks />
       <ScrollIndicator />

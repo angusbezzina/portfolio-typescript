@@ -1,0 +1,71 @@
+
+.experimentsTitle {
+  position: relative;
+  padding: 4rem 2rem 0;
+  margin-bottom: -2rem;
+  text-align: left;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--colorRed);
+}
+
+.experimentsTitle::before {
+  position: absolute;
+  top: 0.75rem;
+  left: 2.8rem;
+  content: "";
+  background-color: var(--colorBlack);
+  border-radius: 2px;
+  width: 3rem;
+  height: 1px;
+  z-index: 2;
+}
+
+.experimentsTitle::after {
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid var(--colorRed);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.experimentsImageContainer {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.experimentsImage {
+  width: 100%;
+  height: 40vh;
+  background-image: url('../../img/background-image.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.experimentsSubtitle,
+.experimentsText {
+  padding: 2rem;
+}
+
+.experimentsText p {
+  margin-top: 0;
+  margin-right: 0.5rem;
+  color: var(--colorText);
+}
+
+@media (min-width: 768px) {
+  .experimentsSubtitle {
+    width: 33.33%;
+  }
+
+  .experimentsText {
+    width: 66.66%;
+    columns: 2;
+  }
+}
