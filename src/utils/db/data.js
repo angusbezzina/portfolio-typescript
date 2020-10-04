@@ -8,11 +8,12 @@ export const projects = [
     title: "EMET-ISLHD",
     slug: "emet-islhd",
     url: "https://emet-islhd.blog",
+    tagline: "Natoque mollis eget turpis porta",
     description:
       "Emergency Medicine Education and Training - Illawarra Shoalhaven Local Health District",
     featureImage: {
       src: emetBackgroundImage,
-      alt: "EMET-ISLHD screenshot",
+      alt: "EMET-ISLHD Screenshot",
     },
     stack: {
       backend: "Wordpress",
@@ -28,7 +29,7 @@ export const projects = [
       "Website for a small Illawarra business specialising in food and general store supply distribution.",
     featureImage: {
       src: linmickBackgroundImage,
-      alt: "Linmick Distributors screenshot",
+      alt: "Linmick Distributors Screenshot",
     },
     stack: {
       backend: "Wordpress",
@@ -36,6 +37,24 @@ export const projects = [
     },
     date: "July, 2018",
   },
+  {
+    title: "Focus Australia",
+    slug: "focus-australia",
+    url: "https://yourworkout.app/",
+    description: "Landing page for a local business",
+    featureImage: {
+      src: yourWorkoutAppBackgroundImage,
+      alt: "Focus Australia Screenshot",
+    },
+    stack: {
+      backend: "N/A (Static site)",
+      frontend: "Javascript, HTML, CSS",
+    },
+    date: "July, 2020",
+  },
+];
+
+export const experiments = [
   {
     title: "Your Workout App",
     slug: "your-workout-app",

@@ -1,14 +1,42 @@
-import React from 'react';
+import React from "react";
+import classnames from "classnames";
 
-import Flex from 'components/Flex';
+import Flex from "components/Flex";
 
-import defaultBackgroundImage from "img/background-image.jpg";
+import formatFirstWord from 'utils/formatFirstWord';
 
-import styles from './styles.module.css';
-import 'styles/common.css';
+import styles from "./styles.module.css";
+import "styles/common.css";
 
+type CaseStudySingleProps = {
+  projectData: {
+    title: string;
+    slug: string;
+    tagline?: string;
+    url: string;
+    description: string;
+    featureImage: {
+      src: string;
+      alt: string;
+    };
+    stack: {
+      backend: string;
+      frontend: string;
+    };
+    date: string;
+  };
+};
 
-const CaseStudySingle = () => {
+const CaseStudySingle = (props: CaseStudySingleProps) => {
+  const projectData = props.projectData;
+  let projectHeader;
+
+  if(projectData.tagline) {
+    projectHeader = formatFirstWord(projectData.tagline, "redText italicText")
+  } else {
+    projectHeader = formatFirstWord(projectData.title, "redText italicText");
+  }
+
   return (
     <Flex className={styles.caseStudiesContent}>
       <Flex direction="column" className={styles.caseStudiesContentLeft}>
@@ -17,12 +45,39 @@ const CaseStudySingle = () => {
           <br />
           jects<span className="redText">.</span>
         </h2>
-        <Flex className={styles.caseStudiesContentLeftInner}>
+        <Flex direction="column" className={styles.caseStudiesContentLeftInner}>
           <img
             className={styles.caseStudiesFeatureImage}
-            src={defaultBackgroundImage}
-            alt="Case Studies Feature"
+            src={projectData.featureImage.src}
+            alt={projectData.featureImage.alt}
           />
+          <Flex
+            direction="column"
+            justify="start"
+            align="end"
+            className={styles.caseStudiesDetails}
+          >
+            <p className={styles.caseStudiesLabel}>
+              {`${projectData.date}`}
+              <span className="redText">.</span>
+            </p>
+            <p className={styles.caseStudiesDetail}>
+              <span className="redText">Frontend:</span>{" "}
+              {projectData.stack.frontend}
+            </p>
+            <p className={styles.caseStudiesDetail}>
+              <span className="redText">Backend:</span>{" "}
+              {projectData.stack.backend}
+            </p>
+            <a
+              href={projectData.url}
+              className={styles.caseStudiesLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              See the project
+            </a>
+          </Flex>
         </Flex>
       </Flex>
       <Flex className={styles.caseStudiesContentRight}>
@@ -30,18 +85,8 @@ const CaseStudySingle = () => {
           direction="column"
           className={styles.caseStudiesContentRightInner}
         >
-          <h3 className={styles.caseStudiesSubtitle}>
-            Commodo senectus <span className="italicText">vivamus</span>{" "}
-            faucibus cum dictum
-            <span className="redText">.</span>
-          </h3>
-          <p>
-            Elit laoreet iaculis id cursus sodales nisi primis eros at, maecenas
-            mi ultrices ornare litora duis facilisis nascetur, ad varius aliquam
-            lorem cras morbi accumsan aptent. Nam congue nisi imperdiet litora
-            convallis, orci nec quis himenaeos semper malesuada, inceptos
-            torquent posuere ad.
-          </p>
+          {projectHeader}
+          <p>{projectData.description}</p>
         </Flex>
       </Flex>
     </Flex>
