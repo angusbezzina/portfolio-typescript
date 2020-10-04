@@ -1,4 +1,3 @@
-import defaultBackgroundImage from "img/background-image.jpg";
 import emetBackgroundImage from "img/emet-islhd.png";
 import linmickBackgroundImage from "img/linmickdistributors.png";
 import yourWorkoutAppBackgroundImage from "img/yourworkoutapp.png";
