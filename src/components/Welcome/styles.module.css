@@ -1,32 +1,52 @@
 .welcomeSection {
-  position: relative;
-  height: 100%;
-  min-height: calc(100vh - 100px);
+  height: 30vh;
+  min-height: 200px;
   width: 100%;
   z-index: 0;
-}
-
-.welcomeSection::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: '';
-  background-color: var(--colorRed);
-  width: 50%;
-  height: 100%;
-  z-index: 1;
+  background: url("../../img/background-image.jpg") no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .welcomeHeader {
-  max-width: 400px;
-  text-align: left;
-  font-weight: bold;
-  font-size: 7rem;
-  text-transform: uppercase;
-  z-index: 2;
-  overflow-wrap: break-word;
+  display: none;
 }
 
-.welcomeHeader span {
-  color: var(--colorRed);
+@media (min-width: 768px) {
+  .welcomeSection {
+    position: relative;
+    height: 100%;
+    min-height: calc(100vh - 100px);
+    width: 100%;
+    background-image: none;
+    z-index: 0;
+  }
+
+  .welcomeSection::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    background-color: var(--colorRed);
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .welcomeHeader {
+    display: block;
+    max-width: 400px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 7rem;
+    text-transform: uppercase;
+    z-index: 2;
+    overflow-wrap: break-word;
+  }
+
+  .welcomeHeader span {
+    color: var(--colorRed);
+  }
 }

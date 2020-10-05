@@ -1,12 +1,10 @@
 .biographySection {
   position: relative;
   display: block;
-  height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 100px);
   text-align: left;
 }
 
@@ -117,6 +115,11 @@
 }
 
 @media (min-width: 768px) {
+  .biographySection {
+    height: 100%;
+    min-height: calc(100vh - 100px);
+  }
+
   .biographyContentLeft {
     width: 45%;
   }

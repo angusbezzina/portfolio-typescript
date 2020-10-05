@@ -1,7 +1,7 @@
 .caseStudiesTitle {
   position: relative;
-  margin-bottom: 4rem;
-  padding-top: 4rem;
+  margin-bottom: 2rem;
+  padding-top: 2rem;
   padding-left: 2rem;
   text-align: left;
   font-size: 2.5rem;
@@ -39,6 +39,7 @@
 }
 
 .caseStudiesContentRight {
+  display: none;
   padding: 7.5rem 2rem 2rem;
   line-height: 2;
 }
@@ -54,7 +55,13 @@
 .caseStudiesLabel {
   font-weight: bold;
   font-size: 0.7rem;
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.5rem;
+}
+
+.caseStudiesDetails {
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 2rem;
 }
 
 .caseStudiesDetail {
@@ -75,25 +82,27 @@
   font-size: 0.8rem;
   font-family: var(--fontFamilyAlt);
   font-style: italic;
+  line-height: 1;
   z-index: 0;
 }
 
 .caseStudiesLink::before {
-  content: '';
+  content: "";
   position: absolute;
-  bottom: 20%;
+  bottom: 25%;
   left: 0;
   width: 100%;
-  height: 60%;
+  height: 50%;
   display: inline-block;
   transform: scaleX(0);
   transform-origin: left;
   background-color: var(--colorRedShadow);
   z-index: -1;
+  transition: transform 0.3s ease-in-out;
 }
 
 .caseStudiesLink::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -101,23 +110,49 @@
   height: 1px;
   display: inline-block;
   transform: scaleX(1);
-  transform-origin: left;
+  transform-origin: right;
   background-color: var(--colorBlack);
   z-index: 0;
+  transition: transform 0.3s ease-in-out;
 }
 
 .caseStudiesLink:hover::before {
   transform: scaleX(1);
+  transition: transform 0.3s ease-in-out;
 }
 
 .caseStudiesLink:hover::after {
   transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
 }
 
 @media (min-width: 768px) {
+  .caseStudiesTitle {
+    margin-bottom: 4rem;
+    padding-top: 4rem;
+  }
+
+  .caseStudiesMobile {
+    display: none;
+  }
+
+  .caseStudiesDetails {
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .caseStudiesLabel {
+    margin: 0.5rem 0;
+  }
+
   .caseStudiesContentRight {
     width: 55%;
     padding: 7.5rem 4rem 4rem;
+  }
+
+  .caseStudiesContentRight {
+    display: flex;
   }
 
   .caseStudiesContentRightInner {

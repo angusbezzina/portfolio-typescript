@@ -56,17 +56,16 @@ const CaseStudySingle = (props: CaseStudySingleProps) => {
             align="end"
             className={styles.caseStudiesDetails}
           >
+            <div className={styles.caseStudiesMobile}>{projectHeader}</div>
             <p className={styles.caseStudiesLabel}>
               {`${projectData.date}`}
               <span className="redText">.</span>
             </p>
             <p className={styles.caseStudiesDetail}>
-              <span className="redText">Frontend:</span>{" "}
-              {projectData.stack.frontend}
+              Frontend: {projectData.stack.frontend}
             </p>
             <p className={styles.caseStudiesDetail}>
-              <span className="redText">Backend:</span>{" "}
-              {projectData.stack.backend}
+              Backend: {projectData.stack.backend}
             </p>
             <a
               href={projectData.url}

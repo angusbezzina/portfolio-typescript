@@ -46,8 +46,8 @@ const Flex = React.forwardRef(
             [styles[`align-${align}`]]: align,
             [styles[`alignSelf-${alignSelf}`]]: alignSelf,
             [styles[`justify-${justify}`]]: justify,
-            [styles[`grow-${grow}`]]: typeof grow === "boolean",
-            [styles[`shrink-${shrink}`]]: typeof shrink === "boolean",
+            [styles[`grow-${grow}`]]: grow,
+            [styles[`shrink-${shrink}`]]: shrink,
             [styles.reverse]: reverse,
           },
           styles[`padding-${padding}`]

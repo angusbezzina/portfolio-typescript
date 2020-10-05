@@ -1,10 +1,30 @@
 import React from "react";
 
-import Flex from 'components/Flex';
+import Flex from "components/Flex";
 
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
-const ExperimentSingle = () => {
+type ExperimentSingleProps = {
+  experimentData: {
+    title: string;
+    slug: string;
+    tagline?: string;
+    url: string;
+    description: string;
+    featureImage: {
+      src: string;
+      alt: string;
+    };
+    stack: {
+      backend: string;
+      frontend: string;
+    };
+    date: string;
+  };
+};
+
+const ExperimentSingle = (props: ExperimentSingleProps) => {
+  const experimentData = props.experimentData;
   return (
     <Flex direction="column" className={styles.experimentsContent}>
       <h2 className={styles.experimentsTitle}>
@@ -20,20 +40,38 @@ const ExperimentSingle = () => {
           </h3>
         </Flex>
         <Flex className={styles.experimentsText}>
-          <p>
-            Consequat hendrerit sollicitudin ac natoque duis mollis facilisi
-            tristique, eu senectus suspendisse turpis a phasellus nisi, tortor
-            magnis imperdiet venenatis cubilia in quis.
-          </p>
-          <p>
-            Suspendisse aenean praesent vulputate euismod ad semper, odio nibh
-            tincidunt libero facilisis arcu urna, eros ante natoque adipiscing
-            enim.
-          </p>
+          <Flex
+            direction="column"
+            align="start"
+            justify="start"
+            className={styles.experimentsDetails}
+          >
+            <p className={styles.experimentsLabel}>
+              {`${experimentData.date}`}
+              <span className="redText">.</span>
+            </p>
+            <p className={styles.experimentsDetail}>
+              Frontend: {experimentData.stack.frontend}
+            </p>
+            <p className={styles.experimentsDetail}>
+              Backend: {experimentData.stack.backend}
+            </p>
+            <a
+              href={experimentData.url}
+              className={styles.experimentsLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View the experiment
+            </a>
+          </Flex>
+          <Flex direction="column" className={styles.experimentsDescription}>
+            {experimentData.description}
+          </Flex>
         </Flex>
       </Flex>
     </Flex>
   );
-}
+};
 
 export default ExperimentSingle;

@@ -19,7 +19,7 @@ h6 {
   text-align: center;
   background-color: var(--colorWhite);
   color: var(--colorBlack);
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   z-index: 0;
   overflow: auto;
 }
@@ -50,7 +50,7 @@ h6 {
 }
 
 .logo svg path {
-  fill: var(--colorBlack);
+  fill: var(--colorRed);
 }
 
 .animatedSection {
@@ -61,6 +61,10 @@ h6 {
 .italicText {
   font-style: italic;
   font-weight: 400;
+}
+
+.boldText {
+  font-weight: bold;
 }
 
 .redText {
@@ -92,6 +96,27 @@ h6 {
   transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
 }
 
+.slick-dots {
+  top: 2.8rem;
+  bottom: auto;
+  right: 2rem;
+  width: calc(100% - 2rem);
+  text-align: right;
+}
+
+.slick-dots li button::before {
+  transform: scale(1);
+  transform-origin: center;
+  transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.slick-dots li.slick-active button::before {
+  color: var(--colorRed);
+  opacity: 1;
+  transform: scale(1.5);
+  transition: color 0.3s ease-in-out 0.3s, opacity 0.3s ease-in-out 0.3s, transform 0.3s ease-in-out 0.3s;
+}
+
 @media (min-width: 768px) {
   .appInner {
     top: 50px;
@@ -106,5 +131,14 @@ h6 {
 
   .logo svg path {
     fill: var(--colorBlack);
+  }
+
+  .slick-dots {
+    top: auto;
+    right: auto;
+    bottom: 1.25rem;
+    width: 100%;
+    padding: 0;
+    text-align: center;
   }
 }

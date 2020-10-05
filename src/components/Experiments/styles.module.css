@@ -1,8 +1,14 @@
 .experimentsSection {
   height: 100%;
   width: 100%;
-  max-width: 100%;
-  min-height: calc(100vh - 125px);
-  padding: 2rem 0;
+  min-height: 100%;
+  padding: 3rem 0;
   text-align: left;
+}
+
+@media (min-width: 768px) {
+  .experimentsSection {
+    min-height: calc(100vh - 100px);
+    padding: 2rem 0;
+  }
 }

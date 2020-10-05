@@ -4,6 +4,8 @@ import Slider from "react-slick";
 
 import ExperimentSingle from "components/ExperimentSingle";
 
+import { experiments } from "utils/db/data";
+
 import styles from "./styles.module.css";
 import "styles/common.css";
 
@@ -23,8 +25,9 @@ const Experiments = React.forwardRef(
         { snapSection: props.snapTo }
       )}
     >
-      <ExperimentSingle />
-      <ExperimentSingle />
+      {[...experiments].map((experiment) => {
+        return <ExperimentSingle key={experiment.slug} experimentData={experiment} />;
+      })}
     </Slider>
   )
 );

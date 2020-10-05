@@ -4,10 +4,9 @@ import yourWorkoutAppBackgroundImage from "img/yourworkoutapp.png";
 
 export const projects = [
   {
-    title: "EMET-ISLHD",
+    title: "Emergency Medicine Education and Training",
     slug: "emet-islhd",
     url: "https://emet-islhd.blog",
-    tagline: "Natoque mollis eget turpis porta",
     description:
       "Emergency Medicine Education and Training - Illawarra Shoalhaven Local Health District",
     featureImage: {
