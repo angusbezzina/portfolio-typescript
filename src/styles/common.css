@@ -85,6 +85,11 @@ h6 {
   transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
 }
 
+.incognitoLink {
+  color: var(--colorBlack);
+  text-decoration: none;
+}
+
 .link:hover {
   color: var(--colorRed);
   border-bottom: 1px solid var(--colorBlack);
@@ -106,7 +111,9 @@ h6 {
     transform 0.3s ease-in-out;
 }
 
-.slick-dots li.slick-active button::before {
+.slick-dots li.slick-active button::before,
+.slick-dots li button:focus::before,
+.slick-dots li button:hover::before {
   color: var(--colorRed);
   opacity: 1;
   transform: scale(1.5);

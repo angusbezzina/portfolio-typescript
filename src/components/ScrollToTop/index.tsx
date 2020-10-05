@@ -6,9 +6,14 @@ import { faLongArrowAltLeft } from "@fortawesome/free-solid-svg-icons";
 import styles from './styles.module.css';
 
 const ScrollToTop = () => {
+  const scrollTop = () => {
+    console.log('hello');
+    
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
-    <button className={styles.scrollTop}>
+    <button className={styles.scrollTop} onClick={scrollTop}>
       <FontAwesomeIcon icon={faLongArrowAltLeft} />
       Top
     </button>
@@ -16,4 +21,3 @@ const ScrollToTop = () => {
 };
 
 export default ScrollToTop;
-;

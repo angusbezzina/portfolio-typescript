@@ -7,6 +7,7 @@ type FlexProps = {
   align?: "start" | "end" | "center" | "stretch" | "space-between";
   alignSelf?: "start" | "end" | "center" | "stretch";
   className?: string;
+  id?: string;
   children?: React.ReactNode;
   isSpan?: string;
   style?: object;
@@ -24,6 +25,7 @@ const Flex = React.forwardRef(
       align,
       alignSelf,
       children,
+      id,
       className,
       direction = "row",
       grow,
@@ -38,6 +40,7 @@ const Flex = React.forwardRef(
     return (
       <div
         ref={ref}
+        id={id}
         className={classnames(
           styles.flex,
           className,

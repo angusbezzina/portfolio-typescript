@@ -16,6 +16,7 @@ interface WelcomeProps {
 const Welcome = React.forwardRef(
   (props: WelcomeProps, ref: React.Ref<HTMLDivElement>) => (
     <Flex
+      id="welcome"
       align="center"
       justify="center"
       className={classnames(

@@ -62,6 +62,7 @@ function App() {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
+    fade: true,
     adaptiveHeight: true,
   };
 
