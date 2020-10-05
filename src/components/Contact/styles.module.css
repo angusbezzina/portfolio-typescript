@@ -1,6 +1,6 @@
 .contactSection {
   width: calc(100% - 4rem);
-  padding: 4rem 2rem;
+  padding: 2rem 2rem 6rem;
   text-align: left;
 }
 
@@ -18,6 +18,10 @@
 }
 
 @media (min-width: 768px) {
+  .contactSection {
+    padding: 4rem 2rem;
+  }
+
   .contactLinks {
     width: 55%;
   }

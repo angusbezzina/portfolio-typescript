@@ -154,6 +154,7 @@
   .experimentsText {
     width: 66.66%;
     padding: 2rem;
+    flex-direction: row;
   }
 
   .experimentsDescription {

@@ -34,7 +34,6 @@ h6 {
   color: var(--colorBlack);
   z-index: 1;
   overflow: auto;
-  scroll-snap-type: y mandatory;
 }
 
 .logo {
@@ -75,10 +74,6 @@ h6 {
   color: var(--colorBlack);
 }
 
-.snapSection {
-  scroll-snap-align: start;
-}
-
 .link {
   position: relative;
   display: block;
@@ -107,14 +102,16 @@ h6 {
 .slick-dots li button::before {
   transform: scale(1);
   transform-origin: center;
-  transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
 }
 
 .slick-dots li.slick-active button::before {
   color: var(--colorRed);
   opacity: 1;
   transform: scale(1.5);
-  transition: color 0.3s ease-in-out 0.3s, opacity 0.3s ease-in-out 0.3s, transform 0.3s ease-in-out 0.3s;
+  transition: color 0.3s ease-in-out 0.3s, opacity 0.3s ease-in-out 0.3s,
+    transform 0.3s ease-in-out 0.3s;
 }
 
 @media (min-width: 768px) {
@@ -123,6 +120,11 @@ h6 {
     left: 50px;
     height: calc(100% - 100px);
     width: calc(100% - 100px);
+    scroll-snap-type: y mandatory;
+  }
+
+  .snapSection {
+    scroll-snap-align: start;
   }
 
   .logo {

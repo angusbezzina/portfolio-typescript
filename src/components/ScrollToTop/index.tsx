@@ -6,10 +6,11 @@ import { faLongArrowAltLeft } from "@fortawesome/free-solid-svg-icons";
 import styles from './styles.module.css';
 
 const ScrollToTop = () => {
+
   return (
     <button className={styles.scrollTop}>
       <FontAwesomeIcon icon={faLongArrowAltLeft} />
-      top
+      Top
     </button>
   );
 };

@@ -1,14 +1,15 @@
 .scrollTop {
   position: absolute;
-  bottom: 2.5rem;
-  right: 4rem;
+  bottom: 1rem;
+  right: 2rem;
   display: inline-block;
-  transform: rotate(90deg);
+  padding-right: 1rem;
   background: none;
   outline: none;
   border: none;
-  font-family: 'Montserrat', sans-serif;
-  z-index: 3;
+  color: var(--colorWhite);
+  font-family: var(--fontFamily);
+  z-index: 6;
 }
 
 .scrollTop:hover {
@@ -16,5 +17,25 @@
 }
 
 .scrollTop svg {
-  margin-right: 1rem;
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  transform: rotate(90deg);
+}
+
+@media (min-width: 768px) {
+  .scrollTop {
+    bottom: 2.5rem;
+    right: 4rem;
+    transform: rotate(90deg);
+    color: var(--colorBlack);
+    padding-right: 0;
+  }
+
+  .scrollTop svg {
+    position: relative;
+    right: auto;
+    margin-right: 1rem;
+    transform: rotate(0);
+  }
 }

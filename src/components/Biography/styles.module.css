@@ -49,6 +49,7 @@
 
 .biographySubtitle {
   font-size: 1.5rem;
+  margin-bottom: 0;
 }
 
 .biographyContentLeft {
@@ -118,6 +119,10 @@
   .biographySection {
     height: 100%;
     min-height: calc(100vh - 100px);
+  }
+
+  .biographySubtitle {
+    margin-bottom: 1rem;
   }
 
   .biographyContentLeft {
