@@ -15,7 +15,7 @@
 
 .biographyTitle {
   position: relative;
-  padding-top: 4rem;
+  padding-top: 3rem;
   font-size: 2.5rem;
   line-height: 1;
   color: var(--colorRed);
@@ -48,7 +48,6 @@
 }
 
 .biographySubtitle {
-  font-size: 1.5rem;
   margin-bottom: 0;
 }
 
@@ -121,7 +120,12 @@
     min-height: calc(100vh - 100px);
   }
 
+  .biographyTitle {
+    padding-top: 4rem;
+  }
+
   .biographySubtitle {
+    font-size: 1.5rem;
     margin-bottom: 1rem;
   }
 

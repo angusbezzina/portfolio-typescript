@@ -4,8 +4,5 @@ export const API_DEV_URI = "http://localhost:8888/portfolio/api/index.php";
 
 export const ROUTES = {
   HOME: "/",
-  CONTACT: "/contact",
-  PROJECTS: "/projects",
-  SINGLE_PROJECT: "/projects/:id",
   PAGE_NOT_FOUND: "/page-not-found"
 };

@@ -19,12 +19,21 @@ h6 {
   text-align: center;
   background-color: var(--colorWhite);
   color: var(--colorBlack);
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--fontFamily);
   z-index: 0;
   overflow: auto;
 }
 
-.appInner {
+.appSpacer {
+  height: 50px;
+  width: 100%;
+}
+
+.appBorders {
+  display: none;
+}
+
+.appContent {
   position: absolute;
   top: 0;
   left: 0;
@@ -34,6 +43,11 @@ h6 {
   color: var(--colorBlack);
   z-index: 1;
   overflow: auto;
+}
+
+.appContentInner {
+  height: 100%;
+  width: 100%;
 }
 
 .logo {
@@ -122,12 +136,66 @@ h6 {
 }
 
 @media (min-width: 768px) {
-  .appInner {
-    top: 50px;
-    left: 50px;
+  .appContent {
+    scroll-padding-top: 50px;
+    scroll-snap-type: y mandatory;
+  }
+
+  .appFrame {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .appBorders {
+    display: flex;
+  }
+
+  .borderTop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    background-color: var(--colorWhite);
+    z-index: 2;
+  }
+
+  .borderBottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    background-color: var(--colorWhite);
+    z-index: 2;
+  }
+
+  .borderRight {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 50px;
+    background-color: var(--colorWhite);
+    z-index: 2;
+  }
+
+  .borderLeft {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 50px;
+    background-color: var(--colorWhite);
+    z-index: 2;
+  }
+
+  .appContent {
     height: calc(100% - 100px);
     width: calc(100% - 100px);
-    scroll-snap-type: y mandatory;
+    padding: 50px;
   }
 
   .snapSection {
