@@ -1,5 +1,5 @@
 .socialLinks {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   width: 100%;
@@ -28,7 +28,7 @@
 
 @media (min-width: 768px) {
   .socialLinks {
-    position: absolute;
+    position: fixed;
     top: calc(50% - 40px);
     bottom: auto;
     right: 0;

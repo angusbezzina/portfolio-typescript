@@ -64,13 +64,11 @@ const Home = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    fade: true,
     adaptiveHeight: true,
   };
 
   return (
     <Page className="app">
-      <Flex className="appSpacer"></Flex>
       <Header />
       <Flex className="borderTop"></Flex>
       <Flex className="borderBottom"></Flex>

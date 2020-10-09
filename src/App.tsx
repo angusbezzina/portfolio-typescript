@@ -11,7 +11,7 @@ import "styles/common.css";
 const App = () => (
   <Route
     render={({ location }) => (
-      <TransitionGroup>
+      <TransitionGroup component={React.Fragment}>
         <CSSTransition key={location.key} timeout={1500} classNames="fade">
           <Switch location={location}>
             <Route exact path={ROUTES.HOME} component={Home}></Route>

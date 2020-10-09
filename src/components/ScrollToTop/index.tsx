@@ -7,8 +7,6 @@ import styles from './styles.module.css';
 
 const ScrollToTop = () => {
   const scrollTop = () => {
-    console.log('hello');
-    
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 

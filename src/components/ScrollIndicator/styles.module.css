@@ -10,13 +10,12 @@
 
 @media (min-width: 768px) {
   .scrollIndicator {
-    position: absolute;
+    position: fixed;
     bottom: 4rem;
     left: 4rem;
     display: inline-block;
     transform: rotate(-90deg);
-    color: var(--colorWhite);
-    mix-blend-mode: difference;
+    color: var(--colorBlack);
     z-index: 3;
   }
 }

@@ -9,9 +9,17 @@ h6 {
   line-height: 1.25;
 }
 
+html,
+body,
+#root,
 .app {
+  min-height: 100%;
+  width: 100%;
+}
+
+.app {
+  min-height: 100%;
   position: relative;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,12 +29,6 @@ h6 {
   color: var(--colorBlack);
   font-family: var(--fontFamily);
   z-index: 0;
-  overflow: auto;
-}
-
-.appSpacer {
-  height: 50px;
-  width: 100%;
 }
 
 .appBorders {
@@ -34,12 +36,9 @@ h6 {
 }
 
 .appContent {
-  position: absolute;
-  top: 0;
-  left: 0;
   height: 100%;
   width: 100%;
-  background-color: #eeeeee;
+  background-color: var(--colorOffWhite);
   color: var(--colorBlack);
   z-index: 1;
   overflow: auto;
@@ -153,7 +152,7 @@ h6 {
   }
 
   .borderTop {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 50px;
@@ -163,7 +162,7 @@ h6 {
   }
 
   .borderBottom {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     height: 50px;

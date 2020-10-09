@@ -1,7 +1,12 @@
 import React from 'react';
+import classnames from 'classnames';
 import SVGInline from "react-svg-inline";
 
 import 'styles/common.css';
+
+type LogoProps = {
+  className?: string;
+};
 
 const logoSource = `<svg
         width="373.7934907586284"
@@ -43,8 +48,8 @@ const logoSource = `<svg
         </g>
       </svg>`;
 
-const Logo = () => {
-  return <SVGInline svg={logoSource} className="logo" />;
+const Logo = (props: LogoProps) => {
+  return <SVGInline svg={logoSource} className={classnames("logo", props.className)} />;
   
 }
 
