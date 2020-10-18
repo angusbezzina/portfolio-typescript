@@ -12,9 +12,12 @@ import ScrollIndicator from "components/ScrollIndicator";
 import ScrollToTop from "components/ScrollToTop";
 import SocialLinks from "components/SocialLinks";
 
+import { LanguageContext } from "components/LanguageContext";
+
 import "styles/common.css";
 
 const Home = () => {
+  const { language, setLanguage } = React.useContext(LanguageContext);
   const [show, doShow] = React.useState({
     sectionOne: false,
     sectionTwo: false,
@@ -75,7 +78,7 @@ const Home = () => {
       <Flex className="borderLeft"></Flex>
       <Flex className="borderRight"></Flex>
       <Flex direction="column" className="appContent">
-        <Welcome snapTo featureText="Welcome" featureTextAlternate="." />
+        <Welcome snapTo featureText={language.language === 'english' ? 'Welcome' : 'Bienvenido'} featureTextAlternate="." />
         <Biography snapTo animate={show.sectionOne} ref={scrollRefOne} />
         <CaseStudies
           snapTo
