@@ -11,7 +11,13 @@
   height: 50px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+@media(min-width: 768px) {
+  .appHeaderInner {
+    padding: 0 50px;
+    width: calc(100% - 100px);
+  }
 }

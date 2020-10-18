@@ -2,6 +2,8 @@ import React from "react";
 
 import Flex from "components/Flex";
 
+import formatLastWord from "utils/formatLastWord";
+
 import styles from "./styles.module.css";
 
 type ExperimentSingleProps = {
@@ -25,6 +27,7 @@ type ExperimentSingleProps = {
 
 const ExperimentSingle = (props: ExperimentSingleProps) => {
   const experimentData = props.experimentData;
+
   return (
     <Flex direction="column" className={styles.experimentsContent}>
       <h2 className={styles.experimentsTitle}>
@@ -35,9 +38,7 @@ const ExperimentSingle = (props: ExperimentSingleProps) => {
       <Flex className={styles.experimentsImage}></Flex>
       <Flex className={styles.experimentsContent}>
         <Flex className={styles.experimentsSubtitle}>
-          <h3>
-            This is my <span className="italicText redText">playground</span>
-          </h3>
+          <h3>{experimentData.title}<span className="redText">.</span></h3>
         </Flex>
         <Flex className={styles.experimentsText}>
           <Flex
@@ -56,14 +57,19 @@ const ExperimentSingle = (props: ExperimentSingleProps) => {
             <p className={styles.experimentsDetail}>
               Backend: {experimentData.stack.backend}
             </p>
-            <a
-              href={experimentData.url}
-              className={styles.experimentsLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View the experiment
-            </a>
+            {experimentData.url && (
+              <a
+                href={experimentData.url}
+                className={styles.experimentsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View the experiment
+              </a>
+            )}
+            {!experimentData.url && (
+              <p className={styles.experimentsDeadLink}>Link coming soon<span className="redText">.</span></p>
+            )}
           </Flex>
           <Flex direction="column" className={styles.experimentsDescription}>
             {experimentData.description}

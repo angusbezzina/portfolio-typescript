@@ -4,6 +4,8 @@ import classnames from "classnames";
 import Flex from "components/Flex";
 // import ContactForm from 'components/ContactForm';
 
+import { contactDetails } from "utils/db/data";
+
 import styles from "./styles.module.css";
 import "styles/common.css";
 
@@ -20,28 +22,28 @@ const Contact = React.forwardRef(
         { animate: props.animate },
         { snapSection: props.snapTo }
       )}
-    > 
+    >
       <Flex className={styles.contactCallout}>
         <Flex direction="column" className={styles.contactText}>
-          <p>Want to work with me?</p>
-          <h4 className="redText">Get in touch</h4>
+          <p>{contactDetails.preTitle}</p>
+          <h4 className="redText">{contactDetails.title}</h4>
         </Flex>
         <Flex direction="column" align="start" className={styles.contactLinks}>
           <a
-            href="mailto:angusbezzina@gmail.com"
+            href={`mailto:${contactDetails.email}`}
             className="link contactLink"
             target="_blank"
             rel="noopener noreferrer"
           >
-            angusbezzina@gmail.com
+            {contactDetails.email}
           </a>
           <a
-            href="tel:+61423269154"
+            href={`tel:${contactDetails.phone}`}
             className={classnames("link", styles.contactLink)}
             target="_blank"
             rel="noopener noreferrer"
           >
-            +61 423 269 154
+            {contactDetails.phone}
           </a>
         </Flex>
       </Flex>
