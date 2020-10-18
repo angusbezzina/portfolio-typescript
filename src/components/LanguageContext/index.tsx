@@ -16,15 +16,15 @@ interface ResetLanguageAction {
 type LanguageAction = SetLanguageAction | ResetLanguageAction;
 
 interface LanguageContext {
-	state: LanguageState;
-	dispatch(action: LanguageAction): void;
+	language: LanguageState;
+	setLanguage(action: LanguageAction): void;
 }
 
 const defaultState: LanguageState = { language: 'english' };
 
 export const LanguageContext = React.createContext<LanguageContext>({
-	state: defaultState,
-	dispatch() {},
+	language: defaultState,
+	setLanguage() {},
 });
 
 export const useLanguage = () => React.useContext(LanguageContext);
@@ -50,9 +50,9 @@ function languageReducer(
 }
 
 export const LanguageContextProvider: React.FC = ({ children }) => {
-	const [state, dispatch] = React.useReducer(languageReducer, defaultState);
+	const [language, setLanguage] = React.useReducer(languageReducer, defaultState);
 	return (
-		<LanguageContext.Provider value={{ state, dispatch }}>
+		<LanguageContext.Provider value={{ language, setLanguage }}>
 			{children}
 		</LanguageContext.Provider>
 	);

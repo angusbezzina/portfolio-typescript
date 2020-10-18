@@ -5,14 +5,14 @@ import { LanguageContext } from 'components/LanguageContext'
 import "styles/common.css";
 
 const EnglishLanguageButton = () => {
-  const { state, dispatch} = React.useContext(LanguageContext);
+  const { language, setLanguage} = React.useContext(LanguageContext);
   return (
     <button
       className={classnames("languageButton", {
-        languageButtonActive: state.language === "english",
+        languageButtonActive: language.language === "english",
       })}
       onClick={() =>{
-        dispatch({type: 'set', payload: 'english'});
+        setLanguage({type: 'set', payload: 'english'});
       }}
     >
       En<span>.</span>
