@@ -17,7 +17,7 @@ import { LanguageContext } from "components/LanguageContext";
 import "styles/common.css";
 
 const Home = () => {
-  const { language, setLanguage } = React.useContext(LanguageContext);
+  const { state } = React.useContext(LanguageContext);
   const [show, doShow] = React.useState({
     sectionOne: false,
     sectionTwo: false,
@@ -78,7 +78,7 @@ const Home = () => {
       <Flex className="borderLeft"></Flex>
       <Flex className="borderRight"></Flex>
       <Flex direction="column" className="appContent">
-        <Welcome snapTo featureText={language.language === 'english' ? 'Welcome' : 'Bienvenido'} featureTextAlternate="." />
+        <Welcome snapTo featureText={state.language === 'english' ? 'Welcome' : 'Bienvenido'} featureTextAlternate="." />
         <Biography snapTo animate={show.sectionOne} ref={scrollRefOne} />
         <CaseStudies
           snapTo
