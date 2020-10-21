@@ -11,6 +11,7 @@ interface WelcomeProps {
   featureText: string;
   featureTextAlternate?: string;
   snapTo?: boolean;
+  language: string,
 }
 
 const Welcome = React.forwardRef(
@@ -20,15 +21,20 @@ const Welcome = React.forwardRef(
       align="center"
       justify="center"
       className={classnames(
-        {"snapSection": props.snapTo},
+        { snapSection: props.snapTo },
         "animatedSection",
         styles.welcomeSection,
-        {"animate": props.animate}
+        { animate: props.animate }
       )}
     >
-      <h1 className={styles.welcomeHeader}>
+      <h1
+        className={classnames({
+          [styles.welcomeHeader]: props.language === "english",
+          [styles.welcomeHeaderSpanish]: props.language === "spanish",
+        })}
+      >
         {props.featureText}
-        <span>{props.featureTextAlternate}</span>
+        <span className="redText">{props.featureTextAlternate}</span>
       </h1>
     </Flex>
   )

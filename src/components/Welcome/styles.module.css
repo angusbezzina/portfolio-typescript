@@ -35,15 +35,20 @@
     z-index: 1;
   }
 
-  .welcomeHeader {
+  .welcomeHeader,
+  .welcomeHeaderSpanish {
     display: block;
     max-width: 400px;
-    text-align: left;
+    text-align: center;
     font-weight: bold;
     font-size: 7rem;
     text-transform: uppercase;
     z-index: 2;
     overflow-wrap: break-word;
+  }
+
+  .welcomeHeaderSpanish {
+    max-width: 450px;
   }
 
   .welcomeHeader span {

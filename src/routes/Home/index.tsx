@@ -68,7 +68,7 @@ const Home = () => {
     slidesToScroll: 1,
     arrows: false,
     adaptiveHeight: true,
-  };
+  }; 
 
   return (
     <Page className="app">
@@ -78,7 +78,7 @@ const Home = () => {
       <Flex className="borderLeft"></Flex>
       <Flex className="borderRight"></Flex>
       <Flex direction="column" className="appContent">
-        <Welcome snapTo featureText={state.language === 'english' ? 'Welcome' : 'Bienvenido'} featureTextAlternate="." />
+        <Welcome snapTo language={state.language} featureText={state.language === 'english' ? 'Welcome' : 'Bienvenido'} featureTextAlternate="." />
         <Biography snapTo animate={show.sectionOne} ref={scrollRefOne} />
         <CaseStudies
           snapTo
