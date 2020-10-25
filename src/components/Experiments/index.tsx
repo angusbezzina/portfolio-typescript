@@ -25,7 +25,7 @@ const Experiments = React.forwardRef(
         { snapSection: props.snapTo }
       )}
     >
-      {[...experiments].map((experiment) => {
+      {[...experiments.experimentList].map((experiment) => {
         return <ExperimentSingle key={experiment.slug} experimentData={experiment} />;
       })}
     </Slider>

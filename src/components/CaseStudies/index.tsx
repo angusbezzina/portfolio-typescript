@@ -4,7 +4,7 @@ import Slider from "react-slick";
 
 import CaseStudySingle from "components/CaseStudySingle";
 
-import { projects } from "utils/db/data";
+import { caseStudies } from "utils/db/data";
 
 import styles from "./styles.module.css";
 import "styles/common.css";
@@ -25,7 +25,7 @@ const CaseStudies = React.forwardRef(
         { snapSection: props.snapTo }
       )}
     >
-      {[...projects].map((project) => {
+      {[...caseStudies.projects].map((project) => {
         return <CaseStudySingle key={project.slug} projectData={project} />;
       })}
     </Slider>

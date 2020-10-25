@@ -5,6 +5,10 @@ import Flex from "components/Flex";
 
 import formatLastWord from "utils/formatLastWord";
 import { biography } from "utils/db/data";
+import { LanguageContext } from "components/LanguageContext";
+
+import formatSectionTitle from 'utils/formatSectionTitle';
+
 import styles from "./styles.module.css";
 import "styles/common.css";
 
@@ -14,48 +18,81 @@ interface BiographyProps {
 }
 
 const Biography = React.forwardRef(
-  (props: BiographyProps, ref: React.Ref<HTMLDivElement>) => (
-    <div
-      className={classnames(
-        styles.biographySection,
-        { snapSection: props.snapTo },
-        { animate: props.animate }
-      )}
-    >
-      <Flex className={styles.biographyContent}>
-        <Flex className={styles.biographyContentLeft}>
-          <h2 className={styles.biographyTitle}>
-            {biography.title}
-            <span className="blackText">.</span>
-          </h2>
-          <Flex className={styles.biographySubtitle}>
-            {formatLastWord(biography.subtitle, "italicText redText ")}
+  (props: BiographyProps, ref: React.Ref<HTMLDivElement>) => {
+    const { state } = React.useContext(LanguageContext);
+    const language = state.language;
+
+    return (
+      <div
+        className={classnames(
+          styles.biographySection,
+          { snapSection: props.snapTo },
+          { animate: props.animate }
+        )}
+      >
+        <Flex className={styles.biographyContent}>
+          <Flex className={styles.biographyContentLeft}>
+            {language === "english"
+              ? formatSectionTitle(
+                  biography.title,
+                  styles.biographyTitle,
+                  "blackText"
+                )
+              : formatSectionTitle(
+                  biography.titleSpanish,
+                  styles.biographyTitle,
+                  "blackText"
+                )}
+            <Flex className={styles.biographySubtitle}>
+              {formatLastWord(
+                `${
+                  language === "english"
+                    ? biography.subtitle
+                    : biography.subtitleSpanish
+                }`,
+                "italicText redText "
+              )}
+            </Flex>
+            <p>
+              {language === "english" ? biography.text : biography.textSpanish}
+            </p>
           </Flex>
-          <p>{biography.text}</p>
+          <Flex className={styles.biographyContentRight}>
+            <Flex className={styles.biographyContentRightInner}>
+              {[
+                ...biography.skills.map((skillset, index) => {
+                  return (
+                    <Flex
+                      key={index}
+                      direction="column"
+                      className={styles.biographySkillset}
+                    >
+                      <h4 className={styles.biographySkillsTitle}>
+                        {language === "english"
+                          ? skillset.title
+                          : skillset.titleSpanish}
+                      </h4>
+                      <ul className={styles.biographySkillsList}>
+                        {language === "english"
+                          ? [...skillset.skillList].map((skill, index) => {
+                              return <li key={index}>{skill}</li>;
+                            })
+                          : [...skillset.skillListSpanish].map(
+                              (skill, index) => {
+                                return <li key={index}>{skill}</li>;
+                              }
+                            )}
+                      </ul>
+                    </Flex>
+                  );
+                }),
+              ]}
+            </Flex>
+          </Flex>
         </Flex>
-        <Flex className={styles.biographyContentRight}>
-          <div className={styles.biographyContentRightInner}>
-            {[
-              ...biography.skills.map((skillset, index) => {
-                return (
-                  <Flex direction="column" key={index}>
-                    <h4 className={styles.biographySkillsTitle}>
-                      {skillset.title}
-                    </h4>
-                    <ul className={styles.biographySkillsList}>
-                      {[...skillset.skillList].map((skill, index) => {
-                        return <li key={index}>{skill}</li>;
-                      })}
-                    </ul>
-                  </Flex>
-                );
-              }),
-            ]}
-          </div>
-        </Flex>
-      </Flex>
-    </div>
-  )
+      </div>
+    );
+  }
 );
 
 export default Biography;

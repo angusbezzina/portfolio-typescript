@@ -9,9 +9,15 @@ import  EnglishLanguageButton from 'components/EnglishLanguageButton';
 import styles from "./styles.module.css";
 import "styles/common.css";
 
-const Header = () => {
+type HeaderProps = {
+  headerActive?: boolean,
+}
+
+const Header = (props:HeaderProps) => {
+  const headerActive = props.headerActive;
+  
   return (
-    <header className={classnames("appHeader", styles.appHeader)}>
+    <header className={classnames("appHeader", styles.appHeader, {[styles.appHeaderActive]: headerActive})}>
       <Flex className={styles.appHeaderInner} justify="end">
         <Link to="/" className="incognitoLink logoLink">
           Angus Bezzina<span className="redText">.</span>

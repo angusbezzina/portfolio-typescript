@@ -2,43 +2,64 @@ import React from "react";
 
 import Flex from "components/Flex";
 
-import formatLastWord from "utils/formatLastWord";
+import formatSectionTitle from "utils/formatSectionTitle";
+
+import { LanguageContext } from "components/LanguageContext";
+import { experiments } from "utils/db/data";
 
 import styles from "./styles.module.css";
+import "styles/common.css";
 
 type ExperimentSingleProps = {
   experimentData: {
     title: string;
+    titleSpanish: string;
     slug: string;
     tagline?: string;
     url: string;
     description: string;
+    descriptionSpanish: string;
     featureImage: {
       src: string;
       alt: string;
+      altSpanish: string;
     };
     stack: {
       backend: string;
       frontend: string;
     };
     date: string;
+    dateSpanish: string;
   };
 };
 
 const ExperimentSingle = (props: ExperimentSingleProps) => {
+  const { state } = React.useContext(LanguageContext);
+  const language = state.language;
   const experimentData = props.experimentData;
 
   return (
-    <Flex direction="column" className={styles.experimentsContent}>
-      <h2 className={styles.experimentsTitle}>
-        Exper
-        <br />
-        iments<span className="blackText">.</span>
-      </h2>
+    <Flex direction="column" className={styles.experimentsSlideContent}>
+      {language === "english"
+        ? formatSectionTitle(
+            experiments.title,
+            styles.experimentsTitle,
+            "blackText"
+          )
+        : formatSectionTitle(
+            experiments.titleSpanish,
+            styles.experimentsTitle,
+            "blackText"
+          )}
       <Flex className={styles.experimentsImage}></Flex>
       <Flex className={styles.experimentsContent}>
         <Flex className={styles.experimentsSubtitle}>
-          <h3>{experimentData.title}<span className="redText">.</span></h3>
+          <h3>
+            {language === "english"
+              ? experimentData.title
+              : experimentData.titleSpanish}
+            <span className="redText">.</span>
+          </h3>
         </Flex>
         <Flex className={styles.experimentsText}>
           <Flex
@@ -48,11 +69,15 @@ const ExperimentSingle = (props: ExperimentSingleProps) => {
             className={styles.experimentsDetails}
           >
             <p className={styles.experimentsLabel}>
-              {`${experimentData.date}`}
+              {language === "english"
+                ? experimentData.date
+                : experimentData.dateSpanish}
               <span className="redText">.</span>
             </p>
             <p className={styles.experimentsDetail}>
-              Frontend: {experimentData.stack.frontend}
+              {`${language === "english" ? "Frontend:" : "Interfaz:"} ${
+                experimentData.stack.frontend
+              }`}
             </p>
             <p className={styles.experimentsDetail}>
               Backend: {experimentData.stack.backend}
@@ -64,15 +89,24 @@ const ExperimentSingle = (props: ExperimentSingleProps) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View the experiment
+                {language === "english"
+                  ? "View the experiment"
+                  : "Ver el experimento"}
               </a>
             )}
             {!experimentData.url && (
-              <p className={styles.experimentsDeadLink}>Link coming soon<span className="redText">.</span></p>
+              <p className={styles.experimentsDeadLink}>
+                {language === "english"
+                  ? "Link coming soon"
+                  : "Enlace próximamente"}
+                <span className="redText">.</span>
+              </p>
             )}
           </Flex>
           <Flex direction="column" className={styles.experimentsDescription}>
-            {experimentData.description}
+            {language === "english"
+              ? experimentData.description
+              : experimentData.descriptionSpanish}
           </Flex>
         </Flex>
       </Flex>

@@ -19,11 +19,17 @@ import "styles/common.css";
 const Home = () => {
   const { state } = React.useContext(LanguageContext);
   const [show, doShow] = React.useState({
+    sectionHeader: false,
     sectionOne: false,
     sectionTwo: false,
     sectionThree: false,
     sectionFour: false,
   });
+  const [thankyou, setThankyou] = React.useState({
+    buffer: [""],
+    lastKeyTime: Date.now(),
+    message: "Nothing",
+  })
   const scrollRefOne = React.useRef<HTMLDivElement | null>(null);
   const scrollRefTwo = React.useRef<HTMLDivElement | null>(null);
   const scrollRefThree = React.useRef<HTMLDivElement | null>(null);
@@ -39,8 +45,16 @@ const Home = () => {
     const sectionTwoPosition = topPosition(scrollRefTwo);
     const sectionThreePosition = topPosition(scrollRefThree);
     const sectionFourPosition = topPosition(scrollRefFour);
+
     const onScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
+
+      if (window.scrollY > 100) {
+        doShow((state) => ({ ...state, sectionHeader: true }));
+      } else {
+        doShow((state) => ({ ...state, sectionHeader: false }));
+      }
+
       if (sectionOnePosition < scrollPosition) {
         doShow((state) => ({ ...state, sectionOne: true }));
       } else if (sectionTwoPosition < scrollPosition) {
@@ -52,12 +66,50 @@ const Home = () => {
       }
     };
 
+    const keyMapper = (key: string) => {      
+      const currentTime = Date.now();
+      let buffer: Array<string> = [];
+      const keySequences = {
+        danai: "Special thanks to Danai",
+        mitch: "Special thanks to Mitch",
+      };
+
+      if (currentTime - thankyou.lastKeyTime < 1000) {
+        buffer = [key];
+      } else {
+        buffer = [...thankyou.buffer, key];
+      }
+      console.log(thankyou);
+
+      setThankyou((state) => ({ ...state, lastKeyTime: currentTime }));
+      console.log(thankyou);
+
+      const userInput = buffer.join("").toLowerCase();
+
+      if (userInput === "mitch") {
+        const newMessage = keySequences[userInput];
+        setThankyou((state) => ({
+          ...state,
+          message: newMessage,
+        }));
+        console.log(thankyou);
+      }
+    };
+
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-    /* 
-      remove the event listener in the cleanup function 
-      to prevent memory leaks
-    */
+    window.addEventListener("keydown", (event) => {
+      event.preventDefault();
+      const key = event.key;
+      keyMapper(key);
+    });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("keydown", (event) => {
+        event.preventDefault();
+        const key = event.key;
+        keyMapper(key);
+      });
+    } 
   }, []);
 
   const SwiperProps = {
@@ -68,17 +120,21 @@ const Home = () => {
     slidesToScroll: 1,
     arrows: false,
     adaptiveHeight: true,
-  }; 
+  };
 
   return (
     <Page className="app">
-      <Header />
+      <Header headerActive={show.sectionHeader} />
       <Flex className="borderTop"></Flex>
       <Flex className="borderBottom"></Flex>
       <Flex className="borderLeft"></Flex>
       <Flex className="borderRight"></Flex>
       <Flex direction="column" className="appContent">
-        <Welcome snapTo language={state.language} featureText={state.language === 'english' ? 'Welcome' : 'Bienvenido'} featureTextAlternate="." />
+        <Welcome
+          snapTo
+          featureText={state.language === "english" ? "Welcome" : "Bienvenido"}
+          featureTextAlternate="."
+        />
         <Biography snapTo animate={show.sectionOne} ref={scrollRefOne} />
         <CaseStudies
           snapTo
