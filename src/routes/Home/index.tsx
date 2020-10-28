@@ -25,11 +25,6 @@ const Home = () => {
     sectionThree: false,
     sectionFour: false,
   });
-  const [thankyou, setThankyou] = React.useState({
-    buffer: [""],
-    lastKeyTime: Date.now(),
-    message: "Nothing",
-  })
   const scrollRefOne = React.useRef<HTMLDivElement | null>(null);
   const scrollRefTwo = React.useRef<HTMLDivElement | null>(null);
   const scrollRefThree = React.useRef<HTMLDivElement | null>(null);
@@ -66,51 +61,33 @@ const Home = () => {
       }
     };
 
-    const keyMapper = (key: string) => {      
-      const currentTime = Date.now();
-      let buffer: Array<string> = [];
+    window.addEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  const [keyMap, setKeyMap] = React.useState({});
+  
+  React.useEffect(() => {
+    const onKeyDown = (e:any) => {
+      setKeyMap({ ...keyMap, [e.key]: true });
       const keySequences = {
         danai: "Special thanks to Danai",
         mitch: "Special thanks to Mitch",
       };
+      const letters = Object.keys(keyMap);
+      const lettersJoined = letters.join("");
+      console.log(lettersJoined);
 
-      if (currentTime - thankyou.lastKeyTime < 1000) {
-        buffer = [key];
-      } else {
-        buffer = [...thankyou.buffer, key];
-      }
-      console.log(thankyou);
-
-      setThankyou((state) => ({ ...state, lastKeyTime: currentTime }));
-      console.log(thankyou);
-
-      const userInput = buffer.join("").toLowerCase();
-
-      if (userInput === "mitch") {
-        const newMessage = keySequences[userInput];
-        setThankyou((state) => ({
-          ...state,
-          message: newMessage,
-        }));
-        console.log(thankyou);
+      if(lettersJoined === "mitch") {
+        console.log(keySequences.mitch);
       }
     };
 
-    window.addEventListener("scroll", onScroll);
-    window.addEventListener("keydown", (event) => {
-      event.preventDefault();
-      const key = event.key;
-      keyMapper(key);
-    });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("keydown", (event) => {
-        event.preventDefault();
-        const key = event.key;
-        keyMapper(key);
-      });
-    } 
-  }, []);
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [keyMap]);
 
   const SwiperProps = {
     dots: true,
