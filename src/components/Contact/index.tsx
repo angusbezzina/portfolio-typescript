@@ -24,9 +24,10 @@ const Contact = React.forwardRef(
       <Flex
         className={classnames(
           styles.contactSection,
-          { animate: props.animate },
+          { [styles.animate]: props.animate },
           { snapSection: props.snapTo }
         )}
+        ref={ref}
       >
         <Flex className={styles.contactCallout}>
           <Flex direction="column" className={styles.contactText}>

@@ -27,8 +27,9 @@ const Biography = React.forwardRef(
         className={classnames(
           styles.biographySection,
           { snapSection: props.snapTo },
-          { animate: props.animate }
+          { [styles.animate]: props.animate }
         )}
+        ref={ref}
       >
         <Flex className={styles.biographyContent}>
           <Flex className={styles.biographyContentLeft}>

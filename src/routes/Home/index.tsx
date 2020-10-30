@@ -18,6 +18,8 @@ import "styles/common.css";
 
 const Home = () => {
   const { state } = React.useContext(LanguageContext);
+  const [keyMap, setKeyMap] = React.useState({});
+  const [open, setOpen] = React.useState(false);
   const [show, doShow] = React.useState({
     sectionHeader: false,
     sectionOne: false,
@@ -25,69 +27,11 @@ const Home = () => {
     sectionThree: false,
     sectionFour: false,
   });
+
   const scrollRefOne = React.useRef<HTMLDivElement | null>(null);
   const scrollRefTwo = React.useRef<HTMLDivElement | null>(null);
   const scrollRefThree = React.useRef<HTMLDivElement | null>(null);
   const scrollRefFour = React.useRef<HTMLDivElement | null>(null);
-
-  React.useLayoutEffect(() => {
-    const topPosition = (
-      elementRef: React.MutableRefObject<HTMLDivElement | null>
-    ) =>
-      elementRef.current ? elementRef.current.getBoundingClientRect().top : 0;
-
-    const sectionOnePosition = topPosition(scrollRefOne);
-    const sectionTwoPosition = topPosition(scrollRefTwo);
-    const sectionThreePosition = topPosition(scrollRefThree);
-    const sectionFourPosition = topPosition(scrollRefFour);
-
-    const onScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight;
-
-      if (window.scrollY > 100) {
-        doShow((state) => ({ ...state, sectionHeader: true }));
-      } else {
-        doShow((state) => ({ ...state, sectionHeader: false }));
-      }
-
-      if (sectionOnePosition < scrollPosition) {
-        doShow((state) => ({ ...state, sectionOne: true }));
-      } else if (sectionTwoPosition < scrollPosition) {
-        doShow((state) => ({ ...state, sectionTwo: true }));
-      } else if (sectionThreePosition < scrollPosition) {
-        doShow((state) => ({ ...state, sectionThree: true }));
-      } else if (sectionFourPosition < scrollPosition) {
-        doShow((state) => ({ ...state, sectionFour: true }));
-      }
-    };
-
-    window.addEventListener("scroll", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, []);
-
-  const [keyMap, setKeyMap] = React.useState({});
-  
-  React.useEffect(() => {
-    const onKeyDown = (e:any) => {
-      setKeyMap({ ...keyMap, [e.key]: true });
-      const keySequences = {
-        danai: "Special thanks to Danai",
-        mitch: "Special thanks to Mitch",
-      };
-      const letters = Object.keys(keyMap);
-      const lettersJoined = letters.join("");
-      console.log(lettersJoined);
-
-      if(lettersJoined === "mitch") {
-        console.log(keySequences.mitch);
-      }
-    };
-
-    document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
-  }, [keyMap]);
 
   const SwiperProps = {
     dots: true,
@@ -98,6 +42,74 @@ const Home = () => {
     arrows: false,
     adaptiveHeight: true,
   };
+
+  React.useLayoutEffect(() => {
+    const topPosition = (
+      elementRef: React.MutableRefObject<HTMLDivElement | null>
+    ) =>
+      elementRef.current ? elementRef.current.getBoundingClientRect().top : 0;
+    const sectionOnePosition = topPosition(scrollRefOne);
+    const sectionTwoPosition = topPosition(scrollRefTwo);
+    const sectionThreePosition = topPosition(scrollRefThree);
+    const sectionFourPosition = topPosition(scrollRefFour);
+
+    const welcomeAnimation = () => {
+      setOpen(true);
+    };
+
+    const onScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight;
+
+      if (window.scrollY > 100) {
+        doShow((state) => ({ ...state, sectionHeader: true }));
+      } else {
+        doShow((state) => ({ ...state, sectionHeader: false }));
+      }
+
+      if (sectionFourPosition < scrollPosition) {
+        doShow((state) => ({ ...state, sectionFour: true }));
+      } else if (sectionThreePosition < scrollPosition) {
+        doShow((state) => ({ ...state, sectionThree: true }));
+      } else if (sectionTwoPosition < scrollPosition) {
+        doShow((state) => ({ ...state, sectionTwo: true }));
+      } else if (sectionOnePosition < scrollPosition) {
+        doShow((state) => ({ ...state, sectionOne: true }));
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+    window.addEventListener("load", (event) => {
+      event.preventDefault();
+      setTimeout(welcomeAnimation, 100);
+    });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    const onKeyDown = (e: any) => {
+      setKeyMap({ ...keyMap, [e.key]: true });
+      const keySequences = {
+        danai: "Special thanks to Danai",
+        mitch: "Special thanks to Mitch",
+      };
+      const letters = Object.keys(keyMap);
+      const lettersJoined = letters.join("");
+      console.log(lettersJoined);
+
+      if (lettersJoined === "danai") {
+        console.log(keySequences.danai);
+      }
+
+      if (lettersJoined === "mitch") {
+        console.log(keySequences.mitch);
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [keyMap]);
 
   return (
     <Page className="app">
@@ -111,6 +123,7 @@ const Home = () => {
           snapTo
           featureText={state.language === "english" ? "Welcome" : "Bienvenido"}
           featureTextAlternate="."
+          open={open}
         />
         <Biography snapTo animate={show.sectionOne} ref={scrollRefOne} />
         <CaseStudies
