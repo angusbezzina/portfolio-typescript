@@ -101,8 +101,14 @@ h6 {
   transition: color 0.3s ease-in-out;
 }
 
+.blueText {
+  color: var(--colorBlue);
+  transition: color 0.3s ease-in-out;
+}
+
 .blackText {
   color: var(--colorBlack);
+  transition: color 0.3s ease-in-out;
 }
 
 .languageButton {

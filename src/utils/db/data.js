@@ -8,6 +8,8 @@ import focusAustraliaBackgroundImage from "img/focusAustralia.png";
 export const welcome = {
   title: "Welcome",
   titleSpanish: "Bienvenido",
+  thankyouText: "With special thanks",
+  thankyouTextSpanish: "Con agradecimiento especial",
 };
 export const biography = {
   title: "About me",

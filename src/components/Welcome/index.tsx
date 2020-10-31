@@ -9,16 +9,18 @@ import Flex from "components/Flex";
 import { LanguageContext } from "components/LanguageContext";
 import { welcome } from "utils/db/data";
 
-import styles from "./styles.module.css";
+import styles from "./styles.module.css"; 
 import "styles/common.css";
 
 interface WelcomeProps {
   animate?: boolean;
-  featureText: string;
-  featureTextAlternate?: string;
   snapTo?: boolean;
   thankYouMessage?: string;
-  open?: boolean;
+  shade: {
+    open: boolean;
+    color: string;
+    text: string;
+  };
 }
 
 interface MouseMove {
@@ -42,8 +44,26 @@ const Welcome = React.forwardRef(
       config: { mass: 10, tension: 550, friction: 140 },
     }));
     const springShadeProps = useSpring({
-      transform: props.open ? "scaleX(1)" : "scaleX(0)",
+      transform: props.shade.open ? "scaleX(1)" : "scaleX(0)",
+      color: props.shade.color,
     });
+    let titleText;
+    let subtitleText;
+
+    if(props.shade.text !== '') {
+      titleText = props.shade.text;
+      if (language === "english") {
+        subtitleText = welcome.thankyouText;
+      } else {
+        subtitleText = welcome.thankyouTextSpanish;
+      }
+    } else {
+      if(language === 'english') {
+        titleText = welcome.title;
+      } else {
+        titleText = welcome.titleSpanish;
+      }
+    }
 
     return (
       <Flex
@@ -56,10 +76,14 @@ const Welcome = React.forwardRef(
           styles.welcomeSection,
           { animate: props.animate }
         )}
+        ref={ref}
       >
+        {subtitleText && <h3 className={styles.welcomeSubtitle}>{subtitleText}</h3>}
         <animated.div
-          className={styles.welcomeSectionShade}
-          style={{ transform: springShadeProps.transform }}
+          className={classnames(styles.welcomeSectionShade, {[styles.welcomeSectionShadeBlue]: props.shade.color === 'blue'})}
+          style={{
+            transform: springShadeProps.transform,
+          }}
         ></animated.div>
         <div
           className={styles.welcomeAnimationContainer}
@@ -72,10 +96,11 @@ const Welcome = React.forwardRef(
               className={classnames({
                 [styles.welcomeHeader]: language === "english",
                 [styles.welcomeHeaderSpanish]: language === "spanish",
+                [styles.welcomeHeaderThankyou]: props.shade.text !== "",
               })}
             >
-              {language === "english" ? welcome.title : welcome.titleSpanish}
-              <span className="redText">{props.featureTextAlternate}</span>
+              {titleText}
+              <span className={`${props.shade.color}Text`}>.</span>
             </h1>
           </animated.div>
         </div>

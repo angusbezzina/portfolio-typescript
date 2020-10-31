@@ -18,8 +18,15 @@ import "styles/common.css";
 
 const Home = () => {
   const { state } = React.useContext(LanguageContext);
-  const [keyMap, setKeyMap] = React.useState({});
-  const [open, setOpen] = React.useState(false);
+  const [keyMap, setKeyMap] = React.useState({
+    time: 0,
+    keys: {},
+  });
+  const [shade, setShade] = React.useState({
+    open: false,
+    color: "red",
+    text: "",
+  });
   const [show, doShow] = React.useState({
     sectionHeader: false,
     sectionOne: false,
@@ -54,7 +61,7 @@ const Home = () => {
     const sectionFourPosition = topPosition(scrollRefFour);
 
     const welcomeAnimation = () => {
-      setOpen(true);
+      setShade(() => ({ ...shade, open: true, color: "red" }));
     };
 
     const onScroll = () => {
@@ -64,6 +71,10 @@ const Home = () => {
         doShow((state) => ({ ...state, sectionHeader: true }));
       } else {
         doShow((state) => ({ ...state, sectionHeader: false }));
+      }
+
+      if (window.scrollY > window.innerHeight) {
+        setShade(() => ({ open: true, text: "", color: "red" }));
       }
 
       if (sectionFourPosition < scrollPosition) {
@@ -85,31 +96,49 @@ const Home = () => {
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
-  }, []);
+  }, [shade]);
 
   React.useEffect(() => {
     const onKeyDown = (e: any) => {
-      setKeyMap({ ...keyMap, [e.key]: true });
-      const keySequences = {
-        danai: "Special thanks to Danai",
-        mitch: "Special thanks to Mitch",
+      const setThankyou = (text: string) => {
+        setShade(() => ({ ...shade, open: false, color: "red" }));
+        setTimeout(() => {
+          setShade(() => ({ text: text, open: true, color: "blue" }));
+        }, 300);
       };
-      const letters = Object.keys(keyMap);
-      const lettersJoined = letters.join("");
-      console.log(lettersJoined);
+      const keySequences = {
+        karen: "Karen Danai Cepeda Alarcón",
+        mitch: "Mitchell Heddles",
+      };
+      const letters = Object.keys(keyMap.keys);
+      letters.push(e.key);
+      const userInput = letters.join("");
 
-      if (lettersJoined === "danai") {
-        console.log(keySequences.danai);
+      if (keyMap.time === 0 || new Date().getTime() - keyMap.time < 1000) {
+        setKeyMap({
+          time: new Date().getTime(),
+          keys: { ...keyMap.keys, [e.key]: true },
+        });
+      } else {
+        setKeyMap({
+          time: new Date().getTime(),
+          keys: {},
+        });
       }
 
-      if (lettersJoined === "mitch") {
-        console.log(keySequences.mitch);
+      if (userInput === "mitch" || userInput === "karen") {
+        console.log(`Special thanks to ${keySequences[userInput]}`);
+        setThankyou(keySequences[userInput]);
+        setKeyMap({
+          time: 0,
+          keys: {},
+        });
       }
     };
 
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
-  }, [keyMap]);
+  }, [keyMap, shade]);
 
   return (
     <Page className="app">
@@ -119,12 +148,7 @@ const Home = () => {
       <Flex className="borderLeft"></Flex>
       <Flex className="borderRight"></Flex>
       <Flex direction="column" className="appContent">
-        <Welcome
-          snapTo
-          featureText={state.language === "english" ? "Welcome" : "Bienvenido"}
-          featureTextAlternate="."
-          open={open}
-        />
+        <Welcome snapTo shade={shade} />
         <Biography snapTo animate={show.sectionOne} ref={scrollRefOne} />
         <CaseStudies
           snapTo

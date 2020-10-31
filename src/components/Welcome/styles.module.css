@@ -27,6 +27,13 @@
     z-index: 0;
   }
 
+  .welcomeSubtitle {
+    position: absolute;
+    top: 200px;
+    margin: 0 auto;
+    z-index: 5;
+  }
+
   .welcomeSectionShade {
     position: absolute;
     top: 0;
@@ -38,6 +45,10 @@
     z-index: 1;
     transform-origin: left;
     transform: scaleX(0);
+  }
+
+  .welcomeSectionShadeBlue {
+    background-color: var(--colorBlue);
   }
 
   .welcomeAnimationContainer {
@@ -68,7 +79,8 @@
     max-width: 450px;
   }
 
-  .welcomeHeader span {
-    color: var(--colorRed);
+  .welcomeHeaderThankyou {
+    max-width: none;
+    font-size: 4rem;
   }
 }
