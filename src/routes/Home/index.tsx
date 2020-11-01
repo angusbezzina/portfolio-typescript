@@ -91,7 +91,7 @@ const Home = () => {
     window.addEventListener("scroll", onScroll);
     window.addEventListener("load", (event) => {
       event.preventDefault();
-      setTimeout(welcomeAnimation, 100);
+      setTimeout(welcomeAnimation, 10);
     });
     return () => {
       window.removeEventListener("scroll", onScroll);

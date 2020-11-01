@@ -80,7 +80,14 @@
   }
 
   .welcomeHeaderThankyou {
-    max-width: none;
+    max-width: 90%;
     font-size: 4rem;
+  }
+}
+
+@media (min-width: 998px) {
+  .welcomeHeader,
+  .welcomeHeaderSpanish {
+    max-width: none;
   }
 }
