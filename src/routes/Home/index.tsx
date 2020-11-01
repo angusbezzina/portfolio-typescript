@@ -12,12 +12,9 @@ import ScrollIndicator from "components/ScrollIndicator";
 import ScrollToTop from "components/ScrollToTop";
 import SocialLinks from "components/SocialLinks";
 
-import { LanguageContext } from "components/LanguageContext";
-
 import "styles/common.css";
 
 const Home = () => {
-  const { state } = React.useContext(LanguageContext);
   const [keyMap, setKeyMap] = React.useState({
     time: 0,
     keys: {},
