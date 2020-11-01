@@ -1,3 +1,9 @@
+html,
+body,
+#root {
+  width: 100%;
+}
+
 h1,
 h2,
 h3,
@@ -9,17 +15,9 @@ h6 {
   line-height: 1.25;
 }
 
-html,
-body,
-#root,
 .app {
-  min-height: 100%;
-  width: 100%;
-}
-
-.app {
-  min-height: 100%;
   position: relative;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,6 +45,25 @@ body,
 .appContentInner {
   height: 100%;
   width: 100%;
+}
+
+.logoLink {
+  position: absolute;
+  top: calc(50% - 10px);
+  left: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.logoLink:hover {
+  color: var(--colorRed);
+  transition: color 0.3s ease-in-out;
+}
+
+.logoLink:hover span {
+  color: var(--colorBlack);
+  transition: color 0.3s ease-in-out;
 }
 
 .logo {
@@ -81,10 +98,66 @@ body,
 
 .redText {
   color: var(--colorRed);
+  transition: color 0.3s ease-in-out;
+}
+
+.blueText {
+  color: var(--colorBlue);
+  transition: color 0.3s ease-in-out;
 }
 
 .blackText {
   color: var(--colorBlack);
+  transition: color 0.3s ease-in-out;
+}
+
+.languageButton {
+  position: relative;
+  border: none;
+  outline: none;
+  background: none;
+  color: var(--colorBlack);
+  font-family: var(--fontFamily);
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.languageButton span {
+  color: var(--colorRed);
+  transition: color 0.3s ease-in-out;
+}
+
+.languageButton::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 6px;
+  height: 2px;
+  width: calc(100% - 12px);
+  background-color: var(--colorBlack);
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.languageButton:hover,
+.languageButtonActive {
+  cursor: pointer;
+  color: var(--colorRed);
+  transition: color 0.3s ease-in-out;
+}
+
+.languageButton:hover::after,
+.languageButtonActive::after {
+  transform-origin: left;
+  transform: scaleX(1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.languageButton:hover span,
+.languageButtonActive span {
+  color: var(--colorBlack);
+  transition: color 0.3s ease-in-out;
 }
 
 .link {
@@ -136,6 +209,9 @@ body,
 
 @media (min-width: 768px) {
   .appContent {
+    height: 100%;
+    width: calc(100% - 100px);
+    padding: 50px;
     scroll-padding-top: 50px;
     scroll-snap-type: y mandatory;
   }
@@ -191,14 +267,12 @@ body,
     z-index: 2;
   }
 
-  .appContent {
-    height: calc(100% - 100px);
-    width: calc(100% - 100px);
-    padding: 50px;
-  }
-
   .snapSection {
     scroll-snap-align: start;
+  }
+
+  .logoLink {
+    left: 50px;
   }
 
   .logo {

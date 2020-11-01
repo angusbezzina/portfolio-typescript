@@ -3,6 +3,12 @@ import classnames from "classnames";
 
 import Flex from "components/Flex";
 
+import formatLastWord from "utils/formatLastWord";
+import { biography } from "utils/db/data";
+import { LanguageContext } from "components/LanguageContext";
+
+import formatSectionTitle from 'utils/formatSectionTitle';
+
 import styles from "./styles.module.css";
 import "styles/common.css";
 
@@ -12,48 +18,82 @@ interface BiographyProps {
 }
 
 const Biography = React.forwardRef(
-  (props: BiographyProps, ref: React.Ref<HTMLDivElement>) => (
-    <div
-      className={classnames(
-        styles.biographySection,
-        {"snapSection": props.snapTo},
-        {"animate": props.animate},
-      )}
-    >
-      <Flex className={styles.biographyContent}>
-        <Flex className={styles.biographyContentLeft}>
-          <h2 className={styles.biographyTitle}>
-            About
-            <br /> me<span className="blackText">.</span>
-          </h2>
-          <h3 className={styles.biographySubtitle}>
-            Hi, my name is <span className="italicText redText">Angus </span>
-          </h3>
-          <p>
-            I'm a software engineer with skills in React, NodeJS, Typescript,
-            Python, PHP, HTML, CSS, AWS and Serverless amongst other things.
-            I've created this site as a place where you can connect with me and
-            explore my work and the projects I experiment with in my spare time.
-            I hope you enjoy it!
-          </p>
+  (props: BiographyProps, ref: React.Ref<HTMLDivElement>) => {
+    const { state } = React.useContext(LanguageContext);
+    const language = state.language;
+
+    return (
+      <div
+        className={classnames(
+          styles.biographySection,
+          { snapSection: props.snapTo },
+          { [styles.animate]: props.animate }
+        )}
+        ref={ref}
+      >
+        <Flex className={styles.biographyContent}>
+          <Flex className={styles.biographyContentLeft}>
+            {language === "english"
+              ? formatSectionTitle(
+                  biography.title,
+                  styles.biographyTitle,
+                  "blackText"
+                )
+              : formatSectionTitle(
+                  biography.titleSpanish,
+                  styles.biographyTitle,
+                  "blackText"
+                )}
+            <Flex className={styles.biographySubtitle}>
+              {formatLastWord(
+                `${
+                  language === "english"
+                    ? biography.subtitle
+                    : biography.subtitleSpanish
+                }`,
+                "italicText redText "
+              )}
+            </Flex>
+            <p>
+              {language === "english" ? biography.text : biography.textSpanish}
+            </p>
+          </Flex>
+          <Flex className={styles.biographyContentRight}>
+            <Flex className={styles.biographyContentRightInner}>
+              {[
+                ...biography.skills.map((skillset, index) => {
+                  return (
+                    <Flex
+                      key={index}
+                      direction="column"
+                      className={styles.biographySkillset}
+                    >
+                      <h4 className={styles.biographySkillsTitle}>
+                        {language === "english"
+                          ? skillset.title
+                          : skillset.titleSpanish}
+                      </h4>
+                      <ul className={styles.biographySkillsList}>
+                        {language === "english"
+                          ? [...skillset.skillList].map((skill, index) => {
+                              return <li key={index}>{skill}</li>;
+                            })
+                          : [...skillset.skillListSpanish].map(
+                              (skill, index) => {
+                                return <li key={index}>{skill}</li>;
+                              }
+                            )}
+                      </ul>
+                    </Flex>
+                  );
+                }),
+              ]}
+            </Flex>
+          </Flex>
         </Flex>
-        <Flex className={styles.biographyContentRight}>
-          <div className={styles.biographyContentRightInner}>
-            <h4 className={styles.biographySkillsTitle}>Skills</h4>
-            <ul className={styles.biographySkillsList}>
-              <li>Example 1</li>
-              <li>Example 2</li>
-            </ul>
-            <h4 className={styles.biographySkillsTitle}>Other Skills</h4>
-            <ul className={styles.biographySkillsList}>
-              <li>Example 3</li>
-              <li>Example 4</li>
-            </ul>
-          </div>
-        </Flex>
-      </Flex>
-    </div>
-  )
+      </div>
+    );
+  }
 );
 
 export default Biography;

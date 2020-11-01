@@ -1,6 +1,8 @@
 import React from "react";
 import Flex from "components/Flex";
 
+import { socialDetails } from "utils/db/data";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTwitter,
@@ -13,9 +15,14 @@ import styles from "./styles.module.css";
 class SocialLinks extends React.Component {
   render() {
     return (
-      <Flex direction="column" align="center" justify="space-between" className={styles.socialLinks}>
+      <Flex
+        direction="column"
+        align="center"
+        justify="space-between"
+        className={styles.socialLinks}
+      >
         <a
-          href="https://twitter.com/angus1192"
+          href={socialDetails.twitter}
           className="twitterLink socialIconLink"
           target="_blank"
           rel="noopener noreferrer"
@@ -23,7 +30,7 @@ class SocialLinks extends React.Component {
           <FontAwesomeIcon icon={faTwitter} />
         </a>
         <a
-          href="https://github.com/angusbezzina"
+          href={socialDetails.gitHub}
           className="githubLink socialIconLink"
           target="_blank"
           rel="noopener noreferrer"
@@ -31,7 +38,7 @@ class SocialLinks extends React.Component {
           <FontAwesomeIcon icon={faGithubAlt} />
         </a>
         <a
-          href="https://www.linkedin.com/in/angus-bezzina"
+          href={socialDetails.linkedIn}
           className="linkedInLink socialIconLink"
           target="_blank"
           rel="noopener noreferrer"

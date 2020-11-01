@@ -6,12 +6,29 @@
   z-index: 9;
 }
 
+.appHeaderActive {
+  background-color: var(--colorWhite);
+}
+
 .appHeaderInner {
-  width: 100%;
+  width: calc(100% - 60px);
   height: 50px;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
+  justify-content: flex-end;
+  padding: 0 30px;
+}
+
+.appHeaderButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media(min-width: 768px) {
+  .appHeaderInner {
+    padding: 0 50px;
+    width: calc(100% - 100px);
+  }
 }

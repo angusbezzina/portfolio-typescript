@@ -27,6 +27,7 @@
     "react-scripts": "3.4.3",
     "react-scroll": "^1.8.1",
     "react-slick": "^0.27.11",
+    "react-spring": "9.0.0-rc.3",
     "react-svg-inline": "^2.1.1",
     "react-transition-group": "^4.4.1",
     "ts-loader": "^8.0.4",
