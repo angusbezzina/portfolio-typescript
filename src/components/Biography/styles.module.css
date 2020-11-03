@@ -6,14 +6,14 @@
   align-items: center;
   justify-content: center;
   text-align: left;
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
+  /* opacity: 1;
+  transition: opacity 0.3s ease-in-out; */
 }
 
-.biographySection.animate {
+/* .biographySection.animate {
   opacity: 1;
   transition: opacity 3s ease-in-out;
-}
+} */
 
 .biographyContent {
   display: flex;
@@ -68,6 +68,12 @@
   color: var(--colorText);
 }
 
+.biographyContentLeftInner {
+  transform: translateX(-30px);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
 .biographyContentRight {
   width: 100%;
 }
@@ -78,6 +84,9 @@
   background-color: #1c1b20;
   color: var(--colorWhite);
   columns: 2;
+  transform: translateX(30px);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .biographySkillsTitle {
@@ -130,7 +139,6 @@
   .biographySection {
     height: 100%;
     min-height: calc(100vh - 100px);
-    opacity: 0;
   }
 
   .biographyTitle {
@@ -147,21 +155,35 @@
   }
 
   .biographyContentRight {
+    position: relative;
     width: 55%;
   }
 
   .biographyContentRightInner {
-    width: calc(55% - 4rem - 50px);
     position: absolute;
     bottom: 0;
     right: 0;
+    left: 0;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
   }
+
   .biographySkillset {
     width: 50%;
     margin-bottom: 0;
   }
+}
+
+.animate.biographySection .biographyContentLeftInner {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.animate.biographySection .biographyContentRightInner {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
 }

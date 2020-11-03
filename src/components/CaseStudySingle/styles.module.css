@@ -38,10 +38,19 @@
   height: auto;
 }
 
+.caseStudiesContentLeft {
+  transform: translateX(-30px);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
 .caseStudiesContentRight {
   display: none;
   padding: 7.5rem 2rem 2rem;
   line-height: 2;
+  transform: translateX(30px);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .caseStudiesContentRight p {
@@ -50,6 +59,18 @@
 
 .caseStudiesContentLeftInner {
   width: 100%;
+}
+
+.animate .caseStudiesContentLeft {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 2s ease-in-out, opacity 2s ease-in-out;
+}
+
+.animate .caseStudiesContentRight {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 2s ease-in-out, opacity 2s ease-in-out;
 }
 
 .caseStudiesLabel {

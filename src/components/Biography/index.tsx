@@ -33,6 +33,7 @@ const Biography = React.forwardRef(
       >
         <Flex className={styles.biographyContent}>
           <Flex className={styles.biographyContentLeft}>
+            <Flex className={styles.biographyContentLeftInner} direction="column">
             {language === "english"
               ? formatSectionTitle(
                   biography.title,
@@ -57,6 +58,7 @@ const Biography = React.forwardRef(
             <p>
               {language === "english" ? biography.text : biography.textSpanish}
             </p>
+            </Flex>
           </Flex>
           <Flex className={styles.biographyContentRight}>
             <Flex className={styles.biographyContentRightInner}>

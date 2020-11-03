@@ -93,7 +93,7 @@ const Home = () => {
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
-  }, [shade]);
+  }, [shade, show]);
 
   React.useEffect(() => {
     const onKeyDown = (e: any) => {
