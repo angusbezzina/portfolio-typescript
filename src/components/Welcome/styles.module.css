@@ -91,3 +91,9 @@
     max-width: none;
   }
 }
+
+@media (min-width: 1200px) {
+  .welcomeHeaderThankyou {
+    font-size: 7rem;
+  }
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import classnames from "classnames";
+import classnames from 'classnames';
 
 import Flex from "components/Flex";
 
@@ -62,9 +62,7 @@ const CaseStudySingle = (props: CaseStudySingleProps) => {
 
   return (
     <Flex
-      className={classnames(styles.caseStudiesContent, {
-        [styles.animate]: props.animate,
-      })}
+      className={classnames(styles.caseStudiesContent, {[styles.animate]: props.animate})}
     >
       <Flex direction="column" className={styles.caseStudiesContentLeft}>
         {language === "english"

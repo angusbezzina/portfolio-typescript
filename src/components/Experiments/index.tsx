@@ -20,17 +20,17 @@ const Experiments = React.forwardRef(
     <div ref={ref}>
       <Slider
         {...props.swiperProps}
-        className={classnames(
-          styles.experimentsSection,
-          { [styles.animate]: props.animate },
-          { snapSection: props.snapTo }
-        )}
+        className={classnames(styles.experimentsSection, {
+          snapSection: props.snapTo,
+          [styles.animate]: props.animate,
+        })}
       >
         {[...experiments.experimentList].map((experiment) => {
           return (
             <ExperimentSingle
               key={experiment.slug}
               experimentData={experiment}
+              animate={props.animate}
             />
           );
         })}

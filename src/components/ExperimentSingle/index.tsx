@@ -1,4 +1,5 @@
 import React from "react";
+import classnames from 'classnames';
 
 import Flex from "components/Flex";
 
@@ -31,15 +32,20 @@ type ExperimentSingleProps = {
     date: string;
     dateSpanish: string;
   };
+  animate?: boolean;
 };
 
 const ExperimentSingle = (props: ExperimentSingleProps) => {
   const { state } = React.useContext(LanguageContext);
   const language = state.language;
   const experimentData = props.experimentData;
+  
 
   return (
-    <Flex direction="column" className={styles.experimentsSlideContent}>
+    <Flex
+      direction="column"
+      className={classnames(styles.experimentsSlideContent, {[styles.animate]: props.animate})}
+    >
       {language === "english"
         ? formatSectionTitle(
             experiments.title,

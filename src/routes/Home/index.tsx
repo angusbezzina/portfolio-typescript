@@ -63,6 +63,7 @@ const Home = () => {
 
     const onScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
+      console.log(scrollPosition);
 
       if (window.scrollY > 100) {
         doShow((state) => ({ ...state, sectionHeader: true }));
@@ -89,6 +90,10 @@ const Home = () => {
     window.addEventListener("load", (event) => {
       event.preventDefault();
       setTimeout(welcomeAnimation, 10);
+      console.log(sectionOnePosition);
+      console.log(sectionTwoPosition);
+      console.log(sectionThreePosition);
+      console.log(sectionFourPosition);
     });
     return () => {
       window.removeEventListener("scroll", onScroll);

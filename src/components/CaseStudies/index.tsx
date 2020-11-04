@@ -16,24 +16,27 @@ interface CaseStudiesProps {
 }
 
 const CaseStudies = React.forwardRef(
-  (props: CaseStudiesProps, ref: React.Ref<HTMLDivElement>) => {
-    return (
-      <div
-        ref={ref}
+  (props: CaseStudiesProps, ref: React.Ref<HTMLDivElement>) => (
+    <div ref={ref}>
+      <Slider
+        {...props.swiperProps}
+        className={classnames(styles.caseStudiesSection, {
+          [styles.animate]: props.animate,
+          snapSection: props.snapTo,
+        })}
       >
-        <Slider
-          {...props.swiperProps}
-          className={classnames(styles.caseStudiesSection, {
-            snapSection: props.snapTo,
-          })}
-        >
-          {[...caseStudies.projects].map((project) => {
-            return <CaseStudySingle key={project.slug} projectData={project} animate={props.animate} />;
-          })}
-        </Slider>
-      </div>
-    );
-  }
+        {[...caseStudies.projects].map((project) => {
+          return (
+            <CaseStudySingle
+              key={project.slug}
+              projectData={project}
+              animate={props.animate}
+            />
+          );
+        })}
+      </Slider>
+    </div>
+  )
 );
 
 export default CaseStudies;
