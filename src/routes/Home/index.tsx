@@ -63,7 +63,7 @@ const Home = () => {
 
     const onScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
-      console.log(scrollPosition);
+      // console.log(scrollPosition);
 
       if (window.scrollY > 100) {
         doShow((state) => ({ ...state, sectionHeader: true }));
