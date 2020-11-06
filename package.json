@@ -40,7 +40,7 @@
     "eject": "react-scripts eject",
     "dev": "react-scripts start",
     "watch": "concurrently --names \"webpack, stylus\" --prefix name \"npm run start\" \"npm run styles:watch\"",
-    "transfer": "rsync -avz ./build/ angusbez@angusbezzina.com:/home1/angusbez/public_html/",
+    "transfer": "aws s3 sync build/ s3://angusbezzina.com",
     "deploy": "npm run build && npm run transfer",
     "styles": "stylus -u autoprefixer-stylus ./src/css/style.styl -o ./src/css/style.css",
     "now-build": "npm run build && mv build dist",
