@@ -1,6 +1,5 @@
-name: Production Build
+name: On deploy to Master Branch
 on:
-  pull_request:
   push:
     branches:
       - master
