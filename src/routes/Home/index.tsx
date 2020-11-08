@@ -38,28 +38,14 @@ const Home = () => {
   };
 
   React.useLayoutEffect(() => {
-
     const welcomeAnimation = () => {
       setShade(() => ({ ...shade, open: true, color: "red" }));
     };
 
-    const onScroll = () => {
-      if (window.scrollY > 100) {
-        setHeaderActive(true);
-      } else {
-        setHeaderActive(false);
-      }
-    };
-
     window.addEventListener("load", () => {
       setTimeout(welcomeAnimation, 10);
-      onScroll();
     });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
   }, [shade]);
-
 
   React.useEffect(() => {
     const onKeyDown = (e: any) => {
@@ -114,12 +100,8 @@ const Home = () => {
       <Flex direction="column" className="appContent">
         <Welcome shade={shade} />
         <Biography />
-        <CaseStudies
-          swiperProps={swiperProps}
-        />
-        <Experiments
-          swiperProps={swiperProps}
-        />
+        <CaseStudies swiperProps={swiperProps} />
+        <Experiments swiperProps={swiperProps} />
         <Contact />
       </Flex>
       <SocialLinks />
