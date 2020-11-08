@@ -12,8 +12,6 @@ import styles from "./styles.module.css";
 import "styles/common.css";
 
 interface WelcomeProps {
-  animate?: boolean;
-  snapTo?: boolean;
   thankYouMessage?: string;
   shade: {
     open: boolean;
@@ -69,11 +67,8 @@ const Welcome = React.forwardRef(
         id="welcome"
         align="center"
         justify="center"
-        className={classnames(
-          { snapSection: props.snapTo },
-          "animatedSection",
-          styles.welcomeSection,
-          { animate: props.animate }
+        className={classnames("animatedSection",
+          styles.welcomeSection
         )}
         ref={ref}
       >

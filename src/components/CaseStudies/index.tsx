@@ -13,8 +13,6 @@ import styles from "./styles.module.css";
 import "styles/common.css";
 
 interface CaseStudiesProps {
-  animate?: boolean;
-  snapTo?: boolean;
   swiperProps: object;
 }
 
@@ -25,10 +23,7 @@ const CaseStudies = React.forwardRef(
 
     return (
       <div
-        className={classnames(styles.caseStudiesSectionContainer, {
-          [styles.animate]: props.animate,
-          snapSection: props.snapTo,
-        })}
+        className={classnames(styles.caseStudiesSectionContainer)}
         ref={ref}
       >
         {language === "english"
@@ -44,17 +39,13 @@ const CaseStudies = React.forwardRef(
             )}
         <Slider
           {...props.swiperProps}
-          className={classnames(styles.caseStudiesSection, {
-            [styles.animate]: props.animate,
-            snapSection: props.snapTo,
-          })}
+          className={classnames(styles.caseStudiesSection)}
         >
           {[...caseStudies.projects].map((project) => {
             return (
               <CaseStudySingle
                 key={project.slug}
                 projectData={project}
-                animate={props.animate}
               />
             );
           })}

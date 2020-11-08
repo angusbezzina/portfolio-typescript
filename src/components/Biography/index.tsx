@@ -12,22 +12,15 @@ import formatSectionTitle from 'utils/formatSectionTitle';
 import styles from "./styles.module.css";
 import "styles/common.css";
 
-interface BiographyProps {
-  animate?: boolean;
-  snapTo?: boolean;
-}
-
 const Biography = React.forwardRef(
-  (props: BiographyProps, ref: React.Ref<HTMLDivElement>) => {
+  (ref: React.Ref<HTMLDivElement>) => {
     const { state } = React.useContext(LanguageContext);
     const language = state.language;
 
     return (
       <div
         className={classnames(
-          styles.biographySection,
-          { snapSection: props.snapTo },
-          { [styles.animate]: props.animate }
+          styles.biographySection
         )}
         ref={ref}
       >
