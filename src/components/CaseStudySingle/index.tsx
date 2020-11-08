@@ -4,10 +4,7 @@ import classnames from 'classnames';
 import Flex from "components/Flex";
 
 import formatFirstWord from "utils/formatFirstWord";
-
 import { LanguageContext } from "components/LanguageContext";
-import { caseStudies } from "utils/db/data";
-import formatSectionTitle from "utils/formatSectionTitle";
 
 import styles from "./styles.module.css";
 import "styles/common.css";

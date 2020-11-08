@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import Flex from "components/Flex";
 
 import { LanguageContext } from "components/LanguageContext";
-import { experiments } from "utils/db/data";
 
 import styles from "./styles.module.css";
 import "styles/common.css";
