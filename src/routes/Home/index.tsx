@@ -25,8 +25,6 @@ const Home = () => {
     text: "",
   });
 
-  const [isHeaderActive, setHeaderActive] = React.useState(false);
-
   const swiperProps = {
     dots: true,
     infinite: true,
@@ -92,7 +90,7 @@ const Home = () => {
 
   return (
     <Page className="app">
-      <Header headerActive={isHeaderActive} />
+      <Header />
       <Flex className="borderTop"></Flex>
       <Flex className="borderBottom"></Flex>
       <Flex className="borderLeft"></Flex>
