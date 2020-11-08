@@ -41,10 +41,11 @@
     "dev": "react-scripts start",
     "watch": "concurrently --names \"webpack, stylus\" --prefix name \"npm run start\" \"npm run styles:watch\"",
     "transfer": "aws s3 sync build/ s3://angusbezzina.com",
-    "deploy": "npm run build && npm run transfer",
+    "deploy": "npm run build && npm run transfer && npm run invalidate-cache",
     "styles": "stylus -u autoprefixer-stylus ./src/css/style.styl -o ./src/css/style.css",
     "now-build": "npm run build && mv build dist",
-    "styles:watch": "npm run styles -- -w"
+    "styles:watch": "npm run styles -- -w",
+    "invalidate-cache": "aws cloudfront create-invalidation --distribution-id E2F88TMOM7YUVT --paths '/*'"
   },
   "eslintConfig": {
     "extends": "react-app"

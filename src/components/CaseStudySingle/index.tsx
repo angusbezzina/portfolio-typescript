@@ -65,17 +65,6 @@ const CaseStudySingle = (props: CaseStudySingleProps) => {
       className={classnames(styles.caseStudiesContent, {[styles.animate]: props.animate})}
     >
       <Flex direction="column" className={styles.caseStudiesContentLeft}>
-        {language === "english"
-          ? formatSectionTitle(
-              caseStudies.title,
-              styles.caseStudiesTitle,
-              "redText"
-            )
-          : formatSectionTitle(
-              caseStudies.titleSpanish,
-              styles.caseStudiesTitle,
-              "redText"
-            )}
         <Flex direction="column" className={styles.caseStudiesContentLeftInner}>
           <img
             className={styles.caseStudiesFeatureImage}
