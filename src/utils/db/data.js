@@ -222,6 +222,6 @@ export const contactDetails = {
 
 export const socialDetails = {
   twitter: "https://twitter.com/angus1192",
-  gitHub: "https://github.com/angusbezzina",
+  gitHub: "https://github.com/angusbezzina/portfolio-typescript",
   linkedIn: "https://www.linkedin.com/in/angus-bezzina",
 };
