@@ -5,18 +5,18 @@
 
 .caseStudiesContentLeft {
   padding-top: 150px;
-  transform: translateX(-30px);
+  /* transform: translateX(-30px);
   opacity: 0;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; */
 }
 
 .caseStudiesContentRight {
   display: none;
   padding: 7.5rem 2rem 2rem;
   line-height: 2;
-  transform: translateX(30px);
+  /* transform: translateX(30px);
   opacity: 0;
-  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out; */
 }
 
 .caseStudiesContentRight p {
@@ -27,7 +27,7 @@
   width: 100%;
 }
 
-.animate .caseStudiesContentLeft {
+/* .animate .caseStudiesContentLeft {
   transform: translateX(0);
   opacity: 1;
   transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
@@ -37,7 +37,7 @@
   transform: translateX(0);
   opacity: 1;
   transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
-}
+} */
 
 .caseStudiesLabel {
   font-weight: bold;

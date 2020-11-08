@@ -2,7 +2,6 @@ html,
 body,
 #root {
   width: 100%;
-  height: 100%;
 }
 
 h1,
@@ -19,7 +18,6 @@ h6 {
 .app {
   position: relative;
   width: 100%;
-  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -214,8 +212,6 @@ h6 {
     height: 100%;
     width: calc(100% - 100px);
     padding: 50px;
-    scroll-padding-top: 50px;
-    scroll-snap-type: y mandatory;
   }
 
   .appFrame {
@@ -267,10 +263,6 @@ h6 {
     width: 50px;
     background-color: var(--colorWhite);
     z-index: 2;
-  }
-
-  .snapSection {
-    scroll-snap-align: start;
   }
 
   .logoLink {

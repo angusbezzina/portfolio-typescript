@@ -4,11 +4,12 @@
   left: 0;
   width: 100%;
   z-index: 9;
-}
-
-.appHeaderActive {
   background-color: var(--colorWhite);
 }
+
+/* .appHeaderActive {
+  background-color: var(--colorWhite);
+} */
 
 .appHeaderInner {
   width: calc(100% - 60px);

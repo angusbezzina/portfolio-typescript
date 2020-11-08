@@ -2,16 +2,16 @@
   width: calc(100% - 4rem);
   padding: 2rem 2rem 6rem;
   text-align: left;
-  opacity: 0;
+  /* opacity: 0;
   transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-  transform: translateY(30px);
+  transform: translateY(30px); */
 }
 
-.contactSection.animate {
+/* .contactSection.animate {
   opacity: 1;
   transform: translateY(0);
   transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-}
+} */
 
 .contactCallout {
   width: 100%;
