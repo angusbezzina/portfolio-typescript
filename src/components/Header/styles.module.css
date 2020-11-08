@@ -4,7 +4,6 @@
   left: 0;
   width: 100%;
   z-index: 9;
-  color: var(--colorWhite);
 }
 
 .appHeaderActive {
@@ -28,10 +27,6 @@
 }
 
 @media(min-width: 768px) {
-  .appHeader {
-    color: var(--colorBlack);
-  }
-
   .appHeaderInner {
     padding: 0 50px;
     width: calc(100% - 100px);
