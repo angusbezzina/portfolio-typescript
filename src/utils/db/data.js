@@ -2,7 +2,7 @@ import forWordBackgroundImage from "img/forWord.jpg";
 import oqpiBackgroundImage from "img/oqpi.png";
 import yourWorkoutAppBackgroundImage from "img/yourworkoutapp.png";
 import emetBackgroundImage from "img/emetISLHD.png";
-import linmickBackgroundImage from "img/linmickDistributors.png";
+import linmickBackgroundImage from "img/linmickdistributors.png";
 import focusAustraliaBackgroundImage from "img/focusAustralia.png";
 
 export const welcome = {

@@ -3,14 +3,16 @@
   min-height: 200px;
   width: 100%;
   z-index: 0;
-  background: url("../../img/background-image.jpg") no-repeat center center;
+  background: linear-gradient(115.39deg, #3f5efb, #fb3f41), #e5e5e5;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
-.welcomeHeader {
+.welcomeHeader,
+.welcomeHeaderSpanish,
+.welcomeHeaderThankyou {
   display: none;
 }
 
@@ -89,5 +91,11 @@
   .welcomeHeader,
   .welcomeHeaderSpanish {
     max-width: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .welcomeHeaderThankyou {
+    font-size: 7rem;
   }
 }

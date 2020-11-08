@@ -2,6 +2,7 @@ html,
 body,
 #root {
   width: 100%;
+  height: 100%;
 }
 
 h1,
@@ -18,6 +19,7 @@ h6 {
 .app {
   position: relative;
   width: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

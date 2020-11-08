@@ -1,47 +1,22 @@
-.caseStudiesTitle {
-  position: relative;
-  margin-bottom: 3rem;
-  padding-top: 3rem;
-  padding-left: 2rem;
-  text-align: left;
-  font-size: 2.5rem;
-  line-height: 1;
-}
-
-.caseStudiesTitle::before {
-  position: absolute;
-  top: 0.75rem;
-  left: 2.8rem;
-  content: "";
-  background-color: var(--colorBlack);
-  border-radius: 2px;
-  width: 3rem;
-  height: 1px;
-  z-index: 2; 
-}
-
-.caseStudiesTitle::after {
-  position: absolute;
-  top: 0;
-  left: 2rem;
-  content: "";
-  width: 1.5rem;
-  height: 1.5rem;
-  background-color: rgba(255, 255, 255, 0);
-  border: 1px solid var(--colorRed);
-  border-radius: 50%;
-  z-index: 1;
-}
-
 .caseStudiesFeatureImage {
   width: 100%;
   height: auto;
+}
+
+.caseStudiesContentLeft {
+  padding-top: 150px;
+  transform: translateX(-30px);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .caseStudiesContentRight {
   display: none;
   padding: 7.5rem 2rem 2rem;
   line-height: 2;
+  transform: translateX(30px);
+  opacity: 0;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
 }
 
 .caseStudiesContentRight p {
@@ -50,6 +25,18 @@
 
 .caseStudiesContentLeftInner {
   width: 100%;
+}
+
+.animate .caseStudiesContentLeft {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
+}
+
+.animate .caseStudiesContentRight {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
 }
 
 .caseStudiesLabel {

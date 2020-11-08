@@ -1,21 +1,71 @@
+.experimentsSectionContainer {
+  position: relative;
+  padding-top: 6rem;
+}
+
 .experimentsSection {
   height: 100%;
   width: 100%;
-  min-height: 100%;
   padding: 3rem 0;
+  min-height: 100%;
   text-align: left;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
 }
 
-.experimentsSection.animate {
+.experimentsTitle {
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  display: inline-block;
+  padding: 3rem 2rem 0;
+  margin-bottom: -2rem;
+  text-align: left;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--colorRed);
+  transform: translateX(-30px);
+  z-index: 10;
+  opacity: 0;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.experimentsTitle::before {
+  position: absolute;
+  top: 0.75rem;
+  left: 2.8rem;
+  content: "";
+  background-color: var(--colorBlack);
+  border-radius: 2px;
+  width: 3rem;
+  height: 1px;
+  z-index: 2;
+}
+
+.experimentsTitle::after {
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid var(--colorRed);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.animate .experimentsTitle {
+  transform: translateX(0);
   opacity: 1;
-  transition: opacity 3s ease-in-out;
+  transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
 }
 
 @media (min-width: 768px) {
+  .experimentsSectionContainer {
+    padding-top: 6rem;
+  }
+
   .experimentsSection {
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 100px - 6rem);
     padding: 2rem 0;
   }
 }

@@ -1,38 +1,3 @@
-.experimentsTitle {
-  position: relative;
-  padding: 3rem 2rem 0;
-  margin-bottom: -2rem;
-  text-align: left;
-  font-size: 2.5rem;
-  line-height: 1;
-  color: var(--colorRed);
-}
-
-.experimentsTitle::before {
-  position: absolute;
-  top: 0.75rem;
-  left: 2.8rem;
-  content: "";
-  background-color: var(--colorBlack);
-  border-radius: 2px;
-  width: 3rem;
-  height: 1px;
-  z-index: 2;
-}
-
-.experimentsTitle::after {
-  position: absolute;
-  top: 0;
-  left: 2rem;
-  content: "";
-  width: 1.5rem;
-  height: 1.5rem;
-  background-color: rgba(255, 255, 255, 0);
-  border: 1px solid var(--colorRed);
-  border-radius: 50%;
-  z-index: 1;
-}
-
 .experimentsImageContainer {
   width: 100%;
   height: auto;
@@ -42,9 +7,18 @@
 .experimentsImage {
   width: 100%;
   height: 40vh;
-  background: linear-gradient(115.39deg, #3f5efb, #fb3f41), #E5E5E5;
+  background: linear-gradient(115.39deg, #3f5efb, #fb3f41), #e5e5e5;
   background-position: center;
   background-size: cover;
+  transform: translateX(-30px);
+  opacity: 0;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.experimentsContent {
+  transform: translateX(30px);
+  opacity: 0;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
 }
 
 .experimentsSubtitle {
@@ -150,6 +124,19 @@
 
 .experimentsDeadLink span {
   font-weight: bold;
+}
+
+.animate .experimentsImage,
+.animate .experimentsTitle {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
+}
+
+.animate .experimentsContent {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
 }
 
 @media (min-width: 768px) {

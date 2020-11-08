@@ -12,12 +12,9 @@ import ScrollIndicator from "components/ScrollIndicator";
 import ScrollToTop from "components/ScrollToTop";
 import SocialLinks from "components/SocialLinks";
 
-import { LanguageContext } from "components/LanguageContext";
-
 import "styles/common.css";
 
 const Home = () => {
-  const { state } = React.useContext(LanguageContext);
   const [keyMap, setKeyMap] = React.useState({
     time: 0,
     keys: {},
@@ -27,20 +24,16 @@ const Home = () => {
     color: "red",
     text: "",
   });
-  const [show, doShow] = React.useState({
-    sectionHeader: false,
-    sectionOne: false,
-    sectionTwo: false,
-    sectionThree: false,
-    sectionFour: false,
-  });
+
+  const [animation, setAnimation] = React.useState(0);
+  const [isHeaderActive, setHeaderActive] = React.useState(false);
 
   const scrollRefOne = React.useRef<HTMLDivElement | null>(null);
   const scrollRefTwo = React.useRef<HTMLDivElement | null>(null);
   const scrollRefThree = React.useRef<HTMLDivElement | null>(null);
   const scrollRefFour = React.useRef<HTMLDivElement | null>(null);
 
-  const SwiperProps = {
+  const swiperProps = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -53,8 +46,7 @@ const Home = () => {
   React.useLayoutEffect(() => {
     const topPosition = (
       elementRef: React.MutableRefObject<HTMLDivElement | null>
-    ) =>
-      elementRef.current ? elementRef.current.getBoundingClientRect().top : 0;
+    ) => (elementRef.current ? elementRef.current.offsetTop : 0);
     const sectionOnePosition = topPosition(scrollRefOne);
     const sectionTwoPosition = topPosition(scrollRefTwo);
     const sectionThreePosition = topPosition(scrollRefThree);
@@ -65,42 +57,58 @@ const Home = () => {
     };
 
     const onScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight;
+      const windowWidth = window.innerWidth;
+      const scrollPosition = window.scrollY + (window.innerHeight - 100);
+      let activeSection;
+      console.log(scrollPosition);
+      
 
-      if (window.scrollY > 100) {
-        doShow((state) => ({ ...state, sectionHeader: true }));
+      if (windowWidth < 768) {
+        activeSection = 1;
       } else {
-        doShow((state) => ({ ...state, sectionHeader: false }));
+        activeSection = 0;
       }
 
-      if (window.scrollY > window.innerHeight) {
+      if (window.scrollY > 100) {
+        setHeaderActive(true);
+      } else {
+        setHeaderActive(false);
+      }
+
+      // TODO: Fix this
+      if (scrollPosition > sectionThreePosition) {
         setShade(() => ({ open: true, text: "", color: "red" }));
       }
 
       if (sectionFourPosition < scrollPosition) {
-        doShow((state) => ({ ...state, sectionFour: true }));
+        activeSection = 4;
       } else if (sectionThreePosition < scrollPosition) {
-        doShow((state) => ({ ...state, sectionThree: true }));
+        activeSection = 3;
       } else if (sectionTwoPosition < scrollPosition) {
-        doShow((state) => ({ ...state, sectionTwo: true }));
+        activeSection = 2;
       } else if (sectionOnePosition < scrollPosition) {
-        doShow((state) => ({ ...state, sectionOne: true }));
+        activeSection = 1;
       }
+
+      setAnimation(activeSection);
     };
 
     window.addEventListener("scroll", onScroll);
-    window.addEventListener("load", (event) => {
-      event.preventDefault();
+    window.addEventListener("load", () => {
       setTimeout(welcomeAnimation, 10);
+      onScroll();
     });
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
-  }, [shade]);
+  }, [shade, animation]);
+
+  console.log("---- render");
 
   React.useEffect(() => {
     const onKeyDown = (e: any) => {
       const setThankyou = (text: string) => {
+        // Is Mitch, Is Easter Egg change this to one variable and derive the rest of the information from there.
         setShade(() => ({ ...shade, open: false, color: "red" }));
         setTimeout(() => {
           setShade(() => ({ text: text, open: true, color: "blue" }));
@@ -142,27 +150,27 @@ const Home = () => {
 
   return (
     <Page className="app">
-      <Header headerActive={show.sectionHeader} />
+      <Header headerActive={isHeaderActive} />
       <Flex className="borderTop"></Flex>
       <Flex className="borderBottom"></Flex>
       <Flex className="borderLeft"></Flex>
       <Flex className="borderRight"></Flex>
       <Flex direction="column" className="appContent">
         <Welcome snapTo shade={shade} />
-        <Biography snapTo animate={show.sectionOne} ref={scrollRefOne} />
+        <Biography snapTo animate={animation > 0} ref={scrollRefOne} />
         <CaseStudies
           snapTo
-          swiperProps={SwiperProps}
-          animate={show.sectionTwo}
+          swiperProps={swiperProps}
+          animate={animation > 1}
           ref={scrollRefTwo}
         />
         <Experiments
           snapTo
-          swiperProps={SwiperProps}
-          animate={show.sectionThree}
+          swiperProps={swiperProps}
+          animate={animation > 2}
           ref={scrollRefThree}
         />
-        <Contact snapTo animate={show.sectionFour} ref={scrollRefFour} />
+        <Contact snapTo animate={animation > 3} ref={scrollRefFour} />
       </Flex>
       <SocialLinks />
       <ScrollIndicator />

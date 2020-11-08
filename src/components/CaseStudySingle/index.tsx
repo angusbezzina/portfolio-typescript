@@ -1,12 +1,10 @@
 import React from "react";
+import classnames from 'classnames';
 
 import Flex from "components/Flex";
 
-import formatFirstWord from 'utils/formatFirstWord';
-
+import formatFirstWord from "utils/formatFirstWord";
 import { LanguageContext } from "components/LanguageContext";
-import { caseStudies } from "utils/db/data";
-import formatSectionTitle from 'utils/formatSectionTitle';
 
 import styles from "./styles.module.css";
 import "styles/common.css";
@@ -32,6 +30,7 @@ type CaseStudySingleProps = {
     };
     date: string;
   };
+  animate?: boolean;
 };
 
 const CaseStudySingle = (props: CaseStudySingleProps) => {
@@ -40,33 +39,29 @@ const CaseStudySingle = (props: CaseStudySingleProps) => {
   const projectData = props.projectData;
   let projectHeader;
 
-  if(projectData.tagline) {
-    projectHeader = formatFirstWord(`${language === 'english' ? projectData.tagline : projectData.taglineSpanish}`, "redText italicText")
-  } else {
+  if (projectData.tagline) {
     projectHeader = formatFirstWord(
       `${
         language === "english"
-          ? projectData.title
-          : projectData.titleSpanish
+          ? projectData.tagline
+          : projectData.taglineSpanish
+      }`,
+      "redText italicText"
+    );
+  } else {
+    projectHeader = formatFirstWord(
+      `${
+        language === "english" ? projectData.title : projectData.titleSpanish
       }`,
       "redText italicText"
     );
   }
 
   return (
-    <Flex className={styles.caseStudiesContent}>
+    <Flex
+      className={classnames(styles.caseStudiesContent, {[styles.animate]: props.animate})}
+    >
       <Flex direction="column" className={styles.caseStudiesContentLeft}>
-        {language === "english"
-          ? formatSectionTitle(
-              caseStudies.title,
-              styles.caseStudiesTitle,
-              "redText"
-            )
-          : formatSectionTitle(
-              caseStudies.titleSpanish,
-              styles.caseStudiesTitle,
-              "redText"
-            )}
         <Flex direction="column" className={styles.caseStudiesContentLeftInner}>
           <img
             className={styles.caseStudiesFeatureImage}

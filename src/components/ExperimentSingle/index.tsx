@@ -1,11 +1,9 @@
 import React from "react";
+import classnames from 'classnames';
 
 import Flex from "components/Flex";
 
-import formatSectionTitle from "utils/formatSectionTitle";
-
 import { LanguageContext } from "components/LanguageContext";
-import { experiments } from "utils/db/data";
 
 import styles from "./styles.module.css";
 import "styles/common.css";
@@ -31,26 +29,20 @@ type ExperimentSingleProps = {
     date: string;
     dateSpanish: string;
   };
+  animate?: boolean;
 };
 
 const ExperimentSingle = (props: ExperimentSingleProps) => {
   const { state } = React.useContext(LanguageContext);
   const language = state.language;
   const experimentData = props.experimentData;
+  
 
   return (
-    <Flex direction="column" className={styles.experimentsSlideContent}>
-      {language === "english"
-        ? formatSectionTitle(
-            experiments.title,
-            styles.experimentsTitle,
-            "blackText"
-          )
-        : formatSectionTitle(
-            experiments.titleSpanish,
-            styles.experimentsTitle,
-            "blackText"
-          )}
+    <Flex
+      direction="column"
+      className={classnames(styles.experimentsSlideContent, {[styles.animate]: props.animate})}
+    >
       <Flex className={styles.experimentsImage}></Flex>
       <Flex className={styles.experimentsContent}>
         <Flex className={styles.experimentsSubtitle}>
