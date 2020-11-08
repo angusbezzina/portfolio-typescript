@@ -10,16 +10,16 @@
   background: linear-gradient(115.39deg, #3f5efb, #fb3f41), #e5e5e5;
   background-position: center;
   background-size: cover;
-  transform: translateX(-30px);
+  /* transform: translateX(-30px);
   opacity: 0;
-  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out; */
 }
 
-.experimentsContent {
+/* .experimentsContent {
   transform: translateX(30px);
   opacity: 0;
   transition: transform 1s ease-in-out, opacity 1s ease-in-out;
-}
+} */
 
 .experimentsSubtitle {
   padding: 2rem 2rem 0;
@@ -126,7 +126,7 @@
   font-weight: bold;
 }
 
-.animate .experimentsImage,
+/* .animate .experimentsImage,
 .animate .experimentsTitle {
   transform: translateX(0);
   opacity: 1;
@@ -137,7 +137,7 @@
   transform: translateX(0);
   opacity: 1;
   transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
-}
+} */
 
 @media (min-width: 768px) {
   .experimentsTitle {

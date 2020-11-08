@@ -1,5 +1,4 @@
 import React from "react";
-import classnames from "classnames";
 import Slider from "react-slick";
 
 import ExperimentSingle from "components/ExperimentSingle";
@@ -12,8 +11,6 @@ import styles from "./styles.module.css";
 import "styles/common.css";
 
 type ExperimentsProps = {
-  animate?: boolean;
-  snapTo?: boolean;
   swiperProps: object;
 };
 
@@ -24,10 +21,7 @@ const Experiments = React.forwardRef(
 
     return (
       <div
-        className={classnames(styles.experimentsSectionContainer, {
-          snapSection: props.snapTo,
-          [styles.animate]: props.animate,
-        })}
+        className={styles.experimentsSectionContainer}
         ref={ref}
       >
         {language === "english"
@@ -43,17 +37,13 @@ const Experiments = React.forwardRef(
             )}
         <Slider
           {...props.swiperProps}
-          className={classnames(styles.experimentsSection, {
-            snapSection: props.snapTo,
-            [styles.animate]: props.animate,
-          })}
+          className={styles.experimentsSection}
         >
           {[...experiments.experimentList].map((experiment) => {
             return (
               <ExperimentSingle
                 key={experiment.slug}
                 experimentData={experiment}
-                animate={props.animate}
               />
             );
           })}

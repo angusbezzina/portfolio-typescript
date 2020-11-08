@@ -1,5 +1,4 @@
 import React from "react";
-import classnames from 'classnames';
 
 import Flex from "components/Flex";
 
@@ -29,7 +28,6 @@ type ExperimentSingleProps = {
     date: string;
     dateSpanish: string;
   };
-  animate?: boolean;
 };
 
 const ExperimentSingle = (props: ExperimentSingleProps) => {
@@ -41,7 +39,7 @@ const ExperimentSingle = (props: ExperimentSingleProps) => {
   return (
     <Flex
       direction="column"
-      className={classnames(styles.experimentsSlideContent, {[styles.animate]: props.animate})}
+      className={styles.experimentsSlideContent}
     >
       <Flex className={styles.experimentsImage}></Flex>
       <Flex className={styles.experimentsContent}>
