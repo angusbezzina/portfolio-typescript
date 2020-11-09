@@ -9,24 +9,25 @@ import "styles/common.css";
 
 type ExperimentSingleProps = {
   experimentData: {
-    title: string;
-    titleSpanish: string;
-    slug: string;
-    tagline?: string;
-    url: string;
-    description: string;
-    descriptionSpanish: string;
-    featureImage: {
-      src: string;
-      alt: string;
-      altSpanish: string;
+    english: {
+      title: string;
+      description: string;
+      featureImageAlt: string;
+      date: string;
     };
+    spanish: {
+      title: string;
+      description: string;
+      featureImageAlt: string;
+      date: string;
+    };
+    slug: string;
+    url: string;
+    featureImageSrc: string;
     stack: {
       backend: string;
       frontend: string;
     };
-    date: string;
-    dateSpanish: string;
   };
 };
 
@@ -34,6 +35,12 @@ const ExperimentSingle = (props: ExperimentSingleProps) => {
   const { state } = React.useContext(LanguageContext);
   const language = state.language;
   const experimentData = props.experimentData;
+  const title = experimentData[language].title;
+  const description = experimentData[language].description;
+  const date = experimentData[language].date;
+  const url = experimentData.url;
+  const frontend = experimentData.stack.frontend;
+  const backend = experimentData.stack.backend;
   
 
   return (
@@ -45,9 +52,7 @@ const ExperimentSingle = (props: ExperimentSingleProps) => {
       <Flex className={styles.experimentsContent}>
         <Flex className={styles.experimentsSubtitle}>
           <h3>
-            {language === "english"
-              ? experimentData.title
-              : experimentData.titleSpanish}
+            {title}
             <span className="redText">.</span>
           </h3>
         </Flex>
@@ -59,22 +64,20 @@ const ExperimentSingle = (props: ExperimentSingleProps) => {
             className={styles.experimentsDetails}
           >
             <p className={styles.experimentsLabel}>
-              {language === "english"
-                ? experimentData.date
-                : experimentData.dateSpanish}
+              {date}
               <span className="redText">.</span>
             </p>
             <p className={styles.experimentsDetail}>
               {`${language === "english" ? "Frontend:" : "Interfaz:"} ${
-                experimentData.stack.frontend
+                frontend
               }`}
             </p>
             <p className={styles.experimentsDetail}>
-              Backend: {experimentData.stack.backend}
+              Backend: {backend}
             </p>
-            {experimentData.url && (
+            {url && (
               <a
-                href={experimentData.url}
+                href={url}
                 className={styles.experimentsLink}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -84,7 +87,7 @@ const ExperimentSingle = (props: ExperimentSingleProps) => {
                   : "Ver el experimento"}
               </a>
             )}
-            {!experimentData.url && (
+            {!url && (
               <p className={styles.experimentsDeadLink}>
                 {language === "english"
                   ? "Link coming soon"
@@ -94,9 +97,7 @@ const ExperimentSingle = (props: ExperimentSingleProps) => {
             )}
           </Flex>
           <Flex direction="column" className={styles.experimentsDescription}>
-            {language === "english"
-              ? experimentData.description
-              : experimentData.descriptionSpanish}
+            {description}
           </Flex>
         </Flex>
       </Flex>

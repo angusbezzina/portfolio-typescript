@@ -36,6 +36,8 @@ const Welcome = React.forwardRef(
   (props: WelcomeProps, ref: React.Ref<HTMLDivElement>) => {
     const { state } = React.useContext(LanguageContext);
     const language = state.language;
+    const title = welcome[language].title;
+    const thankyouText = welcome[language].thankyouText;
     const [springTextProps, setSpringText] = useSpring(() => ({
       xy: [0, 0],
       config: { mass: 10, tension: 550, friction: 140 },
@@ -49,17 +51,9 @@ const Welcome = React.forwardRef(
 
     if(props.shade.text !== '') {
       titleText = props.shade.text;
-      if (language === "english") {
-        subtitleText = welcome.thankyouText;
-      } else {
-        subtitleText = welcome.thankyouTextSpanish;
-      }
+      subtitleText = thankyouText;
     } else {
-      if(language === 'english') {
-        titleText = welcome.title;
-      } else {
-        titleText = welcome.titleSpanish;
-      }
+      titleText = title;
     }
 
     return (

@@ -13,38 +13,38 @@ import "styles/common.css";
 const Contact = () => {
   const { state } = React.useContext(LanguageContext);
   const language = state.language;
+  const preTitle = contactDetails[language].preTitle;
+  const title = contactDetails[language].title;
+  const email = contactDetails.email;
+  const phone = contactDetails.phone;
 
   return (
     <Flex className={styles.contactSection}>
       <Flex className={styles.contactCallout}>
         <Flex direction="column" className={styles.contactText}>
           <p>
-            {language === "english"
-              ? contactDetails.preTitle
-              : contactDetails.preTitleSpanish}
+            {preTitle}
           </p>
           <h4 className="redText">
-            {language === "english"
-              ? contactDetails.title
-              : contactDetails.titleSpanish}
+            {title}
           </h4>
         </Flex>
         <Flex direction="column" align="start" className={styles.contactLinks}>
           <a
-            href={`mailto:${contactDetails.email}`}
+            href={`mailto:${email}`}
             className="link contactLink"
             target="_blank"
             rel="noopener noreferrer"
           >
-            {contactDetails.email}
+            {email}
           </a>
           <a
-            href={`tel:${contactDetails.phone}`}
+            href={`tel:${phone}`}
             className={classnames("link", styles.contactLink)}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {contactDetails.phone}
+            {phone}
           </a>
         </Flex>
       </Flex>

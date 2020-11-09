@@ -18,20 +18,15 @@ const Experiments = React.forwardRef(
   (props: ExperimentsProps, ref: React.Ref<HTMLDivElement>) => {
     const { state } = React.useContext(LanguageContext);
     const language = state.language;
+    const title = experiments[language].title;
 
     return (
       <div
         className={styles.experimentsSectionContainer}
         ref={ref}
       >
-        {language === "english"
-          ? formatSectionTitle(
-              experiments.title,
-              styles.experimentsTitle,
-              "blackText"
-            )
-          : formatSectionTitle(
-              experiments.titleSpanish,
+        {formatSectionTitle(
+              title,
               styles.experimentsTitle,
               "blackText"
             )}

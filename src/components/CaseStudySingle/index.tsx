@@ -10,24 +10,25 @@ import "styles/common.css";
 
 type CaseStudySingleProps = {
   projectData: {
-    title: string;
-    titleSpanish: string;
-    slug: string;
-    tagline?: string;
-    taglineSpanish?: string;
-    url: string;
-    description: string;
-    descriptionSpanish: string;
-    featureImage: {
-      src: string;
-      alt: string;
-      altSpanish: string;
+    english: {
+      title: string;
+      description: string;
+      featureImageAlt: string;
+      date?: string;
     };
+    spanish: {
+      title: string;
+      description: string;
+      featureImageAlt: string;
+      date?: string;
+    };
+    slug: string;
+    url: string;
+    featureImageSrc: string;
     stack: {
       backend: string;
       frontend: string;
     };
-    date: string;
   };
 };
 
@@ -35,40 +36,24 @@ const CaseStudySingle = (props: CaseStudySingleProps) => {
   const { state } = React.useContext(LanguageContext);
   const language = state.language;
   const projectData = props.projectData;
-  let projectHeader;
-
-  if (projectData.tagline) {
-    projectHeader = formatFirstWord(
-      `${
-        language === "english"
-          ? projectData.tagline
-          : projectData.taglineSpanish
-      }`,
-      "redText italicText"
-    );
-  } else {
-    projectHeader = formatFirstWord(
-      `${
-        language === "english" ? projectData.title : projectData.titleSpanish
-      }`,
-      "redText italicText"
-    );
-  }
+  const title = projectData[language].title;
+  const description = projectData[language].description;
+  const date = projectData[language].date;
+  const featureImageAlt = projectData[language].featureImageAlt;
+  const featureImageSrc = projectData.featureImageSrc;
+  const url = projectData.url;
+  const frontend = projectData.stack.frontend;
+  const backend = projectData.stack.backend;
+  const projectHeader = formatFirstWord(title, "redText italicText");
 
   return (
-    <Flex
-      className={styles.caseStudiesContent}
-    >
+    <Flex className={styles.caseStudiesContent}>
       <Flex direction="column" className={styles.caseStudiesContentLeft}>
         <Flex direction="column" className={styles.caseStudiesContentLeftInner}>
           <img
             className={styles.caseStudiesFeatureImage}
-            src={projectData.featureImage.src}
-            alt={
-              language === "english"
-                ? projectData.featureImage.alt
-                : projectData.featureImage.altSpanish
-            }
+            src={featureImageSrc}
+            alt={featureImageAlt}
           />
           <Flex
             direction="column"
@@ -78,19 +63,17 @@ const CaseStudySingle = (props: CaseStudySingleProps) => {
           >
             <div className={styles.caseStudiesMobile}>{projectHeader}</div>
             <p className={styles.caseStudiesLabel}>
-              {`${projectData.date}`}
+              {date}
               <span className="redText">.</span>
             </p>
             <p className={styles.caseStudiesDetail}>
-              {`${language === "english" ? "Frontend:" : "Interfaz:"} ${
-                projectData.stack.frontend
-              }`}
+              {`${
+                language === "english" ? "Frontend:" : "Interfaz:"
+              } ${frontend}`}
             </p>
-            <p className={styles.caseStudiesDetail}>
-              Backend: {projectData.stack.backend}
-            </p>
+            <p className={styles.caseStudiesDetail}>Backend: {backend}</p>
             <a
-              href={projectData.url}
+              href={url}
               className={styles.caseStudiesLink}
               target="_blank"
               rel="noopener noreferrer"
@@ -106,11 +89,7 @@ const CaseStudySingle = (props: CaseStudySingleProps) => {
           className={styles.caseStudiesContentRightInner}
         >
           {projectHeader}
-          <p>
-            {language === "english"
-              ? projectData.description
-              : projectData.descriptionSpanish}
-          </p>
+          <p>{description}</p>
         </Flex>
       </Flex>
     </Flex>
