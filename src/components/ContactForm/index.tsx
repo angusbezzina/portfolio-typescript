@@ -6,8 +6,14 @@ import Flex from "components/Flex";
 
 import { API_DEV_URI } from "utils/constants";
 
+type ContactInquiry = {
+  name: string;
+  email: string;
+  message: string;
+}
+
 const ContactForm = () => {
-  const { register, handleSubmit, formState, errors, reset } = useForm({
+  const { register, handleSubmit, formState, errors, reset } = useForm<ContactInquiry>({
     mode: "onChange",
   });
 
@@ -29,7 +35,6 @@ const ContactForm = () => {
           reset({
             name: "",
             email: "",
-            phoneNumber: "",
             message: "",
           });
         } else if (response.status === "fail") {
@@ -38,8 +43,8 @@ const ContactForm = () => {
       });
   };
 
-  console.log(errors);
-  console.log(JSON.stringify(formState));
+  // console.log(errors);
+  // console.log(JSON.stringify(formState));
 
   return (
     <form
@@ -56,7 +61,7 @@ const ContactForm = () => {
           type="text"
           placeholder="Name"
           name="name"
-          ref={register({ required: true, maxLength: 80 })}
+          ref={register({ required: true, minLength: 3, maxLength: 80 })}
         />
         {errors.name && "A name is required."}
 

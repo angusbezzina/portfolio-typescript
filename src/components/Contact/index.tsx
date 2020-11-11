@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 
 import Flex from "components/Flex";
-// import ContactForm from 'components/ContactForm';
+import ContactForm from 'components/ContactForm';
 
 import { LanguageContext } from "components/LanguageContext";
 import { contactDetails } from "utils/db/data";
@@ -48,9 +48,9 @@ const Contact = () => {
           </a>
         </Flex>
       </Flex>
-      {/* <Flex direction="column" className={styles.contactForm}>
+      <Flex direction="column" className={styles.contactForm}>
         <ContactForm />
-      </Flex> */}
+      </Flex>
     </Flex>
   );
 };

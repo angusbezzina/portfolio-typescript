@@ -23,15 +23,8 @@ const CaseStudies = React.forwardRef(
     const title = caseStudies[language].title;
 
     return (
-      <div
-        className={classnames(styles.caseStudiesSectionContainer)}
-        ref={ref}
-      >
-        {formatSectionTitle(
-              title,
-              styles.caseStudiesTitle,
-              "redText"
-            )}
+      <div className={classnames(styles.caseStudiesSectionContainer)} ref={ref}>
+        {formatSectionTitle(title, styles.caseStudiesTitle, "redText")}
         <Slider
           {...props.swiperProps}
           className={classnames(styles.caseStudiesSection)}
