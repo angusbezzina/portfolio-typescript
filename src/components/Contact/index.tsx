@@ -20,7 +20,7 @@ const Contact = () => {
 
   return (
     <Flex className={styles.contactSection}>
-      <Flex className={styles.contactCallout}>
+      <Flex className={styles.contactCallout} direction="column">
         <Flex direction="column" className={styles.contactText}>
           <p>
             {preTitle}

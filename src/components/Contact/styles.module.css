@@ -31,6 +31,14 @@
     padding: 4rem 2rem;
   }
 
+  .contactCallout {
+    width: 40%;
+  }
+
+  .contactForm {
+    width: 60%;
+  }
+
   .contactLinks {
     width: 55%;
   }

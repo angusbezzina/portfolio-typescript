@@ -1,0 +1,69 @@
+.contactForm {
+  margin-top: 1rem;
+}
+
+.formInner input,
+.formInner textarea {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  line-height: 1.6;
+  border: none;
+  outline: none;
+  font-family: var(--fontFamily);
+  font-size: 1rem;
+  background-color: var(--colorWhite);
+  border: 1px solid var(--colorWhite);
+  color: var(--colorBlack);
+  transition: border 0.3s ease-in-out;
+}
+
+.formInner input::placeholder,
+.formInner textarea::placeholder {
+  color: var(--colorBlack);
+}
+
+.formInner input:focus,
+.formInner textarea:focus {
+  border: 1px solid var(--colorRed);
+  transition: border 0.3s ease-in-out;
+}
+
+.formInner textarea {
+  height: 5rem;
+  resize: none;
+}
+
+.formError {
+  margin-bottom: 1rem;
+  color: var(--colorRed);
+}
+
+.formSubmit {
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  background-color: var(--colorRed);
+  color: var(--colorWhite);
+  border: none;
+  font-weight: bold;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.formSubmit span {
+  font-size: 1.25rem;
+}
+
+.formSubmitValid:hover {
+  cursor: pointer;
+  background: var(--colorBlue);
+  color: var(--colorWhite);
+  transition: background-color 0.3s ease-in-out;
+}
+
+@media(min-width: 768px) {
+  .contactForm {
+    margin-top: 0;
+  }
+}

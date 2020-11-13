@@ -1,4 +1,5 @@
 import React from "react";
+import classnames from 'classnames';
 import Slider from "react-slick";
 
 import ExperimentSingle from "components/ExperimentSingle";
@@ -21,18 +22,11 @@ const Experiments = React.forwardRef(
     const title = experiments[language].title;
 
     return (
-      <div
-        className={styles.experimentsSectionContainer}
-        ref={ref}
-      >
-        {formatSectionTitle(
-              title,
-              styles.experimentsTitle,
-              "blackText"
-            )}
+      <div className={styles.experimentsSectionContainer} ref={ref}>
+        {formatSectionTitle(title, styles.experimentsTitle, "blackText")}
         <Slider
           {...props.swiperProps}
-          className={styles.experimentsSection}
+          className={classnames(styles.experimentsSection, "sliderSection")}
         >
           {[...experiments.experimentList].map((experiment) => {
             return (
