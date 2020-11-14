@@ -50,47 +50,54 @@ const ContactForm = () => {
   // console.log(JSON.stringify(formState));
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className={styles.contactForm}
-    >
-      <Flex direction="column" className={styles.formInner}>
-          <input
-            type="text"
-            placeholder="Name"
-            name="name"
-            ref={register({ required: true, minLength: 3, maxLength: 80 })}
-          />
-        {errors.name && (
-          <Flex className={styles.formError}>Please enter a valid name.</Flex>
-        )}
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.contactForm}>
+      <input
+        type="text"
+        id="name"
+        placeholder="Name"
+        name="name"
+        ref={register({ required: true, minLength: 3, maxLength: 80 })}
+      />
+      {errors.name && (
+        <span role="alert" className={styles.formError}>
+          Please enter a valid name.
+        </span>
+      )}
 
-          <input
-            type="text"
-            placeholder="Email"
-            name="email"
-            ref={register({
-              required: true,
-              pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-            })}
-          />
-        {errors.email && (
-          <Flex className={styles.formError}>Please enter a valid email.</Flex>
-        )}
+      <input
+        type="text"
+        id="email"
+        placeholder="Email"
+        name="email"
+        ref={register({
+          required: true,
+          pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+        })}
+      />
+      {errors.email && (
+        <span role="alert" className={styles.formError}>
+          Please enter a valid email.
+        </span>
+      )}
 
-          <textarea
-            placeholder="Message"
-            name="message"
-            ref={register({ required: true, minLength: 20 })}
-          />
-        {errors.message && (
-          <Flex className={styles.formError}>Please enter a message.</Flex>
-        )}
+      <textarea
+        placeholder="Message"
+        id="message"
+        name="message"
+        ref={register({ required: true, minLength: 20 })}
+      />
+      {errors.message && (
+        <span role="alert" className={styles.formError}>Please enter a message.</span>
+      )}
 
-        <button className={classnames(styles.formSubmit, {[styles.formSubmitValid]: formState.isValid})} type="submit">
-          Send<span className="blackText">.</span>
-        </button>
-      </Flex>
+      <button
+        className={classnames(styles.formSubmit, {
+          [styles.formSubmitValid]: formState.isValid,
+        })}
+        type="submit"
+      >
+        Send<span className="blackText">.</span>
+      </button>
     </form>
   );
 };

@@ -1,9 +1,11 @@
 .contactForm {
+  display: flex;
+  flex-direction: column;
   margin-top: 1rem;
 }
 
-.formInner input,
-.formInner textarea {
+.contactForm input,
+.contactForm textarea {
   margin-bottom: 1rem;
   padding: 0.5rem;
   line-height: 1.6;
@@ -17,18 +19,18 @@
   transition: border 0.3s ease-in-out;
 }
 
-.formInner input::placeholder,
-.formInner textarea::placeholder {
+.contactForm input::placeholder,
+.contactForm textarea::placeholder {
   color: var(--colorBlack);
 }
 
-.formInner input:focus,
-.formInner textarea:focus {
+.contactForm input:focus,
+.contactForm textarea:focus {
   border: 1px solid var(--colorRed);
   transition: border 0.3s ease-in-out;
 }
 
-.formInner textarea {
+.contactForm textarea {
   height: 5rem;
   resize: none;
 }
