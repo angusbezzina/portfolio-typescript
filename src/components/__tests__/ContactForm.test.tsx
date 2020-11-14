@@ -10,9 +10,10 @@ global.MutationObserver = window.MutationObserver;
 jest.mock("utils/api");
 
 describe("Contact Form", () => {
-    beforeEach(async () => {
+  beforeEach(async () => {
     render(<ContactForm />);
     await waitFor(() => {});
+  });
 
   afterEach(() => {
     jest.clearAllMocks();
