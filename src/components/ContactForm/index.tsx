@@ -2,48 +2,27 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import classnames from "classnames";
 
-import Flex from "components/Flex";
-
-import { API_DEV_URI } from "utils/constants";
+import { submitContactForm, ContactInquiry } from "utils/api";
 import styles from "./styles.module.css";
 
-type ContactInquiry = {
-  name: string;
-  email: string;
-  message: string;
-};
-
 const ContactForm = () => {
-  const { register, handleSubmit, formState, errors, reset } = useForm<
-    ContactInquiry
-  >({
+  const { register, handleSubmit, formState, errors, reset } = useForm<ContactInquiry>({
     mode: "onChange",
   });
 
-  const onSubmit = (data: object, e: any) => {
-    console.log("Submit event", e, data);
+  const onSubmit = async (data: ContactInquiry, e: any) => {
+    try {
+      await submitContactForm(data);
 
-    fetch(API_DEV_URI, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        if (response.status === "success") {
-          alert("Message Sent.");
-          reset({
-            name: "",
-            email: "",
-            message: "",
-          });
-        } else if (response.status === "fail") {
-          alert("Message failed to send.");
-        }
+      // alert("Message Sent.");
+      reset({
+        name: "",
+        email: "",
+        message: "",
       });
+    } catch (err) {
+      // alert("Message failed to send.");
+    }
   };
 
   // console.log(errors);
@@ -87,7 +66,9 @@ const ContactForm = () => {
         ref={register({ required: true, minLength: 20 })}
       />
       {errors.message && (
-        <span role="alert" className={styles.formError}>Please enter a message.</span>
+        <span role="alert" className={styles.formError}>
+          Please enter a message.
+        </span>
       )}
 
       <button
