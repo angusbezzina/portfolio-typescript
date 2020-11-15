@@ -6,11 +6,9 @@ import App from "./App";
 
 global.MutationObserver = window.MutationObserver;
 
-// TODO: Fix this test
-it.skip("renders without crashing", () => {
+test.skip("renders without crashing", () => {
   render(<App />);
 });
-
 
 afterEach(cleanup);
 
@@ -25,7 +23,7 @@ test("<App />", () => {
   expect(englishLanguageButton.tagName).toBe("BUTTON");
   expect(spanishLanguageButton.tagName).toBe("BUTTON");
 
-  // Asserts that the welcome banner text changes with butto buttons to be buttons
+  // Asserts that the welcome banner text changes with language buttons
   fireEvent.click(englishLanguageButton);
   expect(welcomeText.textContent).toBe("Welcome.");
 
