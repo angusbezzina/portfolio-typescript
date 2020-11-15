@@ -28,7 +28,7 @@
     "test": "react-scripts test",
     "transfer": "aws s3 sync build/ s3://angusbezzina.com",
     "invalidate-cache": "aws cloudfront create-invalidation --distribution-id E2F88TMOM7YUVT --paths '/*'",
-    "deploy": "npm run type-check && npm run test && build && npm run transfer && npm run invalidate-cache"
+    "deploy": "npm run transfer && npm run invalidate-cache"
   },
   "eslintConfig": {
     "extends": "react-app"
