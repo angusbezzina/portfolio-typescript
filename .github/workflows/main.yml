@@ -18,11 +18,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Check cache for node modules
-        id: cache-modules
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: ${{ runner.OS }}-deps-${{ hashFiles('yarn.lock') }}
+      id: cache-modules
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: ${{ runner.OS }}-deps-${{ hashFiles('yarn.lock') }}
     - name: Yarn Install
       if: steps.cache-modules.outputs.cache-hit != 'true'
       run: |
