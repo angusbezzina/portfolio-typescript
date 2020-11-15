@@ -6,14 +6,16 @@ import "styles/common.css";
 
 const EnglishLanguageButton = () => {
   const { state, setLanguage} = React.useContext(LanguageContext);
+  const isActive = state.language === "english";
   return (
     <button
       className={classnames("languageButton", {
-        languageButtonActive: state.language === "english",
+        languageButtonActive: isActive,
       })}
-      onClick={() =>{
-        setLanguage('english');
+      onClick={() => {
+        setLanguage("english");
       }}
+      data-testid="english-language-button"
     >
       En<span>.</span>
     </button>

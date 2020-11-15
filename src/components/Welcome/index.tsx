@@ -61,23 +61,21 @@ const Welcome = React.forwardRef(
         id="welcome"
         align="center"
         justify="center"
-        className={classnames("animatedSection",
-          styles.welcomeSection
-        )}
+        className={classnames("animatedSection", styles.welcomeSection)}
         ref={ref}
       >
         {subtitleText && <h3 className={styles.welcomeSubtitle}>{subtitleText}</h3>}
         <animated.div
-          className={classnames(styles.welcomeSectionShade, {[styles.welcomeSectionShadeBlue]: props.shade.color === 'blue'})}
+          className={classnames(styles.welcomeSectionShade, {
+            [styles.welcomeSectionShadeBlue]: props.shade.color === "blue",
+          })}
           style={{
             transform: springShadeProps.transform,
           }}
         ></animated.div>
         <div
           className={styles.welcomeAnimationContainer}
-          onMouseMove={({ clientX: x, clientY: y }: MouseMove) =>
-            setSpringText({ xy: calc(x, y) })
-          }
+          onMouseMove={({ clientX: x, clientY: y }: MouseMove) => setSpringText({ xy: calc(x, y) })}
         >
           <animated.div style={{ transform: springTextProps.xy.to(trans1) }}>
             <h1
@@ -86,6 +84,7 @@ const Welcome = React.forwardRef(
                 [styles.welcomeHeaderSpanish]: language === "spanish",
                 [styles.welcomeHeaderThankyou]: props.shade.text !== "",
               })}
+              data-testid="welcome-text"
             >
               {titleText}
               <span className={`${props.shade.color}Text`}>.</span>
