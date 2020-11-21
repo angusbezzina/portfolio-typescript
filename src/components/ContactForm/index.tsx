@@ -2,6 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import classnames from "classnames";
 
+import Flex from 'components/Flex';
+
 import { submitContactForm, ContactInquiry } from "utils/api";
 import styles from "./styles.module.css";
 
@@ -9,19 +11,21 @@ const ContactForm = () => {
   const { register, handleSubmit, formState, errors, reset } = useForm<ContactInquiry>({
     mode: "onChange",
   });
+  const [message, setMessage] = React.useState("");
 
   const onSubmit = async (data: ContactInquiry, e: any) => {
     try {
       await submitContactForm(data);
 
-      // alert("Message Sent.");
+      setMessage(`Thanks for your message ${data.name}! I'll be in touch soon 😁`);
       reset({
         name: "",
         email: "",
         message: "",
       });
     } catch (err) {
-      // alert("Message failed to send.");
+      console.log(err);
+      setMessage(`I'm sorry ${data.name}, it looks like something has gone wrong 😔`);
     }
   };
 
@@ -79,6 +83,7 @@ const ContactForm = () => {
       >
         Send<span className="blackText">.</span>
       </button>
+      {message && <Flex className={styles.formSubmissionMessage}>{message}</Flex>}
     </form>
   );
 };

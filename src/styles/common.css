@@ -111,6 +111,11 @@ h6 {
   transition: color 0.3s ease-in-out;
 }
 
+.whiteText {
+  color: var(--colorWhite);
+  transition: color 0.3s ease-in-out;
+}
+
 .languageButton {
   position: relative;
   border: none;
@@ -167,7 +172,7 @@ h6 {
   margin-bottom: 0.5rem;
   text-decoration: none;
   color: var(--colorBlack);
-  border-bottom: 1px solid rgba(255, 255, 255, 0);
+  border-bottom: 1px solid var(--colorTransparent);;
   transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
 }
 

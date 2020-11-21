@@ -59,9 +59,17 @@
 
 .formSubmitValid:hover {
   cursor: pointer;
-  background: var(--colorBlue);
+  background: var(--colorOffBlack);
   color: var(--colorWhite);
   transition: background-color 0.3s ease-in-out;
+}
+
+.formSubmitValid:hover span {
+  color: var(--colorRed);
+}
+
+.formSubmissionMessage {
+  margin-top: 0.5rem;
 }
 
 @media(min-width: 768px) {

@@ -41,7 +41,7 @@
   content: "";
   width: 1.5rem;
   height: 1.5rem;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: var(--colorTransparent);
   border: 1px solid var(--colorRed);
   border-radius: 50%;
   z-index: 1;
@@ -73,7 +73,7 @@
 
 .biographyContentRightInner {
   padding: 2rem;
-  background-color: #1c1b20;
+  background-color: var(--colorOffBlack);
   color: var(--colorWhite);
   columns: 2;
   /* transform: translateX(30px);
@@ -105,7 +105,7 @@
   content: "";
   width: 1rem;
   height: 1rem;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: var(--colorTransparent);
   border: 1px solid var(--colorRed);
   border-radius: 50%;
   z-index: 1;
@@ -120,7 +120,7 @@
   list-style-type: none;
   margin-top: 0;
   padding-left: 0;
-  color: var(--colorTextAlt);
+  color: var(--colorTextAltLight);
 }
 
 .biographySkillsList li {

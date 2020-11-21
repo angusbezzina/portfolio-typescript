@@ -11,6 +11,7 @@ function getApiUrl() {
 }
 
 export async function submitContactForm(data: ContactInquiry) {
+  
   const response = await fetch(getApiUrl(), {
     method: 'POST',
     body: JSON.stringify(data),
@@ -22,7 +23,7 @@ export async function submitContactForm(data: ContactInquiry) {
 
   const body = await response.json();
 
-  if (!body || body.status !== 'success') {
+  if (!body || !body.success) {
     throw new Error('Something went wrong');
   }
 }
