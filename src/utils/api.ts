@@ -4,6 +4,7 @@ export type ContactInquiry = {
   name: string;
   email: string;
   message: string;
+  language: string;
 };
 
 function getApiUrl() {

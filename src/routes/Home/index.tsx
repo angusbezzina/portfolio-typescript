@@ -48,7 +48,7 @@ const Home = () => {
   React.useEffect(() => {
     const onKeyDown = (e: any) => {
       const setThankyou = (text: string) => {
-        // Is Mitch, Is Easter Egg change this to one variable and derive the rest of the information from there.
+        // TODO: change this to one variable and derive the rest of the information from there.
         setShade(() => ({ ...shade, open: false, color: "red" }));
         setTimeout(() => {
           setShade(() => ({ text: text, open: true, color: "blue" }));

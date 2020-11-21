@@ -21,7 +21,17 @@ interface LanguageContext {
   resetLanguage(): void;
 }
 
-const defaultState: LanguageState = { language: "english" };
+const languageCookie = localStorage.getItem("user_language");
+const defaultBrowserLanguage = languageCookie ? languageCookie : window.navigator.language;
+const defaultUserLanguage =
+  defaultBrowserLanguage.includes("es") || defaultBrowserLanguage === "spanish"
+    ? "spanish"
+    : "english";
+if (!languageCookie) {
+  localStorage.setItem("user_language", defaultUserLanguage);
+}
+
+const defaultState: LanguageState = { language: defaultUserLanguage };
 
 export const LanguageContext = React.createContext<LanguageContext>({
   state: defaultState,
@@ -31,10 +41,7 @@ export const LanguageContext = React.createContext<LanguageContext>({
 
 export const useLanguage = () => React.useContext(LanguageContext);
 
-function languageReducer(
-  prevState: LanguageState,
-  action: LanguageAction
-): LanguageState {
+function languageReducer(prevState: LanguageState, action: LanguageAction): LanguageState {
   switch (action.type) {
     case "set":
       return {
@@ -51,8 +58,8 @@ function languageReducer(
   }
 }
 export const LanguageContextProvider: React.FC = ({ children }) => {
-	const [state, dispatch] = React.useReducer(languageReducer, defaultState);
-	function setLanguage(language: Language) {
+  const [state, dispatch] = React.useReducer(languageReducer, defaultState);
+  function setLanguage(language: Language) {
     dispatch({ type: "set", payload: language });
   }
   function resetLanguage() {

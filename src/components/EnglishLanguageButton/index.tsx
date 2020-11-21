@@ -14,6 +14,7 @@ const EnglishLanguageButton = () => {
       })}
       onClick={() => {
         setLanguage("english");
+        localStorage.setItem("user_language", "english");
       }}
       data-testid="english-language-button"
     >
