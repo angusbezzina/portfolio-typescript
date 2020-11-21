@@ -137,6 +137,7 @@ describe("Contact Form", () => {
 
     await waitFor(() => expect(screen.queryAllByRole("alert")).toHaveLength(0));
     expect(submitContactForm).toBeCalledWith({
+      language: "english",
       name: "name",
       email: "test@mail.com",
       message: "Somewhere in La Mancha, in a place whose name I do not care to remember…",
