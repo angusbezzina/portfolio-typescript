@@ -3,10 +3,9 @@ import React from "react";
 import Flex from "components/Flex";
 
 import formatFirstWord from "utils/formatFirstWord";
-import { LanguageContext } from "components/LanguageContext";
+import { useLanguage } from "components/LanguageContext";
 
 import styles from "./styles.module.css";
-import "styles/common.css";
 
 type CaseStudySingleProps = {
   projectData: {
@@ -33,8 +32,8 @@ type CaseStudySingleProps = {
 };
 
 const CaseStudySingle = (props: CaseStudySingleProps) => {
-  const { state } = React.useContext(LanguageContext);
-  const language = state.language;
+  const languageState = useLanguage();
+  const language = languageState.state.language;
   const projectData = props.projectData;
   const title = projectData[language].title;
   const description = projectData[language].description;

@@ -5,16 +5,15 @@ import Flex from "components/Flex";
 
 import formatLastWord from "utils/formatLastWord";
 import { biography } from "utils/db/data";
-import { LanguageContext } from "components/LanguageContext";
+import { useLanguage } from "components/LanguageContext";
 
 import formatSectionTitle from "utils/formatSectionTitle";
 
 import styles from "./styles.module.css";
-import "styles/common.css";
 
 const Biography = () => {
-  const { state } = React.useContext(LanguageContext);
-  const language = state.language;
+  const languageState = useLanguage();
+  const language = languageState.state.language;
   const title = biography[language].title;
   const subtitle = biography[language].subtitle;
   const text = biography[language].text;

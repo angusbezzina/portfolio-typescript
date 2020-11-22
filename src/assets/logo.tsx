@@ -2,8 +2,6 @@ import React from 'react';
 import classnames from 'classnames';
 import SVGInline from "react-svg-inline";
 
-import 'styles/common.css';
-
 type LogoProps = {
   className?: string;
 };

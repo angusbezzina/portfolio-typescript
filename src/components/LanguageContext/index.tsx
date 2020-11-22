@@ -1,6 +1,5 @@
 import React from "react";
-
-type Language = "english" | "spanish";
+import { Language, setPreferredLanguage, getPreferredLanguage } from 'utils/language';
 
 interface LanguageState {
   language: Language;
@@ -10,33 +9,18 @@ interface SetLanguageAction {
   type: "set";
   payload: Language;
 }
-interface ResetLanguageAction {
-  type: "reset";
-}
-type LanguageAction = SetLanguageAction | ResetLanguageAction;
+type LanguageAction = SetLanguageAction;
 
 interface LanguageContext {
   state: LanguageState;
   setLanguage(language: Language): void;
-  resetLanguage(): void;
 }
 
-const languageCookie = localStorage.getItem("user_language");
-const defaultBrowserLanguage = languageCookie ? languageCookie : window.navigator.language;
-const defaultUserLanguage =
-  defaultBrowserLanguage.includes("es") || defaultBrowserLanguage === "spanish"
-    ? "spanish"
-    : "english";
-if (!languageCookie) {
-  localStorage.setItem("user_language", defaultUserLanguage);
-}
-
-const defaultState: LanguageState = { language: defaultUserLanguage };
+const defaultState: LanguageState = { language: getPreferredLanguage() };
 
 export const LanguageContext = React.createContext<LanguageContext>({
   state: defaultState,
   setLanguage() {},
-  resetLanguage() {},
 });
 
 export const useLanguage = () => React.useContext(LanguageContext);
@@ -48,11 +32,6 @@ function languageReducer(prevState: LanguageState, action: LanguageAction): Lang
         ...prevState,
         language: action.payload,
       };
-    case "reset":
-      return {
-        ...prevState,
-        language: "english",
-      };
     default:
       return prevState;
   }
@@ -61,12 +40,10 @@ export const LanguageContextProvider: React.FC = ({ children }) => {
   const [state, dispatch] = React.useReducer(languageReducer, defaultState);
   function setLanguage(language: Language) {
     dispatch({ type: "set", payload: language });
-  }
-  function resetLanguage() {
-    dispatch({ type: "reset" });
+    setPreferredLanguage(language);
   }
   return (
-    <LanguageContext.Provider value={{ state, setLanguage, resetLanguage }}>
+    <LanguageContext.Provider value={{ state, setLanguage }}>
       {children}
     </LanguageContext.Provider>
   );

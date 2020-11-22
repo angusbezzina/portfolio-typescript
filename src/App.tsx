@@ -8,8 +8,6 @@ import PageNotFound from "routes/PageNotFound";
 
 import { LanguageContextProvider } from "components/LanguageContext";
 
-import "styles/common.css";
-
 const App = () => (
   <BrowserRouter>
     <LanguageContextProvider>

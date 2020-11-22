@@ -1,6 +1,7 @@
 import React from "react";
+import classnames from "classnames";
 
-const formatSectionTitle = (string, classNames, classNamesAlternate) => {
+const formatSectionTitle = (string: string, classNames: Array<string> | string, classNamesAlternate: Array<string> | string) => {
   const stringLength = string.length;
   const words = string.split(" ");
   const numberOfWords = words.length;
@@ -15,10 +16,10 @@ const formatSectionTitle = (string, classNames, classNamesAlternate) => {
       titleParts.push(string.substring(0, middle), string.substring(middle));
 
       return (
-        <h2 className={classNames}>
+        <h2 className={classnames(classNames)}>
           {titleParts[0]}
           <br />
-          {titleParts[1]}<span className={classNamesAlternate}>.</span>
+          {titleParts[1]}<span className={classnames(classNamesAlternate)}>.</span>
         </h2>
       );
     }
@@ -32,19 +33,19 @@ const formatSectionTitle = (string, classNames, classNamesAlternate) => {
 
 
       return (
-        <h2 className={classNames}>
+        <h2 className={classnames(classNames)}>
           {partOne}
           <br />
           {partTwo}
-          <span className={classNamesAlternate}>.</span>
+          <span className={classnames(classNamesAlternate)}>.</span>
         </h2>
       );
     }
   }
 
     return (
-      <h2 className={classNames}>
-        {string}<span className={classNamesAlternate}>.</span>
+      <h2 className={classnames(classNames)}>
+        {string}<span className={classnames(classNamesAlternate)}>.</span>
       </h2>
     );
   };

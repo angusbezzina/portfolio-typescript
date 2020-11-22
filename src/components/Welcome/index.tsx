@@ -5,11 +5,10 @@ import { useSpring, animated } from "react-spring";
 
 import Flex from "components/Flex";
 
-import { LanguageContext } from "components/LanguageContext";
+import { useLanguage } from "components/LanguageContext";
 import { welcome } from "utils/db/data";
 
 import styles from "./styles.module.css"; 
-import "styles/common.css";
 
 interface WelcomeProps {
   thankYouMessage?: string;
@@ -34,8 +33,8 @@ const trans1 = (x: number, y: number) =>
 
 const Welcome = React.forwardRef(
   (props: WelcomeProps, ref: React.Ref<HTMLDivElement>) => {
-    const { state } = React.useContext(LanguageContext);
-    const language = state.language;
+    const languageState = useLanguage();
+    const language = languageState.state.language;
     const title = welcome[language].title;
     const thankyouText = welcome[language].thankyouText;
     const [springTextProps, setSpringText] = useSpring(() => ({

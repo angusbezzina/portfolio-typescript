@@ -4,15 +4,14 @@ import classnames from "classnames";
 import Flex from "components/Flex";
 import ContactForm from 'components/ContactForm';
 
-import { LanguageContext } from "components/LanguageContext";
+import { useLanguage } from "components/LanguageContext";
 import { contactDetails } from "utils/db/data";
 
 import styles from "./styles.module.css";
-import "styles/common.css";
 
 const Contact = () => {
-  const { state } = React.useContext(LanguageContext);
-  const language = state.language;
+  const languageState = useLanguage();
+  const language = languageState.state.language;
   const preTitle = contactDetails[language].preTitle;
   const title = contactDetails[language].title;
   const email = contactDetails.email;

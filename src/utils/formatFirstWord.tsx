@@ -1,6 +1,7 @@
 import React from "react";
+import classnames from 'classnames';
 
-const formatFirstWord = (string, classNames) => {
+const formatFirstWord = (string: string, classNames: Array<string> | string) => {
   if (string.length > 1) {
     const stringWords = string.split(" ");
     const firstWord = stringWords[0];
@@ -13,7 +14,7 @@ const formatFirstWord = (string, classNames) => {
       return (
         <h3>
           {firstWord}
-          <span class="redText">.</span>
+          <span className="redText">.</span>
         </h3>
       );
     }
@@ -22,7 +23,7 @@ const formatFirstWord = (string, classNames) => {
     const stringWordsJoined = stringWords.join(" ");
     return (
       <h3>
-        <span className={classNames}>{firstWord}</span> {stringWordsJoined}
+        <span className={classnames(classNames)}>{firstWord}</span> {stringWordsJoined}
         <span className="redText">.</span>
       </h3>
     );

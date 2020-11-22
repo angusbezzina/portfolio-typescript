@@ -4,7 +4,7 @@ import classnames from "classnames";
 
 import Flex from 'components/Flex';
 
-import { LanguageContext } from "components/LanguageContext";
+import { useLanguage } from "components/LanguageContext";
 import { submitContactForm, ContactInquiry } from "utils/api";
 import styles from "./styles.module.css";
 
@@ -13,11 +13,11 @@ const ContactForm = () => {
     mode: "onChange",
   });
   const [message, setMessage] = React.useState("");
-  const { state } = React.useContext(LanguageContext);
-  const language = state.language;
+  const languageState = useLanguage();
+  const language = languageState.state.language;
 
   const onSubmit = async (data: ContactInquiry, e: any) => {
-    const submissionData = {...data, language: language};
+    const submissionData = {...data, language};
 
     try {
       await submitContactForm(submissionData);

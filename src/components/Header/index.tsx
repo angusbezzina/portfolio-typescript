@@ -7,7 +7,6 @@ import  SpanishLanguageButton from 'components/SpanishLanguageButton';
 import  EnglishLanguageButton from 'components/EnglishLanguageButton';
 
 import styles from "./styles.module.css";
-import "styles/common.css";
 
 const Header = () => {
   return (

@@ -3,8 +3,6 @@ import classnames from 'classnames';
 
 import { LanguageContext } from "components/LanguageContext";
 
-import 'styles/common.css';
-
 const SpanishLanguageButton = () => {
   const { state, setLanguage} = React.useContext(LanguageContext);
   const isActive = state.language === "spanish";
@@ -16,7 +14,6 @@ const SpanishLanguageButton = () => {
       })}
       onClick={() =>{
         setLanguage('spanish');
-        localStorage.setItem("user_language", "spanish");
       }}
       data-testid="spanish-language-button"
     >

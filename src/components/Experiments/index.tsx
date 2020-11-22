@@ -6,10 +6,9 @@ import ExperimentSingle from "components/ExperimentSingle";
 
 import formatSectionTitle from "utils/formatSectionTitle";
 import { experiments } from "utils/db/data";
-import { LanguageContext } from "components/LanguageContext";
+import { useLanguage } from "components/LanguageContext";
 
 import styles from "./styles.module.css";
-import "styles/common.css";
 
 type ExperimentsProps = {
   swiperProps: object;
@@ -17,8 +16,8 @@ type ExperimentsProps = {
 
 const Experiments = React.forwardRef(
   (props: ExperimentsProps, ref: React.Ref<HTMLDivElement>) => {
-    const { state } = React.useContext(LanguageContext);
-    const language = state.language;
+    const languageState = useLanguage();
+    const language = languageState.state.language;
     const title = experiments[language].title;
 
     return (

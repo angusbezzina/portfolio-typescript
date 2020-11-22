@@ -12,8 +12,6 @@ import ScrollIndicator from "components/ScrollIndicator";
 import ScrollToTop from "components/ScrollToTop";
 import SocialLinks from "components/SocialLinks";
 
-import "styles/common.css";
-
 const Home = () => {
   const [keyMap, setKeyMap] = React.useState({
     time: 0,
