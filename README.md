@@ -1,3 +1,9 @@
+# Portfolio Typescript Frontend
+
+## Description
+
+Portfolio website built with React and Typescript. The contact form uses an API connected to a lambda function - you can find the repo for that [here](https://github.com/angusbezzina/portfolio-typescript-backend).
+
 ### Project Setup
 
 Install node modules with `yarn`.
