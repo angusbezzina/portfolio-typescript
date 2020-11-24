@@ -2,7 +2,7 @@ import oqpiBackgroundImage from "img/oqpi.png";
 import yourWorkoutAppBackgroundImage from "img/yourworkoutapp.png";
 import emetBackgroundImage from "img/emetISLHD.png";
 import linmickBackgroundImage from "img/linmickdistributors.png";
-import focusAustraliaBackgroundImage from "img/focusAustralia.png";
+import portfolioBackgroundImage from "img/portfolio.png";
 
 export const welcome = {
   english: {
@@ -131,30 +131,29 @@ export const caseStudies = {
       stack: {
         backend: "Wordpress",
         frontend: "Javascript, HTML, CSS",
-      }
+      },
     },
     {
       english: {
-        title: "Focus Australia",
+        title: "AngusBezzina.com",
         description:
-          "Simple static website created for a local business.",
-        featureImageAlt: "Focus Australia Screenshot",
-        date: "July, 2020",
+          "Portfolio website built with React and Typescript. Utilises a simple contact form that is connected to AirTable with an AWS λ function.",
+        featureImageAlt: "AngusBezzina.com Screenshot",
+        date: "September, 2020",
       },
       spanish: {
-        title: "Focus Australia",
-        description:
-          "Sitio web estático simple creado para una empresa local.",
-        featureImageAlt: "Focus Australia Captura de pantalla",
-        date: "Julio, 2020",
+        title: "AngusBezzina.com",
+        description: "Sitio web de la cartera construido con React y Typescript. Utiliza un formulario de contacto simple que está conectado a AirTable con una función AWS λ.",
+        featureImageAlt: "AngusBezzina.com Captura de pantalla",
+        date: "Septiembre, 2020",
       },
-      slug: "focus-australia",
-      url: "http://focusau.com.au/",
-      featureImageSrc: focusAustraliaBackgroundImage,
+      slug: "angusbezzina",
+      url: "https://angusbezzina.com/",
+      featureImageSrc: portfolioBackgroundImage,
       stack: {
-        backend: "N/A",
-        frontend: "Javascript, HTML, CSS",
-      }
+        backend: "AWS/Serverless",
+        frontend: "React, Typescript",
+      },
     },
   ],
 };
