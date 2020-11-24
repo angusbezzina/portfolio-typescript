@@ -1,4 +1,3 @@
-import foreWordBackgroundImage from "img/forWord.jpg";
 import oqpiBackgroundImage from "img/oqpi.png";
 import yourWorkoutAppBackgroundImage from "img/yourworkoutapp.png";
 import emetBackgroundImage from "img/emetISLHD.png";
@@ -226,12 +225,10 @@ export const experiments = {
         title: "ForeWord",
         description:
           "Una aplicación donde los usuarios pueden suscribirse y aprender una nueva palabra en un idioma extranjero todos los días.",
-        featureImageAlt: "ForeWord Captura de pantalla",
         date: "Julio, 2020 (actualmente en desarrollo)",
       },
       slug: "foreword",
       url: "",
-      featureImageSrc: foreWordBackgroundImage,
       stack: {
         backend: "AWS/Serverless",
         frontend: "Javascript (React), HTML, CSS",

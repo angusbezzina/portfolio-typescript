@@ -29,7 +29,7 @@ const calc = (x: number, y: number) => [
   y - window.innerHeight / 2,
 ];
 const trans1 = (x: number, y: number) =>
-  `translate3d(${x / 10}px,${y / 10}px,0)`;
+  `translate3d(${x / 10}px, ${y / 10}px, 0)`;
 
 const Welcome = React.forwardRef(
   (props: WelcomeProps, ref: React.Ref<HTMLDivElement>) => {
@@ -39,7 +39,7 @@ const Welcome = React.forwardRef(
     const thankyouText = welcome[language].thankyouText;
     const [springTextProps, setSpringText] = useSpring(() => ({
       xy: [0, 0],
-      config: { mass: 10, tension: 550, friction: 140 },
+      config: { mass: 10, tension: 750, friction: 210 },
     }));
     const springShadeProps = useSpring({
       transform: props.shade.open ? "scaleX(1)" : "scaleX(0)",

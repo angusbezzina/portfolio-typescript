@@ -22,7 +22,7 @@ const Experiments = React.forwardRef(
 
     return (
       <div className={styles.experimentsSectionContainer} ref={ref}> 
-        {formatSectionTitle(title, styles.experimentsTitle, "whiteText")}
+        {formatSectionTitle(title, styles.experimentsTitle, "blackText")}
         <Slider
           {...props.swiperProps}
           className={classnames(styles.experimentsSection, "sliderSection")}

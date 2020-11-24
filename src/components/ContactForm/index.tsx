@@ -85,6 +85,7 @@ const ContactForm = () => {
           [styles.formSubmitValid]: formState.isValid,
         })}
         type="submit"
+        disabled={!formState.isValid}
       >
         Send<span className="blackText">.</span>
       </button>

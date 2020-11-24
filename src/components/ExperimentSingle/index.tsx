@@ -17,12 +17,12 @@ type ExperimentSingleProps = {
     spanish: {
       title: string;
       description: string;
-      featureImageAlt: string;
+      featureImageAlt?: string;
       date: string;
     };
     slug: string;
     url: string;
-    featureImageSrc: string;
+    featureImageSrc?: string;
     stack: {
       backend: string;
       frontend: string;
@@ -40,20 +40,23 @@ const ExperimentSingle = (props: ExperimentSingleProps) => {
   const url = experimentData.url;
   const frontend = experimentData.stack.frontend;
   const backend = experimentData.stack.backend;
-  
+  const image = experimentData.featureImageSrc;
 
   return (
-    <Flex
-      direction="column"
-      className={styles.experimentsSlideContent}
-    >
-      <Flex className={styles.experimentsImage}></Flex>
+    <Flex direction="column" className={styles.experimentsSlideContent}>
+      <Flex className={styles.experimentsImage} style={{ backgroundImage: `url(${image})` }}>
+        {!image && (
+          <h2 className={styles.experimentsComingSoon}>
+            Coming Soon<span className="redText">.</span>
+          </h2>
+        )}
+      </Flex>
       <Flex className={styles.experimentsContent}>
         <Flex className={styles.experimentsSubtitle}>
-          <h3>
+          <h2>
             {title}
             <span className="redText">.</span>
-          </h3>
+          </h2>
         </Flex>
         <Flex className={styles.experimentsText}>
           <Flex
@@ -67,13 +70,9 @@ const ExperimentSingle = (props: ExperimentSingleProps) => {
               <span className="redText">.</span>
             </p>
             <p className={styles.experimentsDetail}>
-              {`${language === "english" ? "Frontend:" : "Interfaz:"} ${
-                frontend
-              }`}
+              {`${language === "english" ? "Frontend:" : "Interfaz:"} ${frontend}`}
             </p>
-            <p className={styles.experimentsDetail}>
-              Backend: {backend}
-            </p>
+            <p className={styles.experimentsDetail}>Backend: {backend}</p>
             {url && (
               <a
                 href={url}
@@ -81,16 +80,12 @@ const ExperimentSingle = (props: ExperimentSingleProps) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {language === "english"
-                  ? "View the experiment"
-                  : "Ver el experimento"}
+                {language === "english" ? "View the experiment" : "Ver el experimento"}
               </a>
             )}
             {!url && (
               <p className={styles.experimentsDeadLink}>
-                {language === "english"
-                  ? "Link coming soon"
-                  : "Enlace próximamente"}
+                {language === "english" ? "Link coming soon" : "Enlace próximamente"}
                 <span className="redText">.</span>
               </p>
             )}

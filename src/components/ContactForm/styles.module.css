@@ -24,12 +24,6 @@
   color: var(--colorBlack);
 }
 
-.contactForm input:focus,
-.contactForm textarea:focus {
-  border: 1px solid var(--colorRed);
-  transition: border 0.3s ease-in-out;
-}
-
 .contactForm textarea {
   height: 5rem;
   resize: none;
