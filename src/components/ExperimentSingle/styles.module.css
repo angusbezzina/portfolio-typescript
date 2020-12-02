@@ -6,7 +6,9 @@
 
 .experimentsImage {
   width: 100%;
-  height: 40vh;
+  margin-top: 1.5rem;
+  height: 20vh;
+  min-height: 130px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,7 +21,8 @@
 }
 
 .experimentsComingSoon {
-  font-size: 2rem;
+  font-size: 1rem;
+  margin-bottom: 0;
 }
 
 /* .experimentsContent {
@@ -148,7 +151,12 @@
 
 @media (min-width: 768px) {
   .experimentsComingSoon {
-    font-size: 2.5rem;
+    font-size: 2rem;
+  }
+
+  .experimentsImage {
+    height: 35vh;
+    margin-top: 0;
   }
 
   .experimentsTitle {

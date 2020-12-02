@@ -19,10 +19,9 @@
   padding: 3rem 2rem 0;
   margin-bottom: -2rem;
   text-align: left;
-  font-size: 2.5rem;
+  font-size: 2rem;
   line-height: 1;
   color: var(--colorRed);
-  z-index: 10;
   /* transform: translateX(-30px); */
   /* opacity: 0;
   transition: transform 1s ease-in-out, opacity 1s ease-in-out; */
@@ -62,6 +61,11 @@
 @media (min-width: 768px) {
   .experimentsSectionContainer {
     padding-top: 8rem;
+  }
+
+  .experimentsTitle {
+    font-size: 2.5rem;
+    z-index: 10;
   }
 
   .experimentsSection {

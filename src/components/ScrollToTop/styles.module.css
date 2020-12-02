@@ -1,5 +1,5 @@
 .scrollTop {
-  position: fixed;
+  position: absolute;
   bottom: 1rem;
   right: 2rem;
   display: inline-block;

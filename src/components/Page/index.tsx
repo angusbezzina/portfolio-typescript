@@ -8,6 +8,7 @@ import styles from "./styles.module.css";
 type PageProps = {
   centered?: boolean;
   children?: React.ReactNode;
+  id?: string;
   className?: string;
   align?: "start" | "end" | "center" | "stretch" | "space-between";
   direction?: "row" | "column";
@@ -20,6 +21,7 @@ const Page = ({
   children,
   className,
   direction = "column",
+  id,
   justify,
   ...props
 }: PageProps) => (
@@ -28,6 +30,7 @@ const Page = ({
     className={classnames(styles.page, className, {
       [styles.pageCentered]: centered,
     })}
+    id={id}
     align={centered ? "center" : align}
     justify={centered ? "center" : justify}
     {...props}

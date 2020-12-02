@@ -16,7 +16,7 @@
 .biographyTitle {
   position: relative;
   padding-top: 3rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
   line-height: 1;
   color: var(--colorRed);
   z-index: 0;
@@ -135,6 +135,7 @@
 
   .biographyTitle {
     padding-top: 4rem;
+    font-size: 2.5rem;
   }
 
   .biographySubtitle h3 {

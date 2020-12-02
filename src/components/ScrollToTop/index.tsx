@@ -9,8 +9,9 @@ import styles from './styles.module.css';
 
 const ScrollToTop = () => {
   const scrollTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
   };
+  console.log(scrollTop);
   const languageState = useLanguage();
   const language = languageState.state.language;
 

@@ -4,6 +4,10 @@ body,
   width: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
@@ -306,4 +310,29 @@ h6 {
     padding: 0;
     text-align: center;
   }
+}
+
+.button {
+  border: none;
+  outline: none;
+  padding: 0.5rem 2.25rem;
+  background-color: var(--colorRed);
+  color: var(--colorWhite);
+  border: none;
+  font-weight: bold;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+  cursor: pointer;
+  background: var(--colorOffBlack);
+  color: var(--colorWhite);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover span {
+  color: var(--colorRed);
+  transition: color 0.3s ease-in-out;
 }

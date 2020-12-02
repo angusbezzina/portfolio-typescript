@@ -14,7 +14,7 @@
   font-family: var(--fontFamily);
   font-size: 1rem;
   background-color: var(--colorWhite);
-  border: 1px solid var(--colorWhite);
+  border: none;
   color: var(--colorBlack);
   transition: border 0.3s ease-in-out;
 }
