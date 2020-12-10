@@ -169,8 +169,7 @@ export const experiments = {
     {
       english: {
         title: "Your Workout App",
-        description:
-          "Workout app that generates random workouts based on user preferences.",
+        description: "Workout app that generates random workouts based on user preferences.",
         featureImageAlt: "Your Workout App screenshot",
         date: "September, 2019",
       },
@@ -185,8 +184,8 @@ export const experiments = {
       url: "https://yourworkout.app/",
       featureImageSrc: yourWorkoutAppBackgroundImage,
       stack: {
-        backend: "AWS",
-        frontend: "Javascript (React), HTML, CSS",
+        backend: "Node JS, GraphQL (apollo-server-lambda), AWS Serverless",
+        frontend: "React, Apollo",
       },
     },
     {
@@ -208,8 +207,8 @@ export const experiments = {
       url: "https://oqpi.com.au/",
       featureImageSrc: oqpiBackgroundImage,
       stack: {
-        backend: "AWS",
-        frontend: "Javascript (React), HTML, CSS",
+        backend: "Node JS, GraphQL (apollo-server-lambda), AWS Serverless",
+        frontend: "React, Apollo",
       },
     },
     {
