@@ -215,7 +215,7 @@ export const experiments = {
       english: {
         title: "ForeWord",
         description:
-          "An app where users can subscribe too learn a new word in a foreign language every day.",
+          "An app where users can subscribe to learn a new word in a foreign language every day.",
         featureImageAlt: "ForeWord Screenshot",
         date: "July, 2020 (currently in development)",
       },
