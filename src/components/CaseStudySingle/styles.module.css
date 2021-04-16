@@ -1,6 +1,22 @@
 .caseStudiesFeatureImage {
+  position: relative;
   width: 100%;
-  height: auto;
+  height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 56.25%;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-color: var(--colorWhite);
+}
+
+.caseStudiesComingSoon {
+  position: absolute;
+  top: calc(50% - 1rem);
+  line-height: 1;
+  font-size: 2rem;
 }
 
 .caseStudiesContentLeft {

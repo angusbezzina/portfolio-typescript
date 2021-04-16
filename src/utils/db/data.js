@@ -19,64 +19,70 @@ export const biography = {
     title: "About me",
     subtitle: "Hi, my name is Angus",
     text:
-    "I'm a software engineer with skills in React, NodeJS, Typescript, Python, PHP, HTML, CSS, AWS and Serverless amongst other things. I've created this site as a place where you can connect with me and explore my work and the projects I experiment with in my spare time. I hope you enjoy it!",
-    skills: [{
-      title: "Technical Skills",
-      skillList: [
-        "Javascript/HTML/CSS",
-        "React",
-        "Typescript",
-        "NodeJS",
-        "AWS",
-        "Serverless",
-        "Python",
-        "C",
-        "PHP",
-      ],
-    }, {
-      title: "Soft Skills",
-      skillList: [
-        "Critical thinking",
-        "Adaptability",
-        "Creativity",
-        "Verbal communication",
-        "Written communication",
-        "Leadership",
-        "Punctuality"
-      ]
-    }],
+      "I'm a software engineer with skills in React, NodeJS, Typescript, Python, PHP, HTML, CSS, AWS and Serverless amongst other things. I've created this site as a place where you can connect with me and explore my work and the projects I experiment with in my spare time. I hope you enjoy it!",
+    skills: [
+      {
+        title: "Technical Skills",
+        skillList: [
+          "Javascript/HTML/CSS",
+          "React",
+          "Typescript",
+          "NodeJS",
+          "AWS",
+          "Serverless",
+          "Python",
+          "C",
+          "PHP",
+        ],
+      },
+      {
+        title: "Soft Skills",
+        skillList: [
+          "Critical thinking",
+          "Adaptability",
+          "Creativity",
+          "Verbal communication",
+          "Written communication",
+          "Leadership",
+          "Punctuality",
+        ],
+      },
+    ],
   },
   spanish: {
     title: "Sobre mí",
     subtitle: "Hola, mi nombre es Angus",
     text:
-    "Soy un ingeniero de software con habilidades en React, NodeJS, Typescript, Python, PHP, HTML, CSS, AWS y Serverless, entre otras cosas. He creado este sitio como un lugar donde puedes conectarte conmigo y explorar mi trabajo y los proyectos con los que experimento en mi tiempo libre. ¡Espero que lo disfruten!",
-    skills: [{
-      title: "Habilidades Técnicas",
-      skillList: [
-        "Javascript/HTML/CSS",
-        "React",
-        "Typescript",
-        "NodeJS",
-        "AWS",
-        "Serverless",
-        "Python",
-        "C",
-        "PHP",
-      ],
-    }, {
-      title: "Habilidades blandas",
-      skillList: [
-        "Pensamiento crítico",
-        "Adaptabilidad",
-        "Creatividad",
-        "Comunicación verbal",
-        "Comunicación escrita",
-        "Liderazgo",
-        "Puntualidad"
-      ],
-    }],
-  }
+      "Soy un ingeniero de software con habilidades en React, NodeJS, Typescript, Python, PHP, HTML, CSS, AWS y Serverless, entre otras cosas. He creado este sitio como un lugar donde puedes conectarte conmigo y explorar mi trabajo y los proyectos con los que experimento en mi tiempo libre. ¡Espero que lo disfruten!",
+    skills: [
+      {
+        title: "Habilidades Técnicas",
+        skillList: [
+          "Javascript/HTML/CSS",
+          "React",
+          "Typescript",
+          "NodeJS",
+          "AWS",
+          "Serverless",
+          "Python",
+          "C",
+          "PHP",
+        ],
+      },
+      {
+        title: "Habilidades blandas",
+        skillList: [
+          "Pensamiento crítico",
+          "Adaptabilidad",
+          "Creatividad",
+          "Comunicación verbal",
+          "Comunicación escrita",
+          "Liderazgo",
+          "Puntualidad",
+        ],
+      },
+    ],
+  },
 };
 
 export const caseStudies = {
@@ -87,6 +93,51 @@ export const caseStudies = {
     title: "Proyectos",
   },
   projects: [
+    {
+      english: {
+        title: "AngusBezzina.com",
+        description:
+          "Portfolio website built with React and Typescript. Utilises a simple contact form that is connected to AirTable with an AWS λ function.",
+        featureImageAlt: "AngusBezzina.com Screenshot",
+        date: "September, 2020",
+      },
+      spanish: {
+        title: "AngusBezzina.com",
+        description:
+          "Sitio web de la cartera construido con React y Typescript. Utiliza un formulario de contacto simple que está conectado a AirTable con una función AWS λ.",
+        featureImageAlt: "AngusBezzina.com Captura de pantalla",
+        date: "Septiembre, 2020",
+      },
+      slug: "angusbezzina",
+      url: "https://angusbezzina.com/",
+      featureImageSrc: portfolioBackgroundImage,
+      stack: {
+        backend: "AWS/Serverless",
+        frontend: "React, Typescript",
+      },
+    },
+    {
+      english: {
+        title: "AlexanderBezzina.com",
+        description:
+          "Portfolio website with attached photography store built with NextJS/React, Typescript, GraphQL, KeystoneJS and MongoDB.",
+        featureImageAlt: "AlexanderBezzina.com Screenshot",
+        date: "April, 2021 (currently in development)",
+      },
+      spanish: {
+        title: "AlexanderBezzina.com",
+        description:
+          "Sitio web de la cartera con tienda de fotografía adjunta construida con NextJS/React, Typescript, GraphQL, KeystoneJS y MongoDB.",
+        featureImageAlt: "AlexanderBezzina.com Captura de pantalla",
+        date: "Abril, 2021 (actualmente en desarrollo)",
+      },
+      slug: "alexanderbezzina",
+      url: "",
+      stack: {
+        backend: "MongoDB, GraphQL, KeystoneJS",
+        frontend: "React, NextJS, Typescript, Apollo",
+      },
+    },
     {
       english: {
         title: "Emergency Medicine Education and Training",
@@ -133,28 +184,6 @@ export const caseStudies = {
         frontend: "Javascript, HTML, CSS",
       },
     },
-    {
-      english: {
-        title: "AngusBezzina.com",
-        description:
-          "Portfolio website built with React and Typescript. Utilises a simple contact form that is connected to AirTable with an AWS λ function.",
-        featureImageAlt: "AngusBezzina.com Screenshot",
-        date: "September, 2020",
-      },
-      spanish: {
-        title: "AngusBezzina.com",
-        description: "Sitio web de la cartera construido con React y Typescript. Utiliza un formulario de contacto simple que está conectado a AirTable con una función AWS λ.",
-        featureImageAlt: "AngusBezzina.com Captura de pantalla",
-        date: "Septiembre, 2020",
-      },
-      slug: "angusbezzina",
-      url: "https://angusbezzina.com/",
-      featureImageSrc: portfolioBackgroundImage,
-      stack: {
-        backend: "AWS/Serverless",
-        frontend: "React, Typescript",
-      },
-    },
   ],
 };
 
@@ -168,13 +197,13 @@ export const experiments = {
   experimentList: [
     {
       english: {
-        title: "Your Workout App",
+        title: "YourWorkout.App",
         description: "Workout app that generates random workouts based on user preferences.",
         featureImageAlt: "Your Workout App screenshot",
         date: "September, 2019",
       },
       spanish: {
-        title: "Focus Australia",
+        title: "YourWorkout.App",
         description:
           "Aplicación de entrenamiento que genera entrenamientos aleatorios según las preferencias del usuario.",
         featureImageAlt: "Your Workout App Captura de pantalla",
@@ -194,14 +223,14 @@ export const experiments = {
         description:
           "Remote business workflow app that was designed to allow guests of a local hotel to check-in remotely using a tablet on the premises.",
         featureImageAlt: "OQPI Screenshot",
-        date: "January, 2020",
+        date: "July, 2020",
       },
       spanish: {
         title: "OQPI",
         description:
           "Aplicación de flujo de trabajo empresarial remoto que fue diseñada para permitir a los huéspedes de un hotel local registrarse de forma remota utilizando una tableta en las instalaciones.",
         featureImageAlt: "OQPI Captura de pantalla",
-        date: "Enero, 2020",
+        date: "July, 2020",
       },
       slug: "oqpi",
       url: "https://oqpi.com.au/",
@@ -217,16 +246,16 @@ export const experiments = {
         description:
           "An app where users can subscribe to learn a new word in a foreign language every day.",
         featureImageAlt: "ForeWord Screenshot",
-        date: "July, 2020 (currently in development)",
+        date: "January, 2021",
       },
       spanish: {
         title: "ForeWord",
         description:
           "Una aplicación donde los usuarios pueden suscribirse y aprender una nueva palabra en un idioma extranjero todos los días.",
-        date: "Julio, 2020 (actualmente en desarrollo)",
+        date: "Enero, 2021",
       },
       slug: "foreword",
-      url: "",
+      url: "https://foreword.world/",
       stack: {
         backend: "AWS/Serverless",
         frontend: "Javascript (React), HTML, CSS",
