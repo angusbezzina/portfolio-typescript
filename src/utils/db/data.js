@@ -3,6 +3,7 @@ import yourWorkoutAppBackgroundImage from "img/yourworkoutapp.png";
 import emetBackgroundImage from "img/emetISLHD.png";
 import linmickBackgroundImage from "img/linmickdistributors.png";
 import portfolioBackgroundImage from "img/portfolio.png";
+import forewordBackgroundImage from "img/foreword.png";
 
 export const welcome = {
   english: {
@@ -256,6 +257,7 @@ export const experiments = {
       },
       slug: "foreword",
       url: "https://foreword.world/",
+      featureImageSrc: forewordBackgroundImage,
       stack: {
         backend: "AWS/Serverless",
         frontend: "Javascript (React), HTML, CSS",
